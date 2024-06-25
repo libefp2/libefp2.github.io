@@ -21,7 +21,7 @@ Electrostatic term
 
 Electrostatic energy is computed as a combination of charge-charge, charge-dipole,
 charge-quadrupole, charge-octupole, dipole-dipole, dipole-quadrupole, and quadrupole-quadrupole
-contributions.
+contributions according to the distributed multipole analysis (DMA).
 
 The following parts of the EFP potential are used for electrostatic energy calculations:
 
