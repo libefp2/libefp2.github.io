@@ -27,6 +27,7 @@ Welcome to EFP page!
    :caption: Description of software and tools for performing EFP simulations
    
    libefp
+   efpmd
    ipsiefp
    gamess
    qchem
