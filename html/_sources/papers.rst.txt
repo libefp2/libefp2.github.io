@@ -72,5 +72,8 @@ Applications
 * `EFP for Microsolvated Excited and Anionic States <https://doi.org/10.1021/acs.jpca.2c06122>`_
 * `Unusual symmetry of hexafluoro-o-xylene <https://doi.org/10.1063/1.5142169>`_
 
+Example for Osama
+-----------------
+* `This is just an example <https://doi.org/10.1002/jcc.23375>`_
 
 
