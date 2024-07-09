@@ -1,0 +1,1546 @@
+$residue
+name = l_36
+preatoms = 507-525
+ch1 = 511,526
+ch2 = 507,505
+postatoms = 507-525
+rescharge = 0
+usefp = l_36
+$end
+
+$residue
+name = a_39
+preatoms = 559-568
+ch1 = 563,569
+ch2 = 559,557
+postatoms = 559-568
+rescharge = 0
+usefp = a_39
+$end
+
+$residue
+name = a_40
+preatoms = 569-580
+ch1 = 573,581
+ch2 = 569,563
+postatoms = 569-580
+rescharge = -1
+usefp = a_40
+$end
+
+$residue
+name = c_41
+preatoms = 581-591
+ch1 = 585,592
+ch2 = 581,573
+postatoms = 581-591
+rescharge = 0
+usefp = c_41
+$end
+
+$residue
+name = a_42
+preatoms = 592-603
+ch1 = 596,604
+ch2 = 592,585
+postatoms = 592-603
+rescharge = -1
+usefp = a_42
+$end
+
+$residue
+name = v_43
+preatoms = 604-619
+ch1 = 608,620
+ch2 = 604,596
+postatoms = 604-619
+rescharge = 0
+usefp = v_43
+$end
+
+$residue
+name = i_59
+preatoms = 871-889
+ch1 = 875,890
+ch2 = 871,851
+postatoms = 871-889
+rescharge = 0
+usefp = i_59
+$end
+
+$residue
+name = s_60
+preatoms = 890-900
+ch1 = 894,901
+ch2 = 890,875
+postatoms = 890-900
+rescharge = 0
+usefp = s_60
+$end
+
+$residue
+name = a_61
+preatoms = 901-910
+ch1 = 905,911
+ch2 = 901,894
+postatoms = 901-910
+rescharge = 0
+usefp = a_61
+$end
+
+$residue
+name = v_62
+preatoms = 911-926
+ch1 = 915,927
+ch2 = 911,905
+postatoms = 911-926
+rescharge = 0
+usefp = v_62
+$end
+
+$residue
+name = p_63
+preatoms = 927-946
+ch1 = 931,947
+ch2 = 927,915
+postatoms = 927-946
+rescharge = 0
+usefp = p_63
+$end
+
+$residue
+name = g_64
+preatoms = 947-961
+ch1 = 951,962
+ch2 = 947,931
+postatoms = 947-961
+rescharge = -1
+usefp = g_64
+$end
+
+$residue
+name = s_65
+preatoms = 962-972
+ch1 = 966,973
+ch2 = 962,951
+postatoms = 962-972
+rescharge = 0
+usefp = s_65
+$end
+
+$residue
+name = i_66
+preatoms = 973-991
+ch1 = 977,992
+ch2 = 973,966
+postatoms = 973-991
+rescharge = 0
+usefp = i_66
+$end
+
+$residue
+name = v_67
+preatoms = 992-1007
+ch1 = 996,1008
+ch2 = 992,977
+postatoms = 992-1007
+rescharge = 0
+usefp = v_67
+$end
+
+$residue
+name = a_68
+preatoms = 1008-1019
+ch1 = 1012,1020
+ch2 = 1008,996
+postatoms = 1008-1019
+rescharge = -1
+usefp = a_68
+$end
+
+$residue
+name = s_69
+preatoms = 1020-1030
+ch1 = 1024,1031
+ch2 = 1020,1012
+postatoms = 1020-1030
+rescharge = 0
+usefp = s_69
+$end
+
+$residue
+name = t_70
+preatoms = 1031-1044
+ch1 = 1035,1045
+ch2 = 1031,1024
+postatoms = 1031-1044
+rescharge = 0
+usefp = t_70
+$end
+
+$residue
+name = l_71
+preatoms = 1045-1066
+ch1 = 1049,1067
+ch2 = 1045,1035
+postatoms = 1045-1066
+rescharge = 1
+usefp = l_71
+$end
+
+$residue
+name = a_72
+preatoms = 1067-1080
+ch1 = 1071,1081
+ch2 = 1067,1049
+postatoms = 1067-1080
+rescharge = 0
+usefp = a_72
+$end
+
+$residue
+name = l_73
+preatoms = 1081-1102
+ch1 = 1085,1103
+ch2 = 1081,1071
+postatoms = 1081-1102
+rescharge = 1
+usefp = l_73
+$end
+
+$residue
+name = l_74
+preatoms = 1103-1121
+ch1 = 1107,1122
+ch2 = 1103,1085
+postatoms = 1103-1121
+rescharge = 0
+usefp = l_74
+$end
+
+$residue
+name = t_75
+preatoms = 1122-1135
+ch1 = 1126,1136
+ch2 = 1122,1107
+postatoms = 1122-1135
+rescharge = 0
+usefp = t_75
+$end
+
+$residue
+name = i_76
+preatoms = 1136-1154
+ch1 = 1140,1155
+ch2 = 1136,1126
+postatoms = 1136-1154
+rescharge = 0
+usefp = i_76
+$end
+
+$residue
+name = g_77
+preatoms = 1155-1169
+ch1 = 1159,1170
+ch2 = 1155,1140
+postatoms = 1155-1169
+rescharge = -1
+usefp = g_77
+$end
+
+$residue
+name = a_78
+preatoms = 1170-1179
+ch1 = 1174,1180
+ch2 = 1170,1159
+postatoms = 1170-1179
+rescharge = 0
+usefp = a_78
+$end
+
+$residue
+name = a_79
+preatoms = 1180-1191
+ch1 = 1184,1192
+ch2 = 1180,1174
+postatoms = 1180-1191
+rescharge = -1
+usefp = a_79
+$end
+
+$residue
+name = i_80
+preatoms = 1192-1210
+ch1 = 1196,1211
+ch2 = 1192,1184
+postatoms = 1192-1210
+rescharge = 0
+usefp = i_80
+$end
+
+$residue
+name = s_90
+preatoms = 1368-1378
+ch1 = 1372,1379
+ch2 = 1368,1353
+postatoms = 1368-1378
+rescharge = 0
+usefp = s_90
+$end
+
+$residue
+name = v_91
+preatoms = 1379-1394
+ch1 = 1383,1395
+ch2 = 1379,1372
+postatoms = 1379-1394
+rescharge = 0
+usefp = v_91
+$end
+
+$residue
+name = g_92
+preatoms = 1395-1401
+ch1 = 1399,1402
+ch2 = 1395,1383
+postatoms = 1395-1401
+rescharge = 0
+usefp = g_92
+$end
+
+$residue
+name = g_93
+preatoms = 1402-1416
+ch1 = 1406,1417
+ch2 = 1402,1399
+postatoms = 1402-1416
+rescharge = -1
+usefp = g_93
+$end
+
+$residue
+name = g_94
+preatoms = 1417-1423
+ch1 = 1421,1424
+ch2 = 1417,1406
+postatoms = 1417-1423
+rescharge = 0
+usefp = g_94
+$end
+
+$residue
+name = m_95
+preatoms = 1424-1440
+ch1 = 1428,1441
+ch2 = 1424,1421
+postatoms = 1424-1440
+rescharge = 0
+usefp = m_95
+$end
+
+$residue
+name = v_96
+preatoms = 1441-1456
+ch1 = 1445,1457
+ch2 = 1441,1428
+postatoms = 1441-1456
+rescharge = 0
+usefp = v_96
+$end
+
+$residue
+name = s_97
+preatoms = 1457-1467
+ch1 = 1461,1468
+ch2 = 1457,1445
+postatoms = 1457-1467
+rescharge = 0
+usefp = s_97
+$end
+
+$residue
+name = v_98
+preatoms = 1468-1483
+ch1 = 1472,1484
+ch2 = 1468,1461
+postatoms = 1468-1483
+rescharge = 0
+usefp = v_98
+$end
+
+$residue
+name = g_99
+preatoms = 1484-1490
+ch1 = 1488,1491
+ch2 = 1484,1472
+postatoms = 1484-1490
+rescharge = 0
+usefp = g_99
+$end
+
+$residue
+name = a_100
+preatoms = 1491-1502
+ch1 = 1495,1503
+ch2 = 1491,1488
+postatoms = 1491-1502
+rescharge = -1
+usefp = a_100
+$end
+
+$residue
+name = p_101
+preatoms = 1503-1522
+ch1 = 1507,1523
+ch2 = 1503,1495
+postatoms = 1503-1522
+rescharge = 0
+usefp = p_101
+$end
+
+$residue
+name = s_102
+preatoms = 1523-1533
+ch1 = 1527,1534
+ch2 = 1523,1507
+postatoms = 1523-1533
+rescharge = 0
+usefp = s_102
+$end
+
+$residue
+name = opt-h_103
+preatoms = 1534-1550
+ch1 = 1538,1551
+ch2 = 1534,1527
+postatoms = 1534-1550
+rescharge = 0
+usefp = opt-h_103
+$end
+
+$residue
+name = t_104
+preatoms = 1551-1564
+ch1 = 1555,1565
+ch2 = 1551,1538
+postatoms = 1551-1564
+rescharge = 0
+usefp = t_104
+$end
+
+$residue
+name = p_105
+preatoms = 1565-1584
+ch1 = 1569,1585
+ch2 = 1565,1555
+postatoms = 1565-1584
+rescharge = 0
+usefp = p_105
+$end
+
+$residue
+name = s_106
+preatoms = 1585-1595
+ch1 = 1589,1596
+ch2 = 1585,1569
+postatoms = 1585-1595
+rescharge = 0
+usefp = s_106
+$end
+
+$residue
+name = p_107
+preatoms = 1596-1615
+ch1 = 1600,1616
+ch2 = 1596,1589
+postatoms = 1596-1615
+rescharge = 0
+usefp = p_107
+$end
+
+$residue
+name = g_108
+preatoms = 1616-1630
+ch1 = 1620,1631
+ch2 = 1616,1600
+postatoms = 1616-1630
+rescharge = -1
+usefp = g_108
+$end
+
+$residue
+name = g_109
+preatoms = 1631-1637
+ch1 = 1635,1638
+ch2 = 1631,1620
+postatoms = 1631-1637
+rescharge = 0
+usefp = g_109
+$end
+
+$residue
+name = s_110
+preatoms = 1638-1648
+ch1 = 1642,1649
+ch2 = 1638,1635
+postatoms = 1638-1648
+rescharge = 0
+usefp = s_110
+$end
+
+$residue
+name = v_111
+preatoms = 1649-1664
+ch1 = 1653,1665
+ch2 = 1649,1642
+postatoms = 1649-1664
+rescharge = 0
+usefp = v_111
+$end
+
+$residue
+name = h_138
+preatoms = 2111-2127
+ch1 = 2115,2128
+ch2 = 2111,2095
+postatoms = 2111-2127
+rescharge = 0
+usefp = h_138
+$end
+
+$residue
+name = a_139
+preatoms = 2128-2139
+ch1 = 2132,2140
+ch2 = 2128,2115
+postatoms = 2128-2139
+rescharge = -1
+usefp = a_139
+$end
+
+$residue
+name = i_140
+preatoms = 2140-2158
+ch1 = 2144,2159
+ch2 = 2140,2132
+postatoms = 2140-2158
+rescharge = 0
+usefp = i_140
+$end
+
+$residue
+name = l_141
+preatoms = 2159-2177
+ch1 = 2163,2178
+ch2 = 2159,2144
+postatoms = 2159-2177
+rescharge = 0
+usefp = l_141
+$end
+
+$residue
+name = opt-m_142
+preatoms = 2178-2194
+ch1 = 2182,2195
+ch2 = 2178,2163
+postatoms = 2178-2194
+rescharge = 0
+usefp = opt-m_142
+$end
+
+$residue
+name = l_143
+preatoms = 2195-2216
+ch1 = 2199,2217
+ch2 = 2195,2182
+postatoms = 2195-2216
+rescharge = 1
+usefp = l_143
+$end
+
+$residue
+name = opt-v_144
+preatoms = 2217-2232
+ch1 = 2221,2233
+ch2 = 2217,2199
+postatoms = 2217-2232
+rescharge = 0
+usefp = opt-v_144
+$end
+
+$residue
+name = p_145
+preatoms = 2233-2246
+ch1 = 2245,2247
+ch2 = 2233,2221
+postatoms = 2233-2246
+rescharge = 0
+usefp = p_145
+$end
+
+$residue
+name = l_146
+preatoms = 2247-2265
+ch1 = 2251,2266
+ch2 = 2247,2245
+postatoms = 2247-2265
+rescharge = 0
+usefp = l_146
+$end
+
+$residue
+name = a_147
+preatoms = 2266-2277
+ch1 = 2270,2278
+ch2 = 2266,2251
+postatoms = 2266-2277
+rescharge = -1
+usefp = a_147
+$end
+
+$residue
+name = a_148
+preatoms = 2278-2291
+ch1 = 2282,2292
+ch2 = 2278,2270
+postatoms = 2278-2291
+rescharge = 0
+usefp = a_148
+$end
+
+$residue
+name = a_149
+preatoms = 2292-2305
+ch1 = 2296,2306
+ch2 = 2292,2282
+postatoms = 2292-2305
+rescharge = 0
+usefp = a_149
+$end
+
+$residue
+name = a_150
+preatoms = 2306-2317
+ch1 = 2310,2318
+ch2 = 2306,2296
+postatoms = 2306-2317
+rescharge = -1
+usefp = a_150
+$end
+
+$residue
+name = l_151
+preatoms = 2318-2336
+ch1 = 2322,2337
+ch2 = 2318,2310
+postatoms = 2318-2336
+rescharge = 0
+usefp = l_151
+$end
+
+$residue
+name = i_152
+preatoms = 2337-2355
+ch1 = 2341,2356
+ch2 = 2337,2322
+postatoms = 2337-2355
+rescharge = 0
+usefp = i_152
+$end
+
+$residue
+name = a_153
+preatoms = 2356-2367
+ch1 = 2360,2368
+ch2 = 2356,2341
+postatoms = 2356-2367
+rescharge = -1
+usefp = a_153
+$end
+
+$residue
+name = t_154
+preatoms = 2368-2381
+ch1 = 2372,2382
+ch2 = 2368,2360
+postatoms = 2368-2381
+rescharge = 0
+usefp = t_154
+$end
+
+$residue
+name = t_155
+preatoms = 2382-2405
+ch1 = 2386,2406
+ch2 = 2382,2372
+postatoms = 2382-2405
+rescharge = 0
+usefp = t_155
+$end
+
+$residue
+name = g_156
+preatoms = 2406-2420
+ch1 = 2410,2421
+ch2 = 2406,2386
+postatoms = 2406-2420
+rescharge = -1
+usefp = g_156
+$end
+
+$residue
+name = g_157
+preatoms = 2421-2427
+ch1 = 2425,2428
+ch2 = 2421,2410
+postatoms = 2421-2427
+rescharge = 0
+usefp = g_157
+$end
+
+$residue
+name = t_158
+preatoms = 2428-2441
+ch1 = 2432,2442
+ch2 = 2428,2425
+postatoms = 2428-2441
+rescharge = 0
+usefp = t_158
+$end
+
+$residue
+name = v_159
+preatoms = 2442-2457
+ch1 = 2446,2458
+ch2 = 2442,2432
+postatoms = 2442-2457
+rescharge = 0
+usefp = v_159
+$end
+
+$residue
+name = l_160
+preatoms = 2458-2479
+ch1 = 2462,2480
+ch2 = 2458,2446
+postatoms = 2458-2479
+rescharge = 1
+usefp = l_160
+$end
+
+$residue
+name = a_161
+preatoms = 2480-2489
+ch1 = 2484,2490
+ch2 = 2480,2462
+postatoms = 2480-2489
+rescharge = 0
+usefp = a_161
+$end
+
+$residue
+name = i_162
+preatoms = 2490-2508
+ch1 = 2494,2509
+ch2 = 2490,2484
+postatoms = 2490-2508
+rescharge = 0
+usefp = i_162
+$end
+
+$residue
+name = g_163
+preatoms = 2509-2515
+ch1 = 2513,2516
+ch2 = 2509,2494
+postatoms = 2509-2515
+rescharge = 0
+usefp = g_163
+$end
+
+$residue
+name = s_164
+preatoms = 2516-2526
+ch1 = 2520,2527
+ch2 = 2516,2513
+postatoms = 2516-2526
+rescharge = 0
+usefp = s_164
+$end
+
+$residue
+name = p_168
+preatoms = 2558-2577
+ch1 = 2562,2578
+ch2 = 2558,2552
+postatoms = 2558-2577
+rescharge = 0
+usefp = p_168
+$end
+
+$residue
+name = a_169
+preatoms = 2578-2591
+ch1 = 2582,2592
+ch2 = 2578,2562
+postatoms = 2578-2591
+rescharge = 0
+usefp = a_169
+$end
+
+$residue
+name = t_171
+preatoms = 2604-2627
+ch1 = 2608,2628
+ch2 = 2604,2596
+postatoms = 2604-2627
+rescharge = 0
+usefp = t_171
+$end
+
+$residue
+name = i_172
+preatoms = 2628-2646
+ch1 = 2632,2647
+ch2 = 2628,2608
+postatoms = 2628-2646
+rescharge = 0
+usefp = i_172
+$end
+
+$residue
+name = a_173
+preatoms = 2647-2670
+ch1 = 2651,2671
+ch2 = 2647,2632
+postatoms = 2647-2670
+rescharge = 1
+usefp = a_173
+$end
+
+$residue
+name = a_174
+preatoms = 2671-2682
+ch1 = 2675,2683
+ch2 = 2671,2651
+postatoms = 2671-2682
+rescharge = -1
+usefp = a_174
+$end
+
+$residue
+name = p_175
+preatoms = 2683-2702
+ch1 = 2687,2703
+ch2 = 2683,2675
+postatoms = 2683-2702
+rescharge = 0
+usefp = p_175
+$end
+
+$residue
+name = t_176
+preatoms = 2703-2726
+ch1 = 2707,2727
+ch2 = 2703,2687
+postatoms = 2703-2726
+rescharge = 0
+usefp = t_176
+$end
+
+$residue
+name = p_177
+preatoms = 2727-2746
+ch1 = 2731,2747
+ch2 = 2727,2707
+postatoms = 2727-2746
+rescharge = 0
+usefp = p_177
+$end
+
+$residue
+name = i_178
+preatoms = 2747-2765
+ch1 = 2751,2766
+ch2 = 2747,2731
+postatoms = 2747-2765
+rescharge = 0
+usefp = i_178
+$end
+
+$residue
+name = g_179
+preatoms = 2766-2772
+ch1 = 2770,2773
+ch2 = 2766,2751
+postatoms = 2766-2772
+rescharge = 0
+usefp = g_179
+$end
+
+$residue
+name = p_180
+preatoms = 2773-2786
+ch1 = 2785,2787
+ch2 = 2773,2770
+postatoms = 2773-2786
+rescharge = 0
+usefp = p_180
+$end
+
+$residue
+name = a_181
+preatoms = 2787-2796
+ch1 = 2791,2797
+ch2 = 2787,2785
+postatoms = 2787-2796
+rescharge = 0
+usefp = a_181
+$end
+
+$residue
+name = p_182
+preatoms = 2797-2816
+ch1 = 2801,2817
+ch2 = 2797,2791
+postatoms = 2797-2816
+rescharge = 0
+usefp = p_182
+$end
+
+$residue
+name = l_185
+preatoms = 2841-2859
+ch1 = 2845,2860
+ch2 = 2841,2835
+postatoms = 2841-2859
+rescharge = 0
+usefp = l_185
+$end
+
+$residue
+name = g_190
+preatoms = 2903-2919
+ch1 = 2907,2920
+ch2 = 2903,2900
+postatoms = 2903-2919
+rescharge = 0
+usefp = g_190
+$end
+
+$residue
+name = i_192
+preatoms = 2944-2962
+ch1 = 2948,2963
+ch2 = 2944,2924
+postatoms = 2944-2962
+rescharge = 0
+usefp = i_192
+$end
+
+$residue
+name = s_193
+preatoms = 2963-2973
+ch1 = 2967,2974
+ch2 = 2963,2948
+postatoms = 2963-2973
+rescharge = 0
+usefp = s_193
+$end
+
+$residue
+name = i_195
+preatoms = 2998-3016
+ch1 = 3002,3017
+ch2 = 2998,2978
+postatoms = 2998-3016
+rescharge = 0
+usefp = i_195
+$end
+
+$residue
+name = g_196
+preatoms = 3017-3031
+ch1 = 3021,3032
+ch2 = 3017,3002
+postatoms = 3017-3031
+rescharge = -1
+usefp = g_196
+$end
+
+$residue
+name = v_197
+preatoms = 3032-3047
+ch1 = 3036,3048
+ch2 = 3032,3021
+postatoms = 3032-3047
+rescharge = 0
+usefp = v_197
+$end
+
+$residue
+name = a_198
+preatoms = 3048-3061
+ch1 = 3052,3062
+ch2 = 3048,3036
+postatoms = 3048-3061
+rescharge = 0
+usefp = a_198
+$end
+
+$residue
+name = g_199
+preatoms = 3062-3068
+ch1 = 3066,3069
+ch2 = 3062,3052
+postatoms = 3062-3068
+rescharge = 0
+usefp = g_199
+$end
+
+$residue
+name = l_200
+preatoms = 3069-3087
+ch1 = 3073,3088
+ch2 = 3069,3066
+postatoms = 3069-3087
+rescharge = 0
+usefp = l_200
+$end
+
+$residue
+name = a_201
+preatoms = 3088-3101
+ch1 = 3092,3102
+ch2 = 3088,3073
+postatoms = 3088-3101
+rescharge = 0
+usefp = a_201
+$end
+
+$residue
+name = t_202
+preatoms = 3102-3115
+ch1 = 3106,3116
+ch2 = 3102,3092
+postatoms = 3102-3115
+rescharge = 0
+usefp = t_202
+$end
+
+$residue
+name = g_203
+preatoms = 3116-3130
+ch1 = 3120,3131
+ch2 = 3116,3106
+postatoms = 3116-3130
+rescharge = -1
+usefp = g_203
+$end
+
+$residue
+name = s_204
+preatoms = 3131-3141
+ch1 = 3135,3142
+ch2 = 3131,3120
+postatoms = 3131-3141
+rescharge = 0
+usefp = s_204
+$end
+
+$residue
+name = g_205
+preatoms = 3142-3148
+ch1 = 3146,3149
+ch2 = 3142,3135
+postatoms = 3142-3148
+rescharge = 0
+usefp = g_205
+$end
+
+$residue
+name = l_207
+preatoms = 3163-3184
+ch1 = 3167,3185
+ch2 = 3163,3161
+postatoms = 3163-3184
+rescharge = 1
+usefp = l_207
+$end
+
+$residue
+name = g_208
+preatoms = 3185-3191
+ch1 = 3189,3192
+ch2 = 3185,3167
+postatoms = 3185-3191
+rescharge = 0
+usefp = g_208
+$end
+
+$residue
+name = p_209
+preatoms = 3192-3205
+ch1 = 3204,3206
+ch2 = 3192,3189
+postatoms = 3192-3205
+rescharge = 0
+usefp = p_209
+$end
+
+$residue
+name = v_210
+preatoms = 3206-3221
+ch1 = 3210,3222
+ch2 = 3206,3204
+postatoms = 3206-3221
+rescharge = 0
+usefp = v_210
+$end
+
+$residue
+name = g_211
+preatoms = 3222-3228
+ch1 = 3226,3229
+ch2 = 3222,3210
+postatoms = 3222-3228
+rescharge = 0
+usefp = g_211
+$end
+
+$residue
+name = v_212
+preatoms = 3229-3244
+ch1 = 3233,3245
+ch2 = 3229,3226
+postatoms = 3229-3244
+rescharge = 0
+usefp = v_212
+$end
+
+$residue
+name = s_213
+preatoms = 3245-3255
+ch1 = 3249,3256
+ch2 = 3245,3233
+postatoms = 3245-3255
+rescharge = 0
+usefp = s_213
+$end
+
+$residue
+name = a_214
+preatoms = 3256-3279
+ch1 = 3260,3280
+ch2 = 3256,3249
+postatoms = 3256-3279
+rescharge = 1
+usefp = a_214
+$end
+
+$residue
+name = t_215
+preatoms = 3280-3303
+ch1 = 3284,3304
+ch2 = 3280,3260
+postatoms = 3280-3303
+rescharge = 0
+usefp = t_215
+$end
+
+$residue
+name = a_216
+preatoms = 3304-3327
+ch1 = 3308,3328
+ch2 = 3304,3284
+postatoms = 3304-3327
+rescharge = 1
+usefp = a_216
+$end
+
+$residue
+name = p_217
+preatoms = 3328-3347
+ch1 = 3332,3348
+ch2 = 3328,3308
+postatoms = 3328-3347
+rescharge = 0
+usefp = p_217
+$end
+
+$residue
+name = s_218
+preatoms = 3348-3358
+ch1 = 3352,3359
+ch2 = 3348,3332
+postatoms = 3348-3358
+rescharge = 0
+usefp = s_218
+$end
+
+$residue
+name = h_219
+preatoms = 3359-3375
+ch1 = 3363,3376
+ch2 = 3359,3352
+postatoms = 3359-3375
+rescharge = 0
+usefp = h_219
+$end
+
+$residue
+name = p_250
+preatoms = 3811-3830
+ch1 = 3815,3831
+ch2 = 3811,3808
+postatoms = 3811-3830
+rescharge = 0
+usefp = p_250
+$end
+
+$residue
+name = h_360
+preatoms = 5666-5737
+ch1 = 5676,5738
+postatoms = 5666-5737
+rescharge = 0
+usefp = h_360
+$end
+
+$residue
+name = t_360
+preatoms = 5738-5805
+ch1 = 5738,5676
+postatoms = 5738-5805
+rescharge = 0
+usefp = t_360
+$end
+
+$residue
+name = h_361
+preatoms = 5806-5877
+ch1 = 5816,5878
+postatoms = 5806-5877
+rescharge = 0
+usefp = h_361
+$end
+
+$residue
+name = t_361
+preatoms = 5878-5945
+ch1 = 5878,5816
+postatoms = 5878-5945
+rescharge = 0
+usefp = t_361
+$end
+
+$residue
+name = h_362
+preatoms = 5946-6017
+ch1 = 5956,6018
+postatoms = 5946-6017
+rescharge = 0
+usefp = h_362
+$end
+
+$residue
+name = t_362
+preatoms = 6018-6085
+ch1 = 6018,5956
+postatoms = 6018-6085
+rescharge = 0
+usefp = t_362
+$end
+
+$residue
+name = h_363
+preatoms = 6086-6157
+ch1 = 6096,6158
+postatoms = 6086-6157
+rescharge = 0
+usefp = h_363
+$end
+
+$residue
+name = t_363
+preatoms = 6158-6225
+ch1 = 6158,6096
+postatoms = 6158-6225
+rescharge = 0
+usefp = t_363
+$end
+
+$residue
+name = h_364
+preatoms = 6226-6297
+ch1 = 6236,6298
+postatoms = 6226-6297
+rescharge = 0
+usefp = h_364
+$end
+
+$residue
+name = t_364
+preatoms = 6298-6365
+ch1 = 6298,6236
+postatoms = 6298-6365
+rescharge = 0
+usefp = t_364
+$end
+
+$residue
+name = h_365
+preatoms = 6366-6437
+ch1 = 6376,6438
+postatoms = 6366-6437
+rescharge = 0
+usefp = h_365
+$end
+
+$residue
+name = t_365
+preatoms = 6438-6505
+ch1 = 6438,6376
+postatoms = 6438-6505
+rescharge = 0
+usefp = t_365
+$end
+
+$residue
+name = p_847
+preatoms = 15004-15023
+ch1 = 15008,15024
+ch2 = 15004,14989
+postatoms = 15004-15023
+rescharge = 0
+usefp = p_847
+$end
+
+$residue
+name = t_848
+preatoms = 15024-15044
+ch1 = 15028,15045
+ch2 = 15024,15008
+postatoms = 15024-15044
+rescharge = 0
+usefp = t_848
+$end
+
+$residue
+name = t_849
+preatoms = 15045-15065
+ch1 = 15049,15066
+ch2 = 15045,15028
+postatoms = 15045-15065
+rescharge = 0
+usefp = t_849
+$end
+
+$residue
+name = a_850
+preatoms = 15066-15089
+ch1 = 15070,15090
+ch2 = 15066,15049
+postatoms = 15066-15089
+rescharge = 1
+usefp = a_850
+$end
+
+$residue
+name = s_851
+preatoms = 15090-15100
+ch1 = 15094,15101
+ch2 = 15090,15070
+postatoms = 15090-15100
+rescharge = 0
+usefp = s_851
+$end
+
+$residue
+name = a_852
+preatoms = 15101-15112
+ch1 = 15105,15113
+ch2 = 15101,15094
+postatoms = 15101-15112
+rescharge = -1
+usefp = a_852
+$end
+
+$residue
+name = a_853
+preatoms = 15113-15122
+ch1 = 15117,15123
+ch2 = 15113,15105
+postatoms = 15113-15122
+rescharge = 0
+usefp = a_853
+$end
+
+$residue
+name = v_854
+preatoms = 15123-15138
+ch1 = 15127,15139
+ch2 = 15123,15117
+postatoms = 15123-15138
+rescharge = 0
+usefp = v_854
+$end
+
+$residue
+name = a_855
+preatoms = 15139-15162
+ch1 = 15143,15163
+ch2 = 15139,15127
+postatoms = 15139-15162
+rescharge = 1
+usefp = a_855
+$end
+
+$residue
+name = a_856
+preatoms = 15163-15186
+ch1 = 15167,15187
+ch2 = 15163,15143
+postatoms = 15163-15186
+rescharge = 1
+usefp = a_856
+$end
+
+$residue
+name = a_857
+preatoms = 15187-15200
+ch1 = 15191,15201
+ch2 = 15187,15167
+postatoms = 15187-15200
+rescharge = 0
+usefp = a_857
+$end
+
+$residue
+name = v_858
+preatoms = 15201-15216
+ch1 = 15205,15217
+ch2 = 15201,15191
+postatoms = 15201-15216
+rescharge = 0
+usefp = v_858
+$end
+
+$residue
+name = p_859
+preatoms = 15217-15230
+ch1 = 15229,15231
+ch2 = 15217,15205
+postatoms = 15217-15230
+rescharge = 0
+usefp = p_859
+$end
+
+$residue
+name = a_860
+preatoms = 15231-15244
+ch1 = 15235,15245
+ch2 = 15231,15229
+postatoms = 15231-15244
+rescharge = 0
+usefp = a_860
+$end
+
+$residue
+name = p_861
+preatoms = 15245-15258
+ch1 = 15257,15259
+ch2 = 15245,15235
+postatoms = 15245-15258
+rescharge = 0
+usefp = p_861
+$end
+
+$residue
+name = i_862
+preatoms = 15259-15277
+ch1 = 15263,15278
+ch2 = 15259,15257
+postatoms = 15259-15277
+rescharge = 0
+usefp = i_862
+$end
+
+$residue
+name = t_863
+preatoms = 15278-15298
+ch1 = 15282,15299
+ch2 = 15278,15263
+postatoms = 15278-15298
+rescharge = 0
+usefp = t_863
+$end
+
+$residue
+name = m_864
+preatoms = 15299-15315
+ch1 = 15303,15316
+ch2 = 15299,15282
+postatoms = 15299-15315
+rescharge = 0
+usefp = m_864
+$end
+
+$residue
+name = g_865
+preatoms = 15316-15332
+ch1 = 15320,15333
+ch2 = 15316,15303
+postatoms = 15316-15332
+rescharge = 0
+usefp = g_865
+$end
+
+$residue
+name = g_866
+preatoms = 15333-15339
+ch1 = 15337,15340
+ch2 = 15333,15320
+postatoms = 15333-15339
+rescharge = 0
+usefp = g_866
+$end
+
+$residue
+name = s_954
+preatoms = 16680-16690
+ch1 = 16684,16691
+ch2 = 16680,16677
+postatoms = 16680-16690
+rescharge = 0
+usefp = s_954
+$end
+
+$residue
+name = g_955
+preatoms = 16691-16697
+ch1 = 16695,16698
+ch2 = 16691,16684
+postatoms = 16691-16697
+rescharge = 0
+usefp = g_955
+$end
+
+$residue
+name = h_1098
+preatoms = 19796-19867
+ch1 = 19806,19868
+postatoms = 19796-19867
+rescharge = 0
+usefp = h_1098
+$end
+
+$residue
+name = t_1098
+preatoms = 19868-19935
+ch1 = 19868,19806
+postatoms = 19868-19935
+rescharge = 0
+usefp = t_1098
+$end
+
