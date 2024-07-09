@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Learn more about EFP &#8212; EFP documentation 0.1 documentation</title>
+    <title>EFPMD &#8212; EFP documentation 0.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/bizstyle.css" />
     
@@ -19,8 +19,8 @@
     <script src="_static/bizstyle.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="EFP publications" href="papers.html" />
-    <link rel="prev" title="Welcome to EFP page!" href="index.html" />
+    <link rel="next" title="Computing EFP parameters in GAMESS" href="gamess.html" />
+    <link rel="prev" title="LibEFP" href="libefp.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <!--[if lt IE 9]>
     <script src="_static/css3-mediaqueries.js"></script>
@@ -33,13 +33,13 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="papers.html" title="EFP publications"
+          <a href="gamess.html" title="Computing EFP parameters in GAMESS"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to EFP page!"
+          <a href="libefp.html" title="LibEFP"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">EFP documentation 0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Learn more about EFP</a></li> 
+        <li class="nav-item nav-item-this"><a href="">EFPMD</a></li> 
       </ul>
     </div>  
 
@@ -48,28 +48,10 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="learn-more-about-efp">
-<span id="learn-more"></span><h1>Learn more about EFP<a class="headerlink" href="#learn-more-about-efp" title="Permalink to this heading">¶</a></h1>
-<p>Calculations in the condensed phase still remain a major challenge to the theoretical community.
-The increased number of nuclear and electronic degrees of freedom makes accurate <em>ab initio</em>
-calculations of a condensed phase system unfeasible long before the system approaches the bulk.
-In this case, the system is often modeled with a parameterized force field.
-A drawback of such an approach is the dependence on fitted parameters for a chosen force field,
-such that different parameterizations may be optimal for different problems and the best
-parameters are often not well defined. The EFP method overcomes this problem.
-In EFP, each solvent molecule (“fragment”) is represented by a model potential
-with a set of parameters determined from a preparatory <em>ab initio</em> calculation,
-such that the method is free of parameter fitting. Through its force field,
-the effective fragments interact with each other and with <em>ab initio</em> components.</p>
-<p>The original EFP implementation has been extended to macromolecules and polymers,
-as described in <a class="reference internal" href="bioefp.html#bioefp"><span class="std std-ref">BioEFP</span></a>. EFP is combined with a number of <em>ab initio</em> methods
-(<span class="xref std std-ref">QM/EFP</span>) for fast and efficient modeling of electronic structure in the condensed phases.</p>
-<p>EFP calculations involve two steps:</p>
-<ul class="simple">
-<li><p>preparation of effective parameters described in <a class="reference internal" href="parameters.html#parameters"><span class="std std-ref">EFP paramters</span></a></p></li>
-<li><p>calculation on the system properties of interest, where the system is composed of
-effective fragments described in <a class="reference internal" href="efp_calcs.html#efp-calcs"><span class="std std-ref">EFP calculations</span></a></p></li>
-</ul>
+  <section id="efpmd">
+<span id="libefp"></span><h1>EFPMD<a class="headerlink" href="#efpmd" title="Permalink to this heading">¶</a></h1>
+<p>Documentation of <cite>efpmd</cite> driver <a class="reference external" href="https://github.com/libefp2/libefp/tree/master/efpmd">efpmd</a>.</p>
+<p>EFPMD documentation : <a class="reference external" href="./document.pdf">EFPMD manual</a>.</p>
 </section>
 
 
@@ -81,18 +63,18 @@ effective fragments described in <a class="reference internal" href="efp_calcs.h
         <div class="sphinxsidebarwrapper">
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="index.html"
-                          title="previous chapter">Welcome to EFP page!</a></p>
+    <p class="topless"><a href="libefp.html"
+                          title="previous chapter">LibEFP</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="papers.html"
-                          title="next chapter">EFP publications</a></p>
+    <p class="topless"><a href="gamess.html"
+                          title="next chapter">Computing EFP parameters in GAMESS</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/learn_more.rst.txt"
+      <li><a href="_sources/efpmd.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -117,13 +99,13 @@ effective fragments described in <a class="reference internal" href="efp_calcs.h
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="papers.html" title="EFP publications"
+          <a href="gamess.html" title="Computing EFP parameters in GAMESS"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to EFP page!"
+          <a href="libefp.html" title="LibEFP"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">EFP documentation 0.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Learn more about EFP</a></li> 
+        <li class="nav-item nav-item-this"><a href="">EFPMD</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
