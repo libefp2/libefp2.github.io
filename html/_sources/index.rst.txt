@@ -30,6 +30,7 @@ If you use EFP, please cite:
    efp_calcs
    bioefp
    flexible_efp
+   applied efp
    qmefp
 
 
