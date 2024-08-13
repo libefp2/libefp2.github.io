@@ -89,8 +89,30 @@ Dispersion term
 ^^^^^^^^^^^^^^^
 
 Dispersion energy term captures the London interaction between the molecules. Formally, it can be expanded in
-series of (1/R) operator as $$E_{disp} = \frac{C_6}{R^6} + \frac{C_8}{R^8} + \frac{C_{10}}{R^{10}} + ...$$.
+series of (1/R) operator as .. math:: $$E_{disp} = \frac{C_6}{R^6} + \frac{C_8}{R^8} + \frac{C_{10}}{R^{10}} + ...$$.
 In the case of distributed approach where dispersin contributions are computed as a sum of contributions due to
-individual parts of a molecules, the odd terms $\frac{C_7}{R^7}$, $\frac{C_9}{R^9}$ etc are also non-zero.
-The dispersion energy in LibEFP is computed as the first $\frac{C_6}{R^6}$ in the dispersion expansion, using
-distributed dynamic polarizabilities for evaluating $C_6$ coefficient, i.e.,
+individual parts of a molecules, the odd terms .. math:: $\frac{C_7}{R^7}$, $\frac{C_9}{R^9}$ etc are also non-zero.
+
+The relevant sections of the EFP potential are:
+
+- :ref: 'DYN_POINT'
+
+
+Exchange Repulsion
+^^^^^^^^^^^^^^^^^^
+
+Exchange repulsion accounts for the antisymmetry of the wave function of the fragments.It is modelled using inter-fragment kinetic and
+overlap integrals, and the Fock matrices of the fragment. 
+
+The relevant sections of the EFP potential are:
+
+- :ref: 'BASIS'
+- :ref: 'MULTIPLICITY'
+- :ref: 'WF'
+- :ref: 'FOCK'
+- :ref: 'LMOC'
+
+:ref: 'BASIS' provides details of the basis set used for calculation of the exchange repulsion energy, 'MULTIPLICITY' contains information
+on the multiplicity of the fragment (LibEFP works only on fragments with multiplicity 1), 'WF' provides the localized wave function of the 
+fragment, while 'FOCK' and 'LMOC' contain information regarding the elements of the Fock matrix of the fragment in the localized basis, and 
+the coordinates of the localized molecular orbital, respectively.
