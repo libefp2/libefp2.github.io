@@ -85,6 +85,7 @@ the `short-range damping functions paper <http://dx.doi.org/10.1080/002689708027
 by an optional :ref:`POLAB` keyword; smaller values provide stronger screening of polarization energies which might be necessary for fragments
 with large multiple moments (charged or strongly polar species) or large polarizabilities (e.g., large conjugated/aromatic molecules).
 
+.. _
 Dispersion term
 ^^^^^^^^^^^^^^^
 
@@ -95,7 +96,7 @@ individual parts of a molecules, the odd terms .. math:: $\frac{C_7}{R^7}$, $\fr
 
 The relevant sections of the EFP potential are:
 
-- :ref: 'DYN_POINT'
+- :ref: `DYN_POINT`
 
 
 Exchange Repulsion
@@ -106,13 +107,13 @@ overlap integrals, and the Fock matrices of the fragment.
 
 The relevant sections of the EFP potential are:
 
-- :ref: 'BASIS'
-- :ref: 'MULTIPLICITY'
-- :ref: 'WF'
-- :ref: 'FOCK'
-- :ref: 'LMOC'
+- :ref: `BASIS`
+- :ref: `MULTIPLICITY`
+- :ref: `WF`
+- :ref: `FOCK`
+- :ref: `LMOC`
 
-:ref: 'BASIS' provides details of the basis set used for calculation of the exchange repulsion energy, 'MULTIPLICITY' contains information
-on the multiplicity of the fragment (LibEFP works only on fragments with multiplicity 1), 'WF' provides the localized wave function of the 
-fragment, while 'FOCK' and 'LMOC' contain information regarding the elements of the Fock matrix of the fragment in the localized basis, and 
+:ref: `BASIS` provides details of the basis set used for calculation of the exchange repulsion energy, `MULTIPLICITY` contains information
+on the multiplicity of the fragment (LibEFP works only on fragments with multiplicity 1), `WF` provides the localized wave function of the 
+fragment, while `FOCK` and `LMOC` contain information regarding the elements of the Fock matrix of the fragment in the localized basis, and 
 the coordinates of the localized molecular orbital, respectively.
