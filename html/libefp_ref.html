@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Running EFP calculations &mdash; EFP documentation 0.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
 
   
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=10f1778b"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -49,7 +49,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">EFP in a nutshell</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP paramters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="efpmd.html">EFPMD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="efp_calcs.html">EFP calculations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bioefp.html">BioEFP</a></li>
@@ -102,28 +102,28 @@
            <div itemprop="articleBody">
              
   <section id="running-efp-calculations">
-<h1>Running EFP calculations<a class="headerlink" href="#running-efp-calculations" title="Link to this heading"></a></h1>
+<h1>Running EFP calculations<a class="headerlink" href="#running-efp-calculations" title="Permalink to this heading"></a></h1>
 <p>This section deals with performing pairwise EFP calculations on a unit cell of a benzene crystal.</p>
 <section id="preparing-libefp-input-file">
-<h2>Preparing LIBEFP input file<a class="headerlink" href="#preparing-libefp-input-file" title="Link to this heading"></a></h2>
+<h2>Preparing LIBEFP input file<a class="headerlink" href="#preparing-libefp-input-file" title="Permalink to this heading"></a></h2>
 <p>After obtaining the EFP parameters in the form of a .efp file from the MAKEFP job run,
 we can prepare the LIBEFP input file to run an actual EFP calculation in the software library LIBEFP.
 This what a template libefp input file looks like:</p>
 <a class="reference internal image-reference" href="_images/libefp_inp.png"><img alt="_images/libefp_inp.png" src="_images/libefp_inp.png" style="width: 360px;" /></a>
 </section>
 <section id="fragment-name-check">
-<h2>Fragment name check<a class="headerlink" href="#fragment-name-check" title="Link to this heading"></a></h2>
+<h2>Fragment name check<a class="headerlink" href="#fragment-name-check" title="Permalink to this heading"></a></h2>
 <p>It is essential that the fragment name in the input file has a .efp file <strong>of the same name</strong>
 in the same directory. The $FRAGNAME section in the header of the .efp file also needs to have the
 <strong>same</strong> fragment name as that in the input file (<strong>check video tutorial for detailed instructions</strong>),
 to ensure that the EFP calculation runs without any errors.</p>
 </section>
 <section id="running-a-calculation">
-<h2>Running a calculation<a class="headerlink" href="#running-a-calculation" title="Link to this heading"></a></h2>
+<h2>Running a calculation<a class="headerlink" href="#running-a-calculation" title="Permalink to this heading"></a></h2>
 <p>To run an EFP calculation on the system, we use the command: efpmd &lt;libefp_input_file_name&gt;</p>
 </section>
 <section id="output">
-<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
 <p>The output of an EFP calculation typically gives the following output:</p>
 </section>
 </section>

@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="./">
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EFP calculations &mdash; EFP documentation 0.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
 
   
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=10f1778b"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -51,7 +51,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">EFP in a nutshell</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP paramters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP parameters</a></li>
 <li class="toctree-l1"><a class="reference internal" href="efpmd.html">EFPMD</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">EFP calculations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#efp-energy-terms">EFP energy terms</a><ul>
@@ -115,9 +115,9 @@
            <div itemprop="articleBody">
              
   <section id="efp-calculations">
-<span id="efp-calcs"></span><h1>EFP calculations<a class="headerlink" href="#efp-calculations" title="Link to this heading"></a></h1>
+<span id="efp-calcs"></span><h1>EFP calculations<a class="headerlink" href="#efp-calculations" title="Permalink to this heading"></a></h1>
 <section id="efp-energy-terms">
-<h2>EFP energy terms<a class="headerlink" href="#efp-energy-terms" title="Link to this heading"></a></h2>
+<h2>EFP energy terms<a class="headerlink" href="#efp-energy-terms" title="Permalink to this heading"></a></h2>
 <p>LibEFP can compute four inter-fragment energy terms:</p>
 <ul class="simple">
 <li><p>electrostatic</p></li>
@@ -126,7 +126,7 @@
 <li><p>exchange-repulsion</p></li>
 </ul>
 <section id="electrostatic-term">
-<span id="elec-energy"></span><h3>Electrostatic term<a class="headerlink" href="#electrostatic-term" title="Link to this heading"></a></h3>
+<span id="elec-energy"></span><h3>Electrostatic term<a class="headerlink" href="#electrostatic-term" title="Permalink to this heading"></a></h3>
 <p>Electrostatic energy is computed as a combination of charge-charge, charge-dipole,
 charge-quadrupole, charge-octupole, dipole-dipole, dipole-quadrupole, and quadrupole-quadrupole
 contributions.</p>
@@ -142,7 +142,7 @@ contributions.</p>
 <p>Out of those, only <a class="reference internal" href="parameters.html#coord"><span class="std std-ref">COORDINATES</span></a> section is mandatory as it determines fragment internal coordinate frame.
 All electrostatic terms (and corresponding parameters) are optional.</p>
 <section id="charge-penetration-screening">
-<h4>Charge-penetration screening<a class="headerlink" href="#charge-penetration-screening" title="Link to this heading"></a></h4>
+<h4>Charge-penetration screening<a class="headerlink" href="#charge-penetration-screening" title="Permalink to this heading"></a></h4>
 <p>Two options exist for accounting for charge-penetration contribution to electrostatic
 energy:</p>
 <ul class="simple">
@@ -160,7 +160,7 @@ and <a class="reference external" href="http://dx.doi.org/10.1080/00268970802712
 </section>
 </section>
 <section id="polarization-term">
-<span id="pol-energy"></span><h3>Polarization term<a class="headerlink" href="#polarization-term" title="Link to this heading"></a></h3>
+<span id="pol-energy"></span><h3>Polarization term<a class="headerlink" href="#polarization-term" title="Permalink to this heading"></a></h3>
 <p>Polarization energy is computed using distributed anisotropic dipole polarizabilities. Induced dipoles,
 originating at the polarizability points, are converged until self-consistency. The default procedure is to
 solve for induced dipoles iteratively; the direct diagonalization of the induced dipole matrix is implemented
@@ -187,7 +187,7 @@ by an optional <a class="reference internal" href="parameters.html#polab"><span 
 with large multiple moments (charged or strongly polar species) or large polarizabilities (e.g., large conjugated/aromatic molecules).</p>
 </section>
 <section id="dispersion-term">
-<h3>Dispersion term<a class="headerlink" href="#dispersion-term" title="Link to this heading"></a></h3>
+<h3>Dispersion term<a class="headerlink" href="#dispersion-term" title="Permalink to this heading"></a></h3>
 <p>Dispersion energy term captures the London interaction between the molecules. Formally, it can be expanded in
 series of (1/R) operator as $$E_{disp} = frac{C_6}{R^6} + frac{C_8}{R^8} + frac{C_{10}}{R^{10}} + …$$.
 In the case of distributed approach where dispersin contributions are computed as a sum of contributions due to
