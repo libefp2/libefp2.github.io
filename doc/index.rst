@@ -10,9 +10,6 @@ Welcome to EFP page!
 EFP, or the Effective Fragment Potential, is a polarizable quantum-mechanics-based model potential for predicting non-covalent interaction energies between molecules. EFP describes the non-covalent interaction energy as a sum of Colomb, polarization, dispersion, exchange-repulsion and optional charge-transfer terms.
 
 
-
-If you use EFP, please cite:
-
 .. toctree::
    :maxdepth: 2
    :caption: Introduction
