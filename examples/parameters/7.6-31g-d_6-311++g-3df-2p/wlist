@@ -1,0 +1,7 @@
+sed 's/A06H   /A06H000/g' -i gly_opt01.efp
+sed 's/A06H   /A06H000/g' -i gly_opt02.efp
+sed 's/A06H   /A06H000/g' -i gly_opt03.efp
+sed 's/A06H   /A06H000/g' -i gly_opt04.efp
+sed 's/A06H   /A06H000/g' -i gly_opt05.efp
+sed 's/A06H   /A06H000/g' -i gly_opt06.efp
+sed 's/A06H   /A06H000/g' -i gly_opt07.efp
