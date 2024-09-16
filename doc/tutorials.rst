@@ -11,16 +11,35 @@ This section deals with running an EFP job on a non-covalently bonded system.
 
 The steps to running an EFP calculation on a system are:
 
-* Running MAKEFP job in software package GAMESS [1_]
-* Obtaining EFP parameters from MAKEFP output [1_]
-* Preparing LIBEFP input file [2_]
-* Running EFP calculation in LIBEFP [2_] 
+
+.. dropdown:: Running MAKEFP job in software package GAMESS
+
+    This is explicitly shown in :ref:`parameters`
+
+.. dropdown:: Obtaining EFP parameters from MAKEFP output 
+
+    Refer to :ref:`parameters`
+
+.. dropdown:: Preparing LIBEFP input file 
+
+    Refer to :ref:`running efp calculations`
+
+.. dropdown:: Running EFP calculation in LIBEFP
+    
+    Refer to :ref:`running efp calculations`
 
 
 
-.. _1: file:///C:/Users/richm/libefp2.github.io/html/parameters.html
-.. _2: file:///C:/Users/richm/libefp2.github.io/html/libefp_ref.html
 
-Videos_
-^^^^^^^
-.. _Videos: file:///C:/Users/richm/libefp2.github.io/html/video_ref.html
+Videos
+~~~~~~
+
+.. dropdown:: See links to videos
+    
+   `How to run MAKEFP job <https://youtu.be/orHN362tLjI?si=yGsAYYCeCTqhlyQt>`_
+
+   `How to submit MAKEFP input in GAMESS <https://youtu.be/auM76y2tdzw?si=dBOa5sSojKmn4cc7>`_
+
+   `Analyzing MAKEFP output <https://youtu.be/R2r_IrV6NbY?si=tgePy5k_UIpmVMpl>`_
+
+   `Obtaining EFP parameters and running EFP calculations in LIBEFP <https://youtu.be/oww9uGJmKX4?si=Ih-lwMZTIWO3cK4z>`_
