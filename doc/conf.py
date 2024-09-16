@@ -31,7 +31,7 @@ release = '0.2'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autosectionlabel', 'sphinx_rtd_theme'
+    'sphinx.ext.autosectionlabel', 'sphinx_rtd_theme', 'sphinx_panels',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
