@@ -16,6 +16,7 @@ EFP, or the Effective Fragment Potential, is a polarizable quantum-mechanics-bas
 
    learn_more
    gallery
+   cite_efp
 
 
 .. toctree::
