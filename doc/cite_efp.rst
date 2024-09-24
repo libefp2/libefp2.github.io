@@ -17,22 +17,17 @@ How to reference EFP
 * A more recent review of the EFP2 model:
 `2013 review of EFP2 developments <http://dx.doi.org/10.1146/annurev-physchem-040412-110031>`_
 
- Mark S. Gordon,  Quentin A. Smith, Peng Xu, Lyudmila V. Slipchenko.
-Accurate First Principles Model Potentials for Intermolecular Interactions.
-Ann. Rev. Phys. Chem. **2013** 64, 553-578.
+ Mark S. Gordon,  Quentin A. Smith, Peng Xu, Lyudmila V. Slipchenko. Accurate First Principles Model Potentials for Intermolecular Interactions. Ann. Rev. Phys. Chem. **2013** 64, 553-578.
 
 * Excited states QM/EFP models in GAMESS:
 `2011 review of excited state QM/EFP models and applications <http://dx.doi.org/10.1021/jz200947j>`_
 
- Albert DeFusco, Noriyuki Minezawa, Lyudmila V. Slipchenko, Federico Zahariev, and Mark S. Gordon.
-Modeling Solvent Effects on Electronic Excited States.
-J. Phys. Chem. Lett. **2011** 2 (17), 2184-2192.
+ Albert DeFusco, Noriyuki Minezawa, Lyudmila V. Slipchenko, Federico Zahariev, and Mark S. Gordon. Modeling Solvent Effects on Electronic Excited States. J. Phys. Chem. Lett. **2011** 2 (17), 2184-2192.
 
 * CIS, CIS(D) and EOM-CCSD /EFP models in Q-Chem:
 `EOM-CCSD and CIS(D) QM/EFP models <http://dx.doi.org/10.1021/jp101797a>`_
 
- Lyudmila V. Slipchenko. Solvation of the Excited States of Chromophores in Polarizable Environment: Orbital Relaxation versus Polarization.
-J. Phys. Chem. A **2010** 114 (33), 8824-8830.
+ Lyudmila V. Slipchenko. Solvation of the Excited States of Chromophores in Polarizable Environment: Orbital Relaxation versus Polarization. J. Phys. Chem. A **2010** 114 (33), 8824-8830.
 
 * If you use LibEFP library and/or EFP implementation in Q-Chem, please cite:
 
