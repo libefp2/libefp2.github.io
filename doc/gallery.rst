@@ -4,12 +4,9 @@
 EFP gallery
 ***********
 
-Gallery
-=======
-
-This gallery highlights the use of EFP to bridge the gap between chemistry, biology, and physics, 
-particularly in solving real-world challenges in drug design and photosynthesis. EFP plays a crucial 
-role in understanding and optimizing these complex processes by providing detailed insights into 
+This gallery highlights the use of EFP to bridge the gap between chemistry, biology, and physics,
+particularly in solving real-world challenges in drug design and photosynthesis. EFP plays a crucial
+role in understanding and optimizing these complex processes by providing detailed insights into
 molecular interactions.
 
 
@@ -27,4 +24,3 @@ molecular interactions.
 .. image:: ../images/photo.png
    :alt: Photosynthesis
    :width: 300
-
