@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EFP parameters &mdash; EFP documentation 0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=10f1778b"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EFP parameter databases" href="efp_parameter_databases.html" />
+    <link rel="prev" title="EFP gallery" href="gallery.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EFP documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="learn_more.html">Learn more about EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">EFP gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP in a nutshell</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EFP parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameter-database">Parameter database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computing-parameters">Computing parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#efp-parameter-file"><cite>.efp</cite> parameter file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fragname"><code class="docutils literal notranslate"><span class="pre">$FRAGNAME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commment-line"><code class="docutils literal notranslate"><span class="pre">Commment</span> <span class="pre">line</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coordinates"><code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monopoles"><code class="docutils literal notranslate"><span class="pre">MONOPOLES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dipoles"><code class="docutils literal notranslate"><span class="pre">DIPOLES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quadrupoles"><code class="docutils literal notranslate"><span class="pre">QUADRUPOLES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#octupoles"><code class="docutils literal notranslate"><span class="pre">OCTUPOLES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#screen-and-screen2"><code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> and <code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polarizable-points"><code class="docutils literal notranslate"><span class="pre">POLARIZABLE</span> <span class="pre">POINTS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-polarizable-points"><code class="docutils literal notranslate"><span class="pre">DYNAMIC</span> <span class="pre">POLARIZABLE</span> <span class="pre">POINTS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#projection-basis-set"><code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">BASIS</span> <span class="pre">SET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiplicity"><code class="docutils literal notranslate"><span class="pre">MULTIPLICITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#projection-wavefunction"><code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">WAVEFUNCTION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fock-matrix-elements"><code class="docutils literal notranslate"><span class="pre">FOCK</span> <span class="pre">MATRIX</span> <span class="pre">ELEMENTS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lmo-centroids"><code class="docutils literal notranslate"><span class="pre">LMO</span> <span class="pre">CENTROIDS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polab"><code class="docutils literal notranslate"><span class="pre">POLAB</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="efp_parameter_databases.html">EFP parameter databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efp_calcs.html">EFP calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bioefp.html">BioEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flexible_efp.html">Flexible EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmefp.html">QM/EFP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software, tools, and tips</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="efpmd.html">EFPMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libefp.html">LibEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gamess.html">Computing EFP parameters in GAMESS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qchem.html">Q-Chem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psi4.html">PSI4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP bibliography</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="papers.html">Original publications by Mark Gordon’s group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#review-papers">Review papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#book-chapters">Book chapters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#development-of-efp-terms">Development of EFP terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#macromolecules-and-flexible-fragments">Macromolecules and flexible fragments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#software-development">Software development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#qm-efp-models">QM/EFP models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#accuracy-benchmarks">Accuracy benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#applications">Applications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EFP documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EFP parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/parameters.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="efp-parameters">
+<span id="parameters"></span><h1>EFP parameters<a class="headerlink" href="#efp-parameters" title="Link to this heading"></a></h1>
+<p>How to prepare EFP parameters? There are two ways, either find existing parameters in a <a class="reference internal" href="#parameter-database"><span class="std std-ref">Parameter database</span></a> or <a class="reference internal" href="#compute-parameters"><span class="std std-ref">Computing parameters</span></a>.</p>
+<section id="parameter-database">
+<span id="id1"></span><h2>Parameter database<a class="headerlink" href="#parameter-database" title="Link to this heading"></a></h2>
+<p>We have prepared and validated EFP parameters for the following systems:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/libefp2/libefp/tree/master/fraglib/databases">monomers from S22 and S66 sets</a></p></li>
+<li><p><a class="reference external" href="https://github.com/libefp2/libefp/tree/master/fraglib/flex_efp_protein">amino acid parameters from doi.org/10.1021/acs.jctc.0c00758</a></p></li>
+</ul>
+<p>Learn more detail about these EFP parameters on <a class="reference internal" href="efp_parameter_databases.html#efp-parameter-databases"><span class="std std-ref">EFP parameter databases</span></a>.</p>
+</section>
+<section id="computing-parameters">
+<span id="compute-parameters"></span><h2>Computing parameters<a class="headerlink" href="#computing-parameters" title="Link to this heading"></a></h2>
+<p>Parameters for any molecule can be computed using MAKEFP run in the GAMESS electronic structure package.</p>
+<p>For general information on using GAMESS please refer to the
+<a class="reference external" href="https://www.msg.chem.iastate.edu/gamess/GAMESS_Manual/docs-input.txt">GAMESS manual</a>.</p>
+<p>Apart of standard <cite>.log</cite> and <cite>.dat</cite> outputs, MAKEFP run creates  an additional file with an extension <cite>.efp</cite>
+that contains all EFP parameters of your molecule.</p>
+<p>An example of GAMESS input file for computing EFP parameters <code class="xref download docutils literal notranslate"><span class="pre">makefp.inp</span></code>.</p>
+</section>
+<section id="efp-parameter-file">
+<h2><cite>.efp</cite> parameter file<a class="headerlink" href="#efp-parameter-file" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>.efp</cite> file follows general GAMESS input file conventions:</p>
+<ul class="simple">
+<li><p>Group names starting with <code class="docutils literal notranslate"><span class="pre">$</span></code> should start at the second line character.</p></li>
+<li><p>Lines should not exceed 72 characters; use <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> as a continuation sign for longer lines.</p></li>
+</ul>
+</div>
+<p>An example of <cite>.efp</cite> file <code class="xref download docutils literal notranslate"><span class="pre">nh3.efp</span></code>.</p>
+<p>The <cite>.efp</cite> file has the following structure (see also <cite>$FRAGNAME group</cite> section in GAMESS manual):</p>
+<section id="fragname">
+<span id="id2"></span><h3><code class="docutils literal notranslate"><span class="pre">$FRAGNAME</span></code><a class="headerlink" href="#fragname" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FRAGNAME</span></code> section provides user-specified fragment name.</p></li>
+<li><p>The section is <em>mandatory</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FRAGNAME</span></code> tag should match the fragment name in LibEFP, GAMESS, Q-Chem inputs.
+Capitalization is not important.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FRAGNAME</span></code> tag should match the name of the <cite>.efp</cite> file.
+For example, <code class="docutils literal notranslate"><span class="pre">$nh3</span></code> fragment should be contained in <cite>nh3.efp</cite> file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span></code> in front of the <code class="docutils literal notranslate"><span class="pre">FRAGNAME</span></code> tag should be positioned at the second line character.</p></li>
+</ul>
+</section>
+<section id="commment-line">
+<h3><code class="docutils literal notranslate"><span class="pre">Commment</span> <span class="pre">line</span></code><a class="headerlink" href="#commment-line" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The section is <em>mandatory</em>.</p></li>
+</ul>
+</section>
+<section id="coordinates">
+<span id="coord"></span><h3><code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code><a class="headerlink" href="#coordinates" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section provides coordinates of all atoms and bond-midpoints of the fragment.</p></li>
+<li><p>The section is <em>mandatory</em>.</p></li>
+<li><p>Each line contains name tag, x, y, z coordinates (in Bohr), atom mass, nuclear charge.</p></li>
+<li><p>For atoms, the name tag is produced as <code class="docutils literal notranslate"><span class="pre">A</span></code> + <code class="docutils literal notranslate"><span class="pre">two-digit</span> <span class="pre">number</span></code> + <code class="docutils literal notranslate"><span class="pre">atom</span> <span class="pre">name</span></code> from the MAKEFP input,
+e.g., A01N.</p></li>
+<li><p>For bond-midpoints, the name tag is produced as <code class="docutils literal notranslate"><span class="pre">BO</span></code> + <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">atom</span> <span class="pre">number</span></code> + <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">atom</span> <span class="pre">number</span></code>,
+e.g., BO21.</p></li>
+<li><p>These name tags are used in <code class="docutils literal notranslate"><span class="pre">MULTIPOLES</span></code>, <code class="docutils literal notranslate"><span class="pre">DIPOLES</span></code>, <code class="docutils literal notranslate"><span class="pre">QUADRUPOLES</span></code>, <code class="docutils literal notranslate"><span class="pre">OCTUPOLES</span></code>, <code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">BASIS</span> <span class="pre">SET</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> and <code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code> sections.</p></li>
+<li><p>The name tags can be changed by user if needed (typically not needed, see below).</p></li>
+<li><p>GAMESS does not correctly assign name tags in fragments containing more than 99 atoms.
+Such potentials require atom and bond-midpoint renaming by user.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="monopoles">
+<span id="mon"></span><h3><code class="docutils literal notranslate"><span class="pre">MONOPOLES</span></code><a class="headerlink" href="#monopoles" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MONOPOLES</span></code> section contains nuclear and electronic charges of atoms and bond-midpoints of the fragment.</p></li>
+<li><p>Each line contains name tag, electronic charge, nuclear charge.</p></li>
+<li><p>Name tags should match those in <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>The section is mandatory in GAMESS input and optional in LibEFP and Q-Chem inputs.</p></li>
+<li><p>The section can contain less atoms/bond midpoints than <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="dipoles">
+<span id="dip"></span><h3><code class="docutils literal notranslate"><span class="pre">DIPOLES</span></code><a class="headerlink" href="#dipoles" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DIPOLES</span></code> section contains point dipoles of atoms and bond-midpoints of the fragment.</p></li>
+<li><p>Each line contains name tag and x, y, z values of a point dipole in atomic units.</p></li>
+<li><p>Name tags should match those in <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>The section can contain less atoms/bond midpoints than <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>Direction of the dipoles is dependent on the fragment orientation as provided by the fragment coordinates.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="quadrupoles">
+<span id="quad"></span><h3><code class="docutils literal notranslate"><span class="pre">QUADRUPOLES</span></code><a class="headerlink" href="#quadrupoles" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QUADRUPOLES</span></code> section contains point quadrupoles of atoms and bond-midpoints of the fragment.</p></li>
+<li><p>Each line contains name tag and xx, yy, zz, xy, xz, yz components of a quadrupole
+moment tensor in atomic units. Three other elements (yx, zx, zy) are identical
+to xy, xz, yz respectively and are omitted.</p></li>
+<li><p>Name tags should match those in <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>The section can contain less atoms/bond midpoints than <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>Direction of the quadrupole tensor is dependent on the fragment orientation as provided by the fragment coordinates.</p></li>
+<li><p>The quadrupole moments are given in the Buckingham form, i.e.,  xx, xy, xz etc components correspond to
+<span class="math notranslate nohighlight">\(a_x a_x\)</span>, <span class="math notranslate nohighlight">\(a_x a_y\)</span>, <span class="math notranslate nohighlight">\(a_x a_z\)</span>, respectively,
+where <strong>a</strong> is a vector describing particle position. Conversion to multipoles in the Cartesian form
+<span class="math notranslate nohighlight">\(\Theta_{\alpha \beta} = \sum_a e_a (\frac{3}{2}a_{\alpha}a_{\beta}-\frac{1}{2}a^2\delta_{\alpha \beta})\)</span>
+is conducted within LibEFP or GAMESS codes.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="octupoles">
+<span id="oct"></span><h3><code class="docutils literal notranslate"><span class="pre">OCTUPOLES</span></code><a class="headerlink" href="#octupoles" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OCTUPOLES</span></code> section contains point octupoles of atoms and bond-midpoints of the fragment.</p></li>
+<li><p>Each line contains name tag and xxx, yyy, zzz, xxy, xxz, xyy, yyz, xzz, yzz, xyz components of an octupole
+moment tensor in atomic units. Other elements are determined by symmetry and are omitted.</p></li>
+<li><p>Name tags should match those in <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>The section can contain less atoms/bond midpoints than <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>Direction of the quadrupole tensor is dependent on the fragment orientation as provided by the fragment coordinates.</p></li>
+<li><p>The octupole moments are given in the Buckingham form, e.g., xxx corresponds to
+<span class="math notranslate nohighlight">\(a_x a_x a_x\)</span>,
+where <strong>a</strong> is a vector describing particle position. Conversion to the Cartesian form
+is conducted within LibEFP or GAMESS codes.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+<p>In the example below, <code class="docutils literal notranslate"><span class="pre">$FRAGNAME</span></code> (<code class="docutils literal notranslate"><span class="pre">$nh3</span></code> in this case), <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code>, <code class="docutils literal notranslate"><span class="pre">MONOPOLES</span></code>,
+<code class="docutils literal notranslate"><span class="pre">DIPOLES</span></code>, <code class="docutils literal notranslate"><span class="pre">QUADRUPOLES</span></code>, <code class="docutils literal notranslate"><span class="pre">OCTUPOLES</span></code> sections are highlighted.</p>
+</section>
+<section id="screen-and-screen2">
+<span id="screen"></span><h3><code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> and <code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code><a class="headerlink" href="#screen-and-screen2" title="Link to this heading"></a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> and <code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code> sections provide screening parameters
+to account for charge-penetration energy between QM and EFP regions (<code class="docutils literal notranslate"><span class="pre">SCREEN</span></code>) and
+between EFP fragments (<code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code>).</p></li>
+<li><p>Both sections are optional.</p></li>
+<li><p>Each line contains name tag and <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> parameters that
+effectively screen EFP electronic charges.</p>
+<p>For QM-EFP interactions (<code class="docutils literal notranslate"><span class="pre">SCREEN</span></code>):
+<span class="math notranslate nohighlight">\(q_A \rightarrow _A(1-\alpha \exp(-\beta (r_A-r_e)^2))\)</span>,
+where <span class="math notranslate nohighlight">\(r_e\)</span> is position of an electron.</p>
+<p>For EFP-EFP interactions (<code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code>):
+<span class="math notranslate nohighlight">\(q_A \rightarrow _A(1-\alpha \exp(-\beta (r_A-r_B)))\)</span>,
+where <span class="math notranslate nohighlight">\(r_B\)</span> is position of another charge.</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span> parameters in both cases are typically set to 1.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> and <code class="docutils literal notranslate"><span class="pre">SCREEN2</span></code> sections are typically found in the very end of <cite>.efp</cite> file,
+even though exact placement of sections can be varied by user.</p></li>
+<li><p>Name tags should match those in <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>Sections can contain less atoms/bond midpoints than <code class="docutils literal notranslate"><span class="pre">COORDINATES</span></code> section.</p></li>
+<li><p>Each section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="polarizable-points">
+<span id="pol-point"></span><h3><code class="docutils literal notranslate"><span class="pre">POLARIZABLE</span> <span class="pre">POINTS</span></code><a class="headerlink" href="#polarizable-points" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POLARIZABLE</span> <span class="pre">POINTS</span></code> section provides coordinates and values of <em>anisotropic</em>
+polarizability tensors for computing polarization energy.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>The group contains a set of two-line entries each containing:</p>
+<ul>
+<li><p>first line: polarizable point tag, x, y, z coordinates of the point (in Bohr)</p></li>
+<li><p>second line: XX, YY, ZZ, XY, XZ, YZ, YX, ZX, ZY elements of the polarizability tensor</p></li>
+</ul>
+</li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+<li><p>Coordinates of the polarizability points and orientations of polarizability tensors
+are given with respect to the fragment coordinate frame as given in <a class="reference internal" href="#coord"><span class="std std-ref">COORDINATES</span></a>.</p></li>
+<li><p>Typically coordinates of polarizability points are centroids of the localized molecular
+orbitals, but other choices (e.g., atom positions) are possible.</p></li>
+</ul>
+</section>
+<section id="dynamic-polarizable-points">
+<span id="dyn-point"></span><h3><code class="docutils literal notranslate"><span class="pre">DYNAMIC</span> <span class="pre">POLARIZABLE</span> <span class="pre">POINTS</span></code><a class="headerlink" href="#dynamic-polarizable-points" title="Link to this heading"></a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">DYNAMIC</span> <span class="pre">POLARIZABLE</span> <span class="pre">POINTS</span></code> section provides coordinates and values of <em>anisotropic</em>
+dynamic polarizability tensors for computing dispersion energy.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>The group contains twelve entries each similar to the <a class="reference internal" href="#pol-point"><span class="std std-ref">POLARIZABLE POINTS</span></a> section, i.e.,
+each containing multiple sets of two-line entries:</p>
+<ul class="simple">
+<li><p>first line: polarizable point tag, x, y, z coordinates of the point (in Bohr)</p></li>
+<li><p>second line: XX, YY, ZZ, XY, XZ, YZ, YX, ZX, ZY elements of the dynamic polarizability tensor</p></li>
+</ul>
+<p>Each of these 12 sets contains time-dependent (dynamic) polarizabilities computed at given
+values of imaginary frequencies. Coordinates of polarizability points remain the same
+between all twelve sets.</p>
+</li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+<li><p>Coordinates of the dynamic polarizability points and orientations of tensors
+are given with respect to the fragment coordinate frame as given in <a class="reference internal" href="#coord"><span class="std std-ref">COORDINATES</span></a>.</p></li>
+<li><p>Typically coordinates of dynamic polarizability points are centroids of the localized molecular
+orbitals, but other choices (e.g., atom positions) are possible.</p></li>
+<li><p>Only first three elements (XX, YY, ZZ) of the tensors are used in calculation of
+the <span class="math notranslate nohighlight">\(\frac{C_6}{R^6}\)</span> dispersion energy (the one implemented in LibEFP).</p></li>
+</ul>
+</section>
+<section id="projection-basis-set">
+<span id="basis"></span><h3><code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">BASIS</span> <span class="pre">SET</span></code><a class="headerlink" href="#projection-basis-set" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">BASIS</span> <span class="pre">SET</span></code> section contains information on the basis set used in
+calculation of the exchange-repulsion energy and overlap-based electrostatic and
+dispersion dampings.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>Basis set information for all atoms of the fragment is given, separated by empty lines.</p></li>
+<li><p>The first line for each atom entry contains atom name tag that should match one from
+the <a class="reference internal" href="#coord"><span class="std std-ref">COORDINATES</span></a> section, x, y, z coordinates of the atom (in Bohr), and a number corresponding to
+the atom nuclear charge minus the number of electrons in core orbitals. For example,
+5 = 7-2 for N, 4 = 6-2 for C, 1 = 1-0 for H etc. The following information on basis functions
+is given in the GAMESS basis set format.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="multiplicity">
+<span id="id3"></span><h3><code class="docutils literal notranslate"><span class="pre">MULTIPLICITY</span></code><a class="headerlink" href="#multiplicity" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MULTIPLICITY</span></code> section provides multiplicity of the fragment used in computing
+exchange-repulsion energy and overlap-based electrostatic and
+dispersion dampings.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>LibEFP works only with multiplicity 1 (closed shell fragments).</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="projection-wavefunction">
+<span id="wf"></span><h3><code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">WAVEFUNCTION</span></code><a class="headerlink" href="#projection-wavefunction" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PROJECTION</span> <span class="pre">WAVEFUNCTION</span></code> section provides localized wave function of the fragment used in computing
+exchange-repulsion energy and overlap-based electrostatic and
+dispersion dampings.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>Format: first line contains PROJECTION WAVEFUNCTION keyword, <span class="math notranslate nohighlight">\(N_{loc}\)</span>-  number of the localized occupied orbitals
+(core orbitals are excluded), <span class="math notranslate nohighlight">\(N_{basis}\)</span> size of the basis set. The following lines provide orbital coefficients for
+each orbital. Each line contains orbital number, line number for the given orbital,
+five orbital coefficients not separated by comma. These entries are format sensitive!</p></li>
+<li><p>The number of orbital entries should match <span class="math notranslate nohighlight">\(N_{loc}\)</span> (the first number in the first line).</p></li>
+<li><p>The number of orbital coefficients for each orbital should match <span class="math notranslate nohighlight">\(N_{basis}\)</span>
+(the second number in the first line).</p></li>
+<li><p>Note: the section does not require <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="fock-matrix-elements">
+<span id="fock"></span><h3><code class="docutils literal notranslate"><span class="pre">FOCK</span> <span class="pre">MATRIX</span> <span class="pre">ELEMENTS</span></code><a class="headerlink" href="#fock-matrix-elements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FOCK</span> <span class="pre">MATRIX</span> <span class="pre">ELEMENTS</span></code> section provides elements of the Fock matrix of the fragment
+in the localized basis. It is used in computing exchange-repulsion energy and overlap-based electrostatic and
+dispersion dampings.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>The Fock matrix is given in the lower triangular form, i.e., the matrix
+<span class="math notranslate nohighlight">\(\begin{pmatrix}
+a_{11} &amp; a_{12} &amp; a_{13}\\
+a_{21} &amp; a_{22} &amp; a_{23}\\
+a_{31} &amp; a_{32} &amp; a_{33}
+\end{pmatrix}\)</span>
+is provided as <span class="math notranslate nohighlight">\(a_{11}\)</span>, <span class="math notranslate nohighlight">\(a_{21}\)</span>, <span class="math notranslate nohighlight">\(a_{22}\)</span>,
+<span class="math notranslate nohighlight">\(a_{31}\)</span>, <span class="math notranslate nohighlight">\(a_{32}\)</span>, <span class="math notranslate nohighlight">\(a_{33}\)</span>.</p></li>
+<li><p>The size of the matrix is <span class="math notranslate nohighlight">\(N_{loc} \times N_{loc}\)</span>, i.e. <span class="math notranslate nohighlight">\(N_{loc} * (N_{loc}-1)\)</span>
+values is expected.</p></li>
+<li><p>Note: the section does not require <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="lmo-centroids">
+<span id="lmoc"></span><h3><code class="docutils literal notranslate"><span class="pre">LMO</span> <span class="pre">CENTROIDS</span></code><a class="headerlink" href="#lmo-centroids" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LMO</span> <span class="pre">CENTROIDS</span></code> section provides coordinates of the localized molecular orbital
+centroids. Those are used in computing exchange-repulsion energy and overlap-based electrostatic and
+dispersion dampings.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>Each line contains a centroid tag name and x, y, z coordinates (in Bohr) of the centroid, with
+respect to the fragment reference frame as given in <a class="reference internal" href="#coord"><span class="std std-ref">COORDINATES</span></a> section.</p></li>
+<li><p>The number of centroids should match <span class="math notranslate nohighlight">\(N_{loc}\)</span> (the number of the localized occupied
+orbitals) in <a class="reference internal" href="#wf"><span class="std std-ref">PROJECTION WAVEFUNCTION</span></a> section.</p></li>
+<li><p>The section ends with mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line.</p></li>
+</ul>
+</section>
+<section id="polab">
+<span id="id4"></span><h3><code class="docutils literal notranslate"><span class="pre">POLAB</span></code><a class="headerlink" href="#polab" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POLAB</span></code> is a keyword specifying a short-range polarization damping parameter for the fragment.</p></li>
+<li><p>The section is optional.</p></li>
+<li><p>This section is not included in the <cite>.efp</cite> as prepared by the MAKEFP run and should be added manually if needed.</p></li>
+<li><p>The section format is:
+<code class="docutils literal notranslate"><span class="pre">POLAB</span> <span class="pre">value</span></code>, followed by the mandatory <code class="docutils literal notranslate"><span class="pre">STOP</span></code> line,
+where <code class="docutils literal notranslate"><span class="pre">value</span></code> is the user-specified value of the parameter.</p></li>
+<li><p>Default value is 0.6.</p></li>
+</ul>
+<p>Some wisdom on a choice of the POLAB parameter:</p>
+<ul class="simple">
+<li><p>polab = 0.6 (default) - works well for the majority of neutral solvents;</p></li>
+<li><p>polab = 0.3 might improve stability of BioEFP calculations in proteins, especially relevant for charged amino acids;</p></li>
+<li><p>polab = 0.1 was shown to work safely for anions like F-, Cl-, etc;</p></li>
+<li><p>polab = 0.1 might be useful for large aromatics like porphyrins and chlorophylls
+(their polarizabilities are huge and orbital localization schemes often struggle, resulting in very large ~100 a.u.
+polarizabilities on some sites);</p></li>
+<li><p>polab = 0.03 for Li+, Na+ and Mg2+.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gallery.html" class="btn btn-neutral float-left" title="EFP gallery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="efp_parameter_databases.html" class="btn btn-neutral float-right" title="EFP parameter databases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EFP parameter databases &mdash; EFP documentation 0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=10f1778b"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EFP calculations" href="efp_calcs.html" />
+    <link rel="prev" title="EFP parameters" href="parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EFP documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="learn_more.html">Learn more about EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">EFP gallery</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP in a nutshell</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">EFP parameter databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#s22-parameters">S22 Parameters:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#s66-parameters">S66 Parameters:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#amino-acid-parameters">Amino acid Parameters:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="efp_calcs.html">EFP calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bioefp.html">BioEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flexible_efp.html">Flexible EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmefp.html">QM/EFP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software, tools, and tips</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="efpmd.html">EFPMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libefp.html">LibEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gamess.html">Computing EFP parameters in GAMESS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qchem.html">Q-Chem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psi4.html">PSI4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP bibliography</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="papers.html">Original publications by Mark Gordon’s group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#review-papers">Review papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#book-chapters">Book chapters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#development-of-efp-terms">Development of EFP terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#macromolecules-and-flexible-fragments">Macromolecules and flexible fragments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#software-development">Software development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#qm-efp-models">QM/EFP models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#accuracy-benchmarks">Accuracy benchmarks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#applications">Applications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EFP documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">EFP parameter databases</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/efp_parameter_databases.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="efp-parameter-databases">
+<span id="id1"></span><h1>EFP parameter databases<a class="headerlink" href="#efp-parameter-databases" title="Link to this heading"></a></h1>
+<section id="s22-parameters">
+<h2>S22 Parameters:<a class="headerlink" href="#s22-parameters" title="Link to this heading"></a></h2>
+<p>Geometries from <a class="reference external" href="http://dx.doi.org/10.1039/b600027d">doi.org/10.1039/B600027D</a></p>
+<ul>
+<li><a href="examples/parameters/2aminopyridine.efp" target="_blank">2aminopyridine.efp</a></li>
+<li><a href="examples/parameters/adenine-stack.efp" target="_blank">adenine-stack.efp</a></li>
+<li><a href="examples/parameters/adenine-wc.efp" target="_blank">adenine-wc.efp</a></li>
+<li><a href="examples/parameters/ethene.efp" target="_blank">ethene.efp</a></li>
+<li><a href="examples/parameters/ethyne.efp" target="_blank">ethyne.efp</a></li>
+<li><a href="examples/parameters/formicacid.efp" target="_blank">formicacid.efp</a></li>
+<li><a href="examples/parameters/hydrogencyanide.efp" target="_blank">hydrogencyanide.efp</a></li>
+<li><a href="examples/parameters/indole.efp" target="_blank">indole.efp</a></li>
+<li><a href="examples/parameters/pyrazine.efp" target="_blank">pyrazine.efp</a></li>
+<li><a href="examples/parameters/pyridone.efp" target="_blank">pyridone.efp</a></li>
+<li><a href="examples/parameters/thymine-stack.efp" target="_blank">thymine-stack.efp</a></li>
+<li><a href="examples/parameters/thymine-wc.efp" target="_blank">thymine-wc.efp</a></li>
+<li><a href="examples/parameters/uracil.efp" target="_blank">uracil.efp</a></li>
+</ul>
+</section>
+<section id="s66-parameters">
+<h2>S66 Parameters:<a class="headerlink" href="#s66-parameters" title="Link to this heading"></a></h2>
+<p>Geometries from <a class="reference external" href="http://dx.doi.org/10.1021/ct200673a">dx.doi.org/10.1021/ct200673a</a></p>
+<ul>
+<li><a href="examples/parameters/acetamide-gp.efp" target="_blank">acetamide-gp.efp</a></li>
+<li><a href="examples/parameters/acetamide-hb.efp" target="_blank">acetamide-hb.efp</a></li>
+<li><a href="examples/parameters/aceticacid-gp.efp" target="_blank">aceticacid-gp.efp</a></li>
+<li><a href="examples/parameters/aceticacid-hb.efp" target="_blank">aceticacid-hb.efp</a></li>
+<li><a href="examples/parameters/ammonia.efp" target="_blank">ammonia.efp</a></li>
+<li><a href="examples/parameters/benzene.efp" target="_blank">benzene.efp</a></li>
+<li><a href="examples/parameters/cyclopentane.efp" target="_blank">cyclopentane.efp</a></li>
+<li><a href="examples/parameters/formamide.efp" target="_blank">formamide.efp</a></li>
+<li><a href="examples/parameters/methane.efp" target="_blank">methane.efp</a></li>
+<li><a href="examples/parameters/methanol.efp" target="_blank">methanol.efp</a></li>
+<li><a href="examples/parameters/methylamine.efp" target="_blank">methylamine.efp</a></li>
+<li><a href="examples/parameters/neopentane.efp" target="_blank">neopentane.efp</a></li>
+<li><a href="examples/parameters/nmethylacetamide.efp" target="_blank">nmethylacetamide.efp</a></li>
+<li><a href="examples/parameters/pentane.efp" target="_blank">pentane.efp</a></li>
+<li><a href="examples/parameters/phenol.efp" target="_blank">phenol.efp</a></li>
+<li><a href="examples/parameters/pyridine.efp" target="_blank">pyridine.efp</a></li>
+<li><a href="examples/parameters/uracil-gp.efp" target="_blank">uracil-gp.efp</a></li>
+<li><a href="examples/parameters/water.efp" target="_blank">water.efp</a></li>
+</ul>
+</section>
+<section id="amino-acid-parameters">
+<h2>Amino acid Parameters:<a class="headerlink" href="#amino-acid-parameters" title="Link to this heading"></a></h2>
+<ul>
+<li>Parameters in <a href="examples/parameters/1.6-31g-d" target="_blank">6-31G(d)</a> basis</li>
+<li>Parameters in a hybrid <a href="examples/parameters/6.6-31g-d_6-31+xg-3df-2p" target="_blank">6-31G(d)/6-31-+G(3df,2p)</a> basis</li>
+<li>Parameters in a hybrid <a href="examples/parameters/7.6-31g-d_6-311++g-3df-2p" target="_blank">6-31G(d)/6-311++G(3df,2p)</a> basis</li>
+</ul>
+<p>The fragment parameters in FlexibleEFP are adjusted based on translations and rotations of local coordinate frames associated with fragment atoms to accommodate different fragment geometries. A parameter database for standard amino acids was developed to automate flexible EFP simulations in proteins using cryptochrome 1 protein (Arabidopsis thaliana’s, Cry1At, PDB: 1U3D64). The applicability of flexible EFP was demonstrated in large-scale protein simulations, where binding energies, as well as vertical electron ionization and electron attachment energies of a lumiflavin chromophore in the cryptochrome 1 protein were computed. The results showed that flexible EFP closely agrees with the standard EFP procedure but with a significant reduction in computational cost. Twenty-five protein conformations from molecular dynamics trajectories of cryptochrome 1 were fragmented into individual amino acid (AA) fragments along Cα−C bonds, yielding 12,125 BioEFP AA fragments. To improve accuracy, each AA fragment was further split along the Cα−Cβ bond into a backbone group and a side-chain group, and disulfide bridges were fragmented along the S−S bond. To recombine the backbone and side-chain fragments into a complete AA moiety, parameters at a bond midpoint and the LMO centroid between Cα and Cβ were excluded to ensure the stability of the polarization self-consistent procedure. For further details please refer to:</p>
+<ul class="simple">
+<li><p>Database of fragments describing amino acid residues and peptide backbone groups in different geometries <a class="reference external" href="https://doi.org/10.1021/acs.jctc.0c00758">Flexible EFP paper</a>.</p></li>
+<li><p>Strategy of rotating and shifting the parameters &lt;<a class="reference external" href="https://doi.org/10.1021/acs.jctc.0c00758">https://doi.org/10.1021/acs.jctc.0c00758</a>&gt;`_.</p></li>
+<li><p>Script that will do it for you <a class="reference external" href="https://github.com/libefp2/libefp/blob/master/tools/Flexible_V5.py">parameter rotation script</a>.</p></li>
+<li><p>Splitting of the protein into amino acid fragments and matching the parameters to specific geometries of the fragments with BioEFP and FlexEFP tutorials is described in <a class="reference internal" href="bioefp.html#bioefp"><span class="std std-ref">BioEFP</span></a>.</p></li>
+<li><p>Note: Parameters from the database should be matched to the geometry of your system.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="parameters.html" class="btn btn-neutral float-left" title="EFP parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="efp_calcs.html" class="btn btn-neutral float-right" title="EFP calculations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
