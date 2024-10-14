@@ -48,10 +48,7 @@ and will be the QM region for the EFP calcuation.
 First, an EFP region must be defined. Every amino acid, (non QM) BChl, and water molecule containing an 
 atom within 15 angstroms of the QM BChl headring. 
 
-The headring is defined by atomnames: MG CHA CHB HB CHC HC CHD HD NA C1A 
-C2A H2A C3A H3A C4A CMA HMA1 HMA2 HMA3 NB C1B C2B C3B C4B CMB HMB1 HMB2 HMB3 CAB OBB CBB HBB1 HBB2 HBB3 NC C1C C2C H2C C3C 
-H3C C4C CMC HMC1 HMC2 HMC3 CAC HAC1 HAC2 CBC HBC1 HBC2 HBC3 ND C1D C2D C3D C4D CMD HMD1 HMD2 HMD3 CAD OBD CBD HBD CGD O1D O2D 
-CED HED1 HED2 HED3
+The headring is defined by the atomnames: ``MG CHA CHB HB CHC HC CHD HD NA C1A C2A H2A C3A H3A C4A CMA HMA1 HMA2 HMA3 NB C1B C2B C3B C4B CMB HMB1 HMB2 HMB3 CAB OBB CBB HBB1 HBB2 HBB3 NC C1C C2C H2C C3C H3C C4C CMC HMC1 HMC2 HMC3 CAC HAC1 HAC2 CBC HBC1 HBC2 HBC3 ND C1D C2D C3D C4D CMD HMD1 HMD2 HMD3 CAD OBD CBD HBD CGD O1D O2D CED HED1 HED2 HED3``
 
 The headring surrounded by the EFP region looks like this:
 
@@ -209,20 +206,20 @@ representation of the fragment wavefunction.
 
 This execution will read the given file, a_4_45.inp and compute the RMSD with each .efp file it can find in a given 
 directory. For example, the path to the .efp database in this tutorial is given as 
-``/depot/lslipche/data/yb_boss/flexible_efp/efpdb/ala/``. The final folder, ala, does not need to be specified, but 
+``/depot/lslipche/data/yb_boss/flexible_efp/efpdb/ala/``. The final folder, ala/, does not need to be specified, but 
 will be automatically filled as a desination given the input file starts with "a." In other words, if you use this 
 script, you should replace the directory variable with your folder names, then have the final folder(s) be named 
 by the amino acid name (ie, ala/, cys/, thr/, etc). The desired RMSD cutoff (minimum to be considered a good match) 
 is listed at the start of the file, and can be adjusted easily. 
 
-If no suitable match is found in the database, a text file will be created named ``no_matches.txt``. If you need to 
-repeat this step, delete this text file to avoid confusion. The simplest way to use this script for you entire EFP 
-region is to make a bash script to iterate through every *.inp file and execute fragment_RMSD.py *.inp. Note that if 
-no database folder is found, or if the input is not a standard, non-terminal amino acid, then the python script will 
-return an error. These special cases will need to be computed individually.
+If no suitable match is found in the database, a text file will be created named ``no_matches.txt``, and an .efp file
+will not be created. If you need to repeat this step, delete this text file to avoid confusion. The simplest way to 
+use this script for you entire EFP region is to make a bash script to iterate through every *.inp file and execute 
+fragment_RMSD.py *.inp. Note that if no database folder is found, or if the input is not a standard, non-terminal 
+amino acid, then the python script will return an error. These special cases will need to be computed individually.
 
-Non-Amino Acids/Cofactors
--------------------------
+Non-Amino Acids and Cofactors
+-----------------------------
 
 The previous script is good for a fragmentation scheme that includes amino acids and full molecules. Sometimes it is 
 desirable to fragment large molecules further. In FMO, the full bacteriochloropylls can have trouble converging 
@@ -243,8 +240,8 @@ but chlorophyll molecules can be troublesome. If you need to split a group like 
 "Headrings" list to include every atom name that one file should include, then the omitted names will be used to make 
 the other file.
 
-Classical Region
-----------------
+The Classical Region Fragment
+-----------------------------
 
 The EFP parameter files are finished. Now, a new fragment will be created with the remaining classical atoms. That 
 is, every atom that is not in the QM or EFP regions. ``make_mm.py`` reads the structure of the EFP region only, the full 
@@ -257,8 +254,8 @@ octupole, and polarization point sections. Sample execution:
 The topology file is necessary for atomic charges, and both structure files are read to so that only MM atoms will be 
 included (both QM and EFP atoms are omitted).
 
-Stripping QM from EFP
----------------------
+Stripping QM atoms from EFP files
+---------------------------------
 
 Some of the fragment parameter files contain atoms that are also in the QM region. Additionally, when a QM virtual 
 hydrogen is added to replace the bond of an EFP atom, that EFP atom is overlapped with the virtual hydrogen. The
