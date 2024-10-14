@@ -267,9 +267,9 @@ A sample execution is:
 
 ``cut_qm.py hd_290_4417.inp hd_290_4417.efp``
 
-ala_33_473.inp is a fragment with QM atoms commented to be deleted and EFP atoms to have polarization points 
-removed. a0001.efp is a parameter file that is either the output of the input file, or translated information 
-from a database parameter file. 
+ala_33_473.inp is an alanine fragment with QM atoms commented to be deleted and EFP atoms to have polarization 
+points removed. a0001.efp is a parameter file that is either the output of the input file, or translated 
+information from a database parameter file. 
 
 Final Input Generation
 ----------------------
