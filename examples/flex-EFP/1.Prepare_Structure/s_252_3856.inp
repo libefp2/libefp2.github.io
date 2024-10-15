@@ -1,0 +1,26 @@
+ $contrl units=angs local=boys runtyp=makefp 
+       mult=1 icharg=0 coord=cart icut=11 $end
+ $system timlim=99999 mwords=200 $end
+ $scf soscf=.f. dirscf=.t. diis=.t. CONV=1.0d-06 $end
+ $basis gbasis=n31 ngauss=6 ndfunc=1 $end
+ $DAMP IFTTYP(1)=2,0 IFTFIX(1)=1,1 thrsh=500.0 $end
+ $MAKEFP POL=.t. DISP=.f. CHTR=.f. EXREP=.f. $end
+ $data
+ s_252_3856
+ C1
+ C    6.0      77.40033627       43.03227901       59.57246304
+ O    8.0      77.53912449       43.46355915       60.71961403
+ N    7.0      76.26042843       42.75338173       58.95817280
+ H    1.0      76.30569935       42.61490822       57.95873165
+ CA   6.0      74.90594387       42.97484875       59.56152439
+ HA   1.0      74.91909504       42.99286842       60.65129757
+ CB   6.0      74.41158772       44.37973976       59.02798653
+ HB1  1.0      73.35696697       44.51581001       59.26750183
+ HB2  1.0      74.35328007       44.51411247       57.94787884
+ OG   8.0      75.11398792       45.35243511       59.61232662
+ HG   1.0      75.77020168       45.66531658       58.98535728
+ H000 1.0      78.22392125       42.85078607       58.89962799
+ H000 1.0      74.14180431       42.26685375       59.28085964
+ $end 
+!comment atoms to be erased:
+!polarization points to remove:
