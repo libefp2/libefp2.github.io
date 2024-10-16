@@ -64,7 +64,7 @@ The final calculations allow us to look at a focused version of the environment 
 
 Each fragment induces a shift to the BChl excited state energy. Pairwise excitation energy decomposition reveals the magnitude and 
 direction (ie, blue or red shift) that each fragment induces to a given BChl molecule. Thus, EFP can offer insight of the inner-workings 
-of solvatochromic control over the protein spectra.
+of solvatochromic control over the protein's optical spectra.
 
 
 Structure Preparation
@@ -267,4 +267,4 @@ information from a database parameter file to align with the input's coordinates
 Final Input Generation
 ----------------------
 
-<Coming very soon>
+<Coming very very soon>
