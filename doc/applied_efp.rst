@@ -244,7 +244,7 @@ octupole, and polarization point sections. Sample execution:
 
 ``python make_MM.py shell_bchl361-79002.g96 bchl361-79002.g96 topol.top``
 
-The topology file is necessary for atomic charges, and both structure files are read to so that only MM atoms will be 
+The topology file is necessary for atomic charges, and both structure files are read so that only MM atoms will be 
 included (both QM and EFP atoms are omitted).
 
 Stripping QM atoms from EFP files

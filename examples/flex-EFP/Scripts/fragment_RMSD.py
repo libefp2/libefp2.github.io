@@ -9,65 +9,87 @@ import numpy as np
 import os
 
 directory = '/depot/lslipche/data/yb_boss/flexible_efp/efpdb/'
-cutoff=0.15
+ang_cutoff=0.20                     # Minimum RMSD allowed for "good" match
+cutoff=ang_cutoff*1.8897259886      # Cutoff convert to Bohr
 
-inp=sys.argv[1]
+inp=sys.argv[1]                     # a_22_304.inp for example. Input file with fragment coords
 with open(inp, "r") as orig:
     orgs = orig.readlines()
-
-efp=sys.argv[2]
-with open(efp, "r") as term:
-    terms = term.readlines()
     
-outname=inp.replace('.inp','.efp')
+outname=inp.replace('.inp','.efp')  # Output file name, same as input but changed extension.
+                                    # If no match is found, then outname will not be used.
 
 def rotate_vector(vector, rotation_matrix):
     #Different from coords because dipoles assumed centered on coordinate. NOT placed in Cartesian space
-    return np.dot(rotation_matrix, vector)
+    return np.dot(vector,rotation_matrix)
 
 def rotate_quadrupole(quadrupole, rotation_matrix):
-    #RxQxR_t
+    #R x Q x R_t
+    #Quadrupoles are 3x3s. But .efp give only six values, order is assumed xx, xy, xz, yy, yz, zz
+    #With symmetric off-diagonal elements.
     q = np.array([
-        [quadrupole[0], quadrupole[1], quadrupole[2]],
-        [quadrupole[1], quadrupole[3], quadrupole[4]],
-        [quadrupole[2], quadrupole[4], quadrupole[5]],
+        [quadrupole[0], quadrupole[3], quadrupole[4]],
+        [quadrupole[3], quadrupole[1], quadrupole[5]],
+        [quadrupole[4], quadrupole[5], quadrupole[2]],
     ])
-    q_rotated = rotation_matrix @ q @ rotation_matrix.T
-    return [q_rotated[0, 0], q_rotated[0, 1], q_rotated[0, 2],
-            q_rotated[1, 1], q_rotated[1, 2], q_rotated[2, 2]]
+    q_rotated = rotation_matrix.T @ q @ rotation_matrix
+    return [q_rotated[0, 0], q_rotated[1, 1], q_rotated[2, 2],
+            q_rotated[0, 1], q_rotated[0, 2], q_rotated[1, 2]]
 
 def rotate_octupole(octupole, rotation_matrix):
     #Oxyz=Rxi*Ryj*Rzk*Oijk summed over i=x,y,z;j=x,y,z;z=x,y,z;
     #Each term Oxyz of new tensor is composed of 
     #27 pieces generated from old tensor and rotation matrix!
+    #The indexes are hard-coded for some better readiability
     o = np.array([
-        [[octupole[0], octupole[1], octupole[2]], [octupole[1], octupole[3], octupole[4]], [octupole[2], octupole[4], octupole[5]]],
-        [[octupole[1], octupole[3], octupole[4]], [octupole[3], octupole[6], octupole[7]], [octupole[4], octupole[7], octupole[8]]],
-        [[octupole[2], octupole[4], octupole[5]], [octupole[4], octupole[7], octupole[8]], [octupole[5], octupole[8], octupole[9]]],
+        [[octupole[0], octupole[3], octupole[4]], [octupole[3], octupole[5], octupole[9]], [octupole[4], octupole[9], octupole[7]]],
+        [[octupole[3], octupole[5], octupole[9]], [octupole[5], octupole[1], octupole[6]], [octupole[9], octupole[6], octupole[8]]],
+        [[octupole[4], octupole[9], octupole[7]], [octupole[9], octupole[6], octupole[8]], [octupole[7], octupole[8], octupole[2]]],
     ])
-    o_rotated = np.einsum('ij,jkl,lm->ikm', rotation_matrix, o, rotation_matrix.T)
+    #fancy function below does what we want. Look up np.einsum if you need clarification.
+    #o_rotated = np.einsum('ij,jkl,lm->ikm', rotation_matrix, o, rotation_matrix.T)
+    o_rotated = np.zeros((3, 3, 3))
+    for p in range(0,3):
+        for q in range(0,3):
+            for r in range(0,3):
+                o_rotated[p][q][r]=single_term_oct(p,q,r,o,rotation_matrix.T)
     return [
-        o_rotated[0, 0, 0], o_rotated[0, 0, 1], o_rotated[0, 0, 2],
-        o_rotated[0, 1, 1], o_rotated[0, 1, 2], o_rotated[0, 2, 2],
-        o_rotated[1, 1, 1], o_rotated[1, 1, 2], o_rotated[1, 2, 2],
-        o_rotated[2, 2, 2]
+        o_rotated[0, 0, 0], o_rotated[1, 1, 1], o_rotated[2, 2, 2],
+        o_rotated[0, 0, 1], o_rotated[0, 0, 2], o_rotated[0, 1, 1],
+        o_rotated[1, 1, 2], o_rotated[0, 2, 2], o_rotated[1, 2, 2],
+        o_rotated[0, 1, 2]
     ]
+
+def single_term_oct(p,q,r,octupole,rot_mat):
+    term=0.0
+    for i in range(0,3):
+        for j in range(0,3):
+            for k in range(0,3):
+                term+=rot_mat[p][i]*rot_mat[q][j]*rot_mat[r][k]*octupole[i][j][k]
+    return term
 
 def rotate_polarizability(polarizability, rotation_matrix):
         #RxQxR_t
     q = np.array([
-        [polarizability[0], polarizability[1], polarizability[2]],
-        [polarizability[3], polarizability[4], polarizability[5]],
-        [polarizability[6], polarizability[7], polarizability[8]],])
-    q_rotated = rotation_matrix @ q @ rotation_matrix.T
-    return q_rotated.flatten()
+        [polarizability[0], polarizability[3], polarizability[4]],
+        [polarizability[6], polarizability[1], polarizability[5]],
+        [polarizability[7], polarizability[8], polarizability[2]]])
+    q_rotated = rotation_matrix.T @ q @ rotation_matrix
+    return [q_rotated[0, 0],q_rotated[1, 1],q_rotated[2, 2],
+            q_rotated[0, 1],q_rotated[0, 2],q_rotated[1, 2],
+            q_rotated[1, 0],q_rotated[2, 0],q_rotated[2, 1]]
+    #return q_rotated.flatten()
 
-def get_RMSD(coords1,coords2):
+def get_RMSD(coords1,coords2,mass):
     tot=0.0
-    for i in range(3):
-        for j in range(3):
-            tot+=(coords1[i][j]-coords2[i][j])**2
-    rmsd=np.sqrt((len(coords1)-1)*tot)
+    length=len(coords1)
+    dim=len(coords1[0])
+    totmass=0.0
+    for i in range(length):
+        for j in range(dim):
+            tot+=mass[i]*(coords1[i][j]-coords2[i][j])**2
+        totmass+=mass[i]
+    rmsd=np.sqrt(tot)/np.sqrt(totmass)
     return rmsd
 
 def kabsch_algorithm(coords, coords2):
@@ -84,8 +106,8 @@ def kabsch_algorithm(coords, coords2):
     u, _, vh = np.linalg.svd(covariance_matrix)
     rotation_matrix = np.dot(u, vh)
 
-    if np.linalg.det(rotation_matrix) < 0:
-        rotation_matrix[:, -1] *= -1
+    #if np.linalg.det(rotation_matrix) < 0:
+    #    rotation_matrix[:, -1] *= -1
     return rotation_matrix, com1, com2
 
 def apply_transform(coords, rotation_matrix, com1, com2):
@@ -100,12 +122,32 @@ amino_acid_dict = {'a':'ala','r':'arg','n':'asn','d':'asp','c':'cys',
                    'l':'leu','k':'lys','m':'met','f':'phe','p':'pro',
                    's':'ser','t':'thr','w':'trp','y':'tyr','v':'val',
                    'hp':'hip','hd':'hid','he':'hie'}
+atom_weights = {'H':1.0,'O':15.9949100,'C':12.0000000,'N':12.0030700,'S':32.0650000,'M':23.3040000}
 
-
-res=amino_acid_dict[inp[0]]
+try:
+    res=amino_acid_dict[inp[0]]
+except:
+    print('No library folder for: '+inp)
 #directory = '/depot/lslipche/data/yb_boss/flexible_efp/efpdb/'+res
 directory+=res
 file_extension = '.efp'  # change this to your desired file extension
+
+start=0
+xyz=[]
+orig_coords=[]
+weights=[]
+for line in orgs:
+    if '$end' in line:
+        start=0
+    elif(start==1):
+        xyz.append(float(line.split()[2])/0.529177249)
+        xyz.append(float(line.split()[3])/0.529177249)
+        xyz.append(float(line.split()[4])/0.529177249)
+        orig_coords.append(xyz)
+        xyz=[]
+        weights.append(atom_weights[line.split()[0][0]])
+    elif 'C1' in line:
+        start=1
 
 minrmsd=20.0
 
@@ -113,26 +155,13 @@ minrmsd=20.0
 for filename in os.listdir(directory):
     if filename.endswith(file_extension):
         full_path = os.path.join(directory, filename)
-        #full_path='ala0001.efp'
+        #full_path=directory+'/gly5817.efp'
         #print(f"Processing file: {full_path}")
         with open(full_path, "r") as term:
             terms = term.readlines()
 
     start=0
     xyz=[]
-    orig_coords=[]
-    for line in orgs:
-        if '$end' in line:
-            start=0
-        elif(start==1):
-            xyz.append(float(line.split()[2])/0.529177249)
-            xyz.append(float(line.split()[3])/0.529177249)
-            xyz.append(float(line.split()[4])/0.529177249)
-            orig_coords.append(xyz)
-            xyz=[]
-        elif 'C1' in line:
-            start=1
-    start=0
     term_coords=[]
     for line in terms:
         if 'BO21' in line:
@@ -150,18 +179,27 @@ for filename in os.listdir(directory):
     new_coords=np.array(term_coords)
     coords2=np.array(orig_coords)
     rotation_matrix, com1, com2 = kabsch_algorithm(new_coords, coords2)
-    aligned_new_coords = apply_transform(new_coords, rotation_matrix, com1,com2,coords2)
-    rmsd=(get_RMSD(aligned_new_coords,coords2))
+    aligned_new_coords = apply_transform(new_coords, rotation_matrix, com1,com2)
+    rmsd=(get_RMSD(aligned_new_coords,coords2,weights))
+    #print(rmsd)
     if(rmsd<minrmsd):
         minrmsd=rmsd
-        match=full_path
+        if(rmsd<cutoff):    
+            match=full_path
+            #break
+    #print(minrmsd)
 #%%
 
 #If good match found, transform that .efp to coords in .inp
 # Coords, dipoles, quadrupoles, octupoles, polarizable points and tensor
 # Monopoles and screen/screen2 do not need changed
 
-if(minrmsd<cutoff):
+#print(rmsd/1.8897259886, full_path, inp)
+#print(get_RMSD(aligned_new_coords,coords2,weights))
+#print(aligned_new_coords)
+#print(coords2)
+
+if(rmsd<cutoff):
     with open(match, "r") as efp:
         f0 = efp.readlines()
     start=0
@@ -278,4 +316,4 @@ if(minrmsd<cutoff):
             outfile.write(line1)
 else:
     with open('no_matches.txt','a') as outfile2:
-        outfile2.write(res)
+        outfile2.write(inp+'\n')

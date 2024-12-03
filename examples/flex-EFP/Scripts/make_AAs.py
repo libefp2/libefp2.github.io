@@ -12,38 +12,29 @@ molecules are treated with no virtual bonds (no broken bonds).
 import numpy as np
 import sys
 
-#efp_g96='shell_bchl361-79002.g96'
+#efp_g96='efp_pair53004.g96'
 efp_g96=sys.argv[1]
 with open(efp_g96, 'r') as inp:
     f0 = inp.readlines()
 
-#full_g96='bchl361-79002.g96'
+#full_g96='confout_pair53004.g96'
 full_g96=sys.argv[2]
 with open(full_g96, 'r') as g96:
     g0 = g96.readlines()
 
-#settings_file='user_set.txt'
+#settings_file='user_defined.txt'
 settings_file=sys.argv[3]
 
-#topol_file='topol.top'
+#topol_file='edit_topol.itp'
 topol_file=sys.argv[4]
 
 # Data and parameters
-Rings = [
-    'MG', 'CHA', 'CHB', 'HB', 'CHC', 'HC', 'CHD', 'HD', 'NA', 'C1A', 'C2A', 'H2A', 'C3A', 'H3A', 
-    'C4A', 'CMA', 'HMA1', 'HMA2', 'HMA3', 'NB', 'C1B', 'C2B', 'C3B', 'C4B', 'CMB', 'HMB1', 
-    'HMB2', 'HMB3', 'CAB', 'OBB', 'CBB', 'HBB1', 'HBB2', 'HBB3', 'NC', 'C1C', 'C2C', 'H2C', 
-    'C3C', 'H3C', 'C4C', 'CMC', 'HMC1', 'HMC2', 'HMC3', 'CAC', 'HAC1', 'HAC2', 'CBC', 'HBC1', 
-    'HBC2', 'HBC3', 'ND', 'C1D', 'C2D', 'C3D', 'C4D', 'CMD', 'HMD1', 'HMD2', 'HMD3', 'CAD', 
-    'OBD', 'CBD', 'HBD', 'CGD', 'O1D', 'O2D', 'CED', 'HED1', 'HED2', 'HED3'
-]
 
+#Charges of residues. NVAL and CGLN should be redundant, now. New logic assumes and N-terminal is +1 and
+# any C-terminal is -1. spec_AAs are residues that have non-zero charge, AA-charge is the dictionary with
+#that non-zero charge.
 AA_charge = {'ASP': '-1', 'GLU': '-1', 'NVAL': '1', 'HIP': '1', 'LYS': '1', 'ARG': '1', 'CGLN': '-1'}
 spec_AAs = ['ASP', 'GLU', 'NVAL', 'HIP', 'LYS', 'ARG', 'CGLN']
-CLA_resids = [
-    '359', '360', '361', '362', '363', '364', '365', '366', '725', '726', '727', '728', '729', '730', '731', '732',
-    '1091', '1092', '1093', '1094', '1095', '1096', '1097', '1098'
-]
 
 amino_acid_dict = {
     'ALA': 'a', 'ARG': 'r', 'ASN': 'n', 'ASP': 'd', 'CYS': 'c', 'GLN': 'q', 'GLU': 'e', 'GLY': 'g', 'HIS': 'h', 
@@ -110,6 +101,11 @@ def make_inp(fragment, QMs, POLs):
         return
     if fragment[4].split()[1] in spec_AAs:
         charge = AA_charge[fragment[4].split()[1]]
+    elif len(fragment[4].split()[1])==4:
+        if(fragment[4].split()[1][0]=='N'):
+            charge=1
+        elif(fragment[4].split()[1][0]=='C'):
+            charge=-1
     else:
         charge = '0'
     
@@ -271,7 +267,9 @@ for line in g0:
 
         if line.split()[0] == efp_resis[i]:
             if len(prev_co) > 1 and line.split()[1] in known_amino_acids:
-                frag.extend(prev_co)
+                #frag.extend(prev_co)
+                frag.append(prev_co[-2])
+                frag.append(prev_co[-1])
                 prev_co = []
             frag.append(line)
     elif 'POSITION' in line:
