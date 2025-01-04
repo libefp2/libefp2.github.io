@@ -1,0 +1,23 @@
+run_type opt
+coord points
+elec_damp screen
+disp_damp tt
+pol_damp tt
+fraglib_path ../fraglib
+
+fragment h2o_l
+  -3.394  -1.900  -3.700
+  -3.524  -1.089  -3.147
+  -2.544  -2.340  -3.445
+constraint
+  0.1  -3.0 -2.0 -3.0
+
+fragment nh3_l
+  -5.515   1.083   0.968
+  -5.161   0.130   0.813
+  -4.833   1.766   0.609
+
+fragment nh3_l
+   1.848   0.114   0.130
+   1.966   0.674  -0.726
+   0.909   0.273   0.517

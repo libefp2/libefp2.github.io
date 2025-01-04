@@ -2,7 +2,7 @@
 Welcome to EFP page!
 =====================================
 
-.. image:: ../images/libefp_logo.svg
+.. image:: ../images/libefp_logo.png
    :width: 600px
    :align: center
    :alt: EFP Overview
