@@ -243,20 +243,21 @@ def get_screen(lines,coords,title):
         if title in line:
             start=1
 
-def get_header(lines):
+def get_header(lines,input_name):
     header=[]
+    fragname=input_name.split('.')[0]
     for line in lines:
-        header.append(line)
+        header.append(line.replace('$FRAGNAME',fragname))
         #print(line)
         if 'COORDINATES (BOHR)' in line:
             return header
 
 def main(inp, efp):
-    with open(inp,'r') as inp:
-        inp_lines=inp.readlines()
-    with open(efp,'r') as efp:
-        efp_lines=efp.readlines()
-    header=get_header(efp_lines)
+    with open(inp,'r') as inp_:
+        inp_lines=inp_.readlines()
+    with open(efp,'r') as efp_:
+        efp_lines=efp_.readlines()
+    header=get_header(efp_lines,inp)
     rem_atoms, rem_pols = get_specials(inp_lines)
     keep_coords,rem_coords=get_coords(efp_lines,rem_atoms,rem_pols)
     keep_monop=get_monopoles(efp_lines,keep_coords)

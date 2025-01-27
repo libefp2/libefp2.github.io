@@ -180,4 +180,5 @@ def main(efp_g96, full_g96, topol):
 
 if __name__ == "__main__":
     main(sys.argv[1], sys.argv[2], sys.argv[3])
+    #main('efp_pair53004.g96','confout_pair53004.g96','edit_topol.itp')
     #    efp_structure, full_strucuter, topol.top
