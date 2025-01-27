@@ -7,11 +7,14 @@ FMO: Applied flexible EFP
 Overview
 --------
 
-As is the case with many photoactive proteins,computational methods struggle to reproduce 
-experimental spectra for the Fenna-Matthews-Olson complex (FMO). Work by 
+Computational methods struggle to reproduce experimental spectra in photoactive proteins.
+One such protein is the the Fenna-Matthews-Olson complex (FMO). Work by 
 `Kim et al <https://pubs.acs.org/doi/full/10.1021/acs.jpclett.9b03486>`_ shows that 
 flexible QM/EFP can be applied to FMO to correctly generate computational results in 
-quantitative agreement to experimental spectra. 
+quantitative agreement to experimental spectra. In short, the solvatochromic environments
+surrounding each bacteriochloropyll a (BChl a) pigment are heavily polarizable; EFP captures
+this polarizability explicitly where a standard QM/MM calculation will onyl approximate it,
+thus the polarizable environment is crucial to accurately model photosynthesis.
 
 The key to applying EFP to your system is to carefully define the active site and EFP region. 
 FMO is a trimeric protein with eight bacteriochloropyll a (BChl) pigments in each monomer. 

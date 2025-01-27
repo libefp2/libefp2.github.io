@@ -12,21 +12,21 @@ molecules are treated with no virtual bonds (no broken bonds).
 import numpy as np
 import sys
 
-#efp_g96='efp_pair53004.g96'
-efp_g96=sys.argv[1]
+efp_g96='efp_pair53004.g96'
+#efp_g96=sys.argv[1]
 with open(efp_g96, 'r') as inp:
     f0 = inp.readlines()
 
-#full_g96='confout_pair53004.g96'
-full_g96=sys.argv[2]
+full_g96='confout_pair53004.g96'
+#full_g96=sys.argv[2]
 with open(full_g96, 'r') as g96:
     g0 = g96.readlines()
 
-#settings_file='user_defined.txt'
-settings_file=sys.argv[3]
+settings_file='2user_defined.txt'
+#settings_file=sys.argv[3]
 
-#topol_file='edit_topol.itp'
-topol_file=sys.argv[4]
+topol_file='edit_topol.itp'
+#topol_file=sys.argv[4]
 
 # Data and parameters
 
@@ -97,7 +97,11 @@ def cut_frag(head, tail):
 def make_inp(fragment, QMs, POLs):
     """Generate input file for a fragment."""
     txt = []
-    if(len(QMs)==len(fragment)):
+    num_virtuals=0
+    for atom in fragment:
+        if 'H000' in atom:
+            num_virtuals+=1
+    if(len(QMs)+num_virtuals==len(fragment)):
         return
     if fragment[4].split()[1] in spec_AAs:
         charge = AA_charge[fragment[4].split()[1]]
@@ -182,7 +186,7 @@ qm_IDs, MM_remove = qm_atoms(settings_file)
 #removed. The middle MM atom will be removed entirely to avoid overlap with QM virtual hydrogens.
 pol_remove=[]
 for atom in MM_remove:
-    found_pol_remove=QM_MM_covalent(MM_remove[0],qm_IDs,topol_file)
+    found_pol_remove=QM_MM_covalent(atom,qm_IDs,topol_file)
     for bound_atom in found_pol_remove:
         pol_remove.append(bound_atom)
 
