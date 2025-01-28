@@ -9,10 +9,11 @@ Head and tail groups are separate fragments.
 """
 
 import numpy as np
+import sys
 
 #site='359'
-#g96_file=sys.argv[1]
-g96_file='efp_pair53004.g96'
+g96_file=sys.argv[1]
+#g96_file='efp_pair53004.g96'
 #site=sys.argv[2]
 
 tailside='C6'

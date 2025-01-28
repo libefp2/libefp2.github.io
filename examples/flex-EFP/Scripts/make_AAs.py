@@ -12,21 +12,21 @@ molecules are treated with no virtual bonds (no broken bonds).
 import numpy as np
 import sys
 
-efp_g96='efp_pair53004.g96'
-#efp_g96=sys.argv[1]
+#efp_g96='efp_pair53004.g96'
+efp_g96=sys.argv[1]
 with open(efp_g96, 'r') as inp:
     f0 = inp.readlines()
 
-full_g96='confout_pair53004.g96'
-#full_g96=sys.argv[2]
+#full_g96='confout_pair53004.g96'
+full_g96=sys.argv[2]
 with open(full_g96, 'r') as g96:
     g0 = g96.readlines()
 
-settings_file='2user_defined.txt'
-#settings_file=sys.argv[3]
+#settings_file='2user_defined.txt'
+settings_file=sys.argv[3]
 
-topol_file='edit_topol.itp'
-#topol_file=sys.argv[4]
+#topol_file='edit_topol.itp'
+topol_file=sys.argv[4]
 
 # Data and parameters
 
