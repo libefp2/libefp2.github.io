@@ -111,7 +111,7 @@ def make_inp(fragment, QMs, POLs):
         elif(fragment[4].split()[1][0]=='C'):
             charge=-1
     else:
-        charge = '0'
+        charge = 0
     
     if fragment[4].split()[1] in known_amino_acids:
         filename = amino_acid_dict[fragment[4].split()[1]] + '_' + fragment[4].split()[0] + '_' + fragment[0].split()[3] + '.inp'
