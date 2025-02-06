@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FMO: Applied flexible EFP &mdash; EFP documentation 0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css?v=995e94df" />
+      <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.min.css?v=21c0b90a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=10f1778b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EFP documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="learn_more.html">Learn more about EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">EFP gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cite_efp.html">How to reference EFP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP in a nutshell</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efp_parameter_databases.html">EFP parameter databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efp_calcs.html">EFP calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bioefp.html">BioEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flexible_efp.html">Flexible EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmefp.html">QM/EFP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software, tools, and tips</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="efpmd.html">LIBEFP/EFPMD user manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libefp.html">LibEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gamess.html">GAMESS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qchem.html">Q-Chem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psi4.html">PSI4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP bibliography</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="papers.html">General description of EFP method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#software-and-model-development">Software and model development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#applications">Applications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EFP documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FMO: Applied flexible EFP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/applied_efp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fmo-applied-flexible-efp">
+<span id="applied-efp"></span><h1>FMO: Applied flexible EFP<a class="headerlink" href="#fmo-applied-flexible-efp" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Computational methods struggle to reproduce experimental spectra in photoactive proteins.
+One such protein is the the Fenna-Matthews-Olson complex (FMO). Work by
+<a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jpclett.9b03486">Kim et al</a> shows that
+flexible QM/EFP can be applied to FMO to correctly generate computational results in
+quantitative agreement to experimental spectra. In short, the solvatochromic environments
+surrounding each bacteriochloropyll a (BChl a) pigment are heavily polarizable; EFP captures
+this polarizability explicitly where a standard QM/MM calculation will onyl approximate it,
+thus the polarizable environment is crucial to accurately model photosynthesis.</p>
+<p>The key to applying EFP to your system is to carefully define the active site and EFP region.
+FMO is a trimeric protein with eight bacteriochloropyll a (BChl) pigments in each monomer.
+FMO completes energy transfer via excitonic couplings across these eight BChls. A summary
+of the complete workflow that was performed is the following: 1) molecular dynamics (MD)
+simiulations of the FMO protein in water and counter ions, 2) QM/MM (not EFP) geometry
+optimization of <em>each</em> active site (active sites consist of one BChl pigment and
+typically 3 H-bonding amino acids), and 3) flex-EFP excited state energy calculations of
+each pigment.</p>
+<p>In the case of FMO, these steps must be repeated on several snapshots from MD to account
+for variation in the resting state of the structure, and the QM region must be defined
+carefully in both the QM/MM and flex-EFP stages. It might not be universally true that one
+must perform QM/MM geometry optimization. This page is a walkthrough for the flex-EFP procedure
+only. Molecular dynamics and QM/MM optimizations are assumed to be complete for your
+system prior to these steps.</p>
+<a class="reference internal image-reference" href="_images/FMO_trimer_BCLs.bmp"><img alt="_images/FMO_trimer_BCLs.bmp" src="_images/FMO_trimer_BCLs.bmp" style="width: 350px;" />
+</a>
+<a class="reference internal image-reference" href="_images/FMO_mon.bmp"><img alt="_images/FMO_mon.bmp" src="_images/FMO_mon.bmp" style="width: 400px;" />
+</a>
+<p>You will need a structure file (.g96) and topology information (.top, for atom charges). A structure file can be extracted
+from a GROMACS molecular dynamics trajectory and all water molecules more than 15 angstroms from the protein’s surface have
+been removed. For a chlorophyll-containing protein, you will likely want to optimize the geometry of each active chlorophyl
+molecule (with very close amino acids/water molecules) separately with more standard QM/MM approaches before proceeding
+with EFP calculations on the optimized geometry. For this example, the third BChl, residue number 361, has been optimized
+and will be the QM region for the EFP calcuation.</p>
+<a class="reference internal image-reference" href="_images/fmo_waters15a.bmp"><img alt="_images/fmo_waters15a.bmp" src="_images/fmo_waters15a.bmp" style="width: 400px;" />
+</a>
+<p>First, an EFP region must be defined. Every amino acid, (non QM) BChl, and water molecule containing an
+atom within 15 angstroms of the QM BChl headring.</p>
+<p>The headring is defined by the atomnames: <code class="docutils literal notranslate"><span class="pre">MG</span> <span class="pre">CHA</span> <span class="pre">CHB</span> <span class="pre">HB</span> <span class="pre">CHC</span> <span class="pre">HC</span> <span class="pre">CHD</span> <span class="pre">HD</span> <span class="pre">NA</span> <span class="pre">C1A</span> <span class="pre">C2A</span> <span class="pre">H2A</span> <span class="pre">C3A</span> <span class="pre">H3A</span> <span class="pre">C4A</span> <span class="pre">CMA</span> <span class="pre">HMA1</span> <span class="pre">HMA2</span> <span class="pre">HMA3</span> <span class="pre">NB</span> <span class="pre">C1B</span> <span class="pre">C2B</span> <span class="pre">C3B</span> <span class="pre">C4B</span> <span class="pre">CMB</span> <span class="pre">HMB1</span> <span class="pre">HMB2</span> <span class="pre">HMB3</span> <span class="pre">CAB</span> <span class="pre">OBB</span> <span class="pre">CBB</span> <span class="pre">HBB1</span> <span class="pre">HBB2</span> <span class="pre">HBB3</span> <span class="pre">NC</span> <span class="pre">C1C</span> <span class="pre">C2C</span> <span class="pre">H2C</span> <span class="pre">C3C</span> <span class="pre">H3C</span> <span class="pre">C4C</span> <span class="pre">CMC</span> <span class="pre">HMC1</span> <span class="pre">HMC2</span> <span class="pre">HMC3</span> <span class="pre">CAC</span> <span class="pre">HAC1</span> <span class="pre">HAC2</span> <span class="pre">CBC</span> <span class="pre">HBC1</span> <span class="pre">HBC2</span> <span class="pre">HBC3</span> <span class="pre">ND</span> <span class="pre">C1D</span> <span class="pre">C2D</span> <span class="pre">C3D</span> <span class="pre">C4D</span> <span class="pre">CMD</span> <span class="pre">HMD1</span> <span class="pre">HMD2</span> <span class="pre">HMD3</span> <span class="pre">CAD</span> <span class="pre">OBD</span> <span class="pre">CBD</span> <span class="pre">HBD</span> <span class="pre">CGD</span> <span class="pre">O1D</span> <span class="pre">O2D</span> <span class="pre">CED</span> <span class="pre">HED1</span> <span class="pre">HED2</span> <span class="pre">HED3</span></code></p>
+<p>The headring surrounded by the EFP region looks like this:</p>
+<a class="reference internal image-reference" href="_images/tester.bmp"><img alt="_images/tester.bmp" src="_images/tester.bmp" style="width: 400px;" />
+</a>
+<p>As you can see, the solvatochromic environment of each BChl is overwhelming as an ensemble. The mission of EFP is to break this
+complex environment into each contributing “fragment.” Then, the most important (highest contributing) fragments can be isolated.
+The final calculations allow us to look at a focused version of the environment like the image below:</p>
+<a class="reference internal image-reference" href="_images/surf_efp2.bmp"><img alt="_images/surf_efp2.bmp" src="_images/surf_efp2.bmp" style="width: 400px;" />
+</a>
+<p>Each fragment induces a shift to the BChl excited state energy. Pairwise excitation energy decomposition reveals the magnitude and
+direction (ie, blue or red shift) that each fragment induces to a given BChl molecule. Thus, EFP can offer insight of the inner-workings
+of solvatochromic control over the protein’s optical spectra.</p>
+</section>
+<section id="structure-preparation">
+<h2>Structure Preparation<a class="headerlink" href="#structure-preparation" title="Link to this heading"></a></h2>
+<p>Extract a single snapshot of MD extracted from GROMACS ie: <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">traj</span> <span class="pre">-f</span> <span class="pre">md_50.trr</span> <span class="pre">-s</span> <span class="pre">md_50.tpr</span> <span class="pre">-o</span> <span class="pre">bchl361-79002.g96</span></code>(.g6 format).
+Please note that extracting larger systems can occasionally cause columns to be misaligned due to the residue ID number passing from 9999 to 10000.
+This misalignemnt can make the structure appear strangely in VMD or other visualizers (ie, you will see “sheets” of waters with coordinates
+read incorrectly). Though it shouldn’t matter, you can fix the problem by realigning the columns.
+<a class="reference external" href="../examples/flex-EFP/Scripts/format.py">Here</a> is an example of a script that can do this with an output file of <code class="docutils literal notranslate"><span class="pre">formed_bchl361-79002.g96</span></code>.</p>
+<p>Now, we need to know which amino acids, cofactors, and water molecules constitute the EFP region. One method to find this is to
+make use of the <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">select</span></code> command, but this will take a bit of footwork. You will need to create an index file
+that defines the BChl head ring group for reference in gmx selections. The code below will generate this index file with the default
+name <code class="docutils literal notranslate"><span class="pre">index.ndx</span></code>; index.ndx contains all standard GROMACS index groups (system, protein, etc), with one final nonstandard group, ‘headring’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">gmx</span> <span class="n">make_ndx</span> <span class="o">-</span><span class="n">f</span> <span class="n">formed_bchl361</span><span class="o">-</span><span class="mf">79002.</span><span class="n">g96</span> <span class="o">&lt;&lt;</span><span class="n">EOF</span>
+<span class="linenos">2</span><span class="n">r</span> <span class="mi">361</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="n">MG</span> <span class="n">CHA</span> <span class="n">CHB</span> <span class="n">HB</span> <span class="n">CHC</span> <span class="n">HC</span> <span class="n">CHD</span> <span class="n">HD</span> <span class="n">NA</span> <span class="n">C1A</span> <span class="n">C2A</span> <span class="n">H2A</span> <span class="n">C3A</span> <span class="n">H3A</span> <span class="n">C4A</span> <span class="n">CMA</span> <span class="n">HMA1</span> <span class="n">HMA2</span> <span class="n">HMA3</span> <span class="n">NB</span> <span class="n">C1B</span> <span class="n">C2B</span> <span class="n">C3B</span> <span class="n">C4B</span> <span class="n">CMB</span> <span class="n">HMB1</span> <span class="n">HMB2</span> <span class="n">HMB3</span> <span class="n">CAB</span> <span class="n">OBB</span> <span class="n">CBB</span> <span class="n">HBB1</span> <span class="n">HBB2</span> <span class="n">HBB3</span> <span class="n">NC</span> <span class="n">C1C</span> <span class="n">C2C</span> <span class="n">H2C</span> <span class="n">C3C</span> <span class="n">H3C</span> <span class="n">C4C</span> <span class="n">CMC</span> <span class="n">HMC1</span> <span class="n">HMC2</span> <span class="n">HMC3</span> <span class="n">CAC</span> <span class="n">HAC1</span> <span class="n">HAC2</span> <span class="n">CBC</span> <span class="n">HBC1</span> <span class="n">HBC2</span> <span class="n">HBC3</span> <span class="n">ND</span> <span class="n">C1D</span> <span class="n">C2D</span> <span class="n">C3D</span> <span class="n">C4D</span> <span class="n">CMD</span> <span class="n">HMD1</span> <span class="n">HMD2</span> <span class="n">HMD3</span> <span class="n">CAD</span> <span class="n">OBD</span> <span class="n">CBD</span> <span class="n">HBD</span> <span class="n">CGD</span> <span class="n">O1D</span> <span class="n">O2D</span> <span class="n">CED</span> <span class="n">HED1</span> <span class="n">HED2</span> <span class="n">HED3</span>
+<span class="linenos">3</span><span class="n">name</span> <span class="mi">26</span> <span class="n">Headring</span>
+<span class="linenos">4</span><span class="n">q</span>
+<span class="linenos">5</span><span class="n">EOF</span>
+</pre></div>
+</div>
+<p>Here is a visualization of atoms contained in the newly created index group:</p>
+<a class="reference internal image-reference" href="_images/361_headring.bmp"><img alt="_images/361_headring.bmp" src="_images/361_headring.bmp" style="width: 400px;" />
+</a>
+<p>Note: the QM region will include the entire BChl, but the EFP region will be defined by distance to this ring group
+only.</p>
+<p>The EFP region should be composed of all residues that contain at least one atom within 15 angstoms of the headring.
+A new .g96 can be made using the command: <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">select</span> <span class="pre">-s</span> <span class="pre">md_80.tpr</span> <span class="pre">-n</span> <span class="pre">index.ndx</span> <span class="pre">-f</span> <span class="pre">bchl361-79002.g96</span> <span class="pre">-select</span>
+<span class="pre">'same</span> <span class="pre">residue</span> <span class="pre">as</span> <span class="pre">within</span> <span class="pre">1.5</span> <span class="pre">of</span> <span class="pre">group</span> <span class="pre">&quot;Headring&quot;'</span> <span class="pre">-on</span> <span class="pre">shell_index.ndx</span></code>.
+This looks for any atom within our cutoff (1.5 because GROMACS standard units are nm), then accepts every atom belonging to
+the same residue as the found atom and adds these to the selection. The output of the command is named shell_index.ndx, which as the
+extension implies, is another index file. This file has exactly one index group that is the EFP region.</p>
+<p>Now, <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">editconf</span> <span class="pre">-f</span> <span class="pre">formed_bchl361-79002.g96</span> <span class="pre">-n</span> <span class="pre">shell_index.ndx</span> <span class="pre">-o</span> <span class="pre">shell_bchl361-79002.g96</span></code> creates a new structure
+file of the EFP region only. Note that you do not need to specify group output because the .ndx file only contains one group.
+The structure should look like the ‘desired EFP region’ shared above on this page (in the Overview section).</p>
+<p>The following scripts require a user-defined text file that lists which atoms will be included in the QM region, and
+any pair of atoms that form a covalent bond across the division of the QM and MM regions. The QM region for this structure will
+of course include atoms from the BCL residue 361, but we will also include atoms from the nearby histidine that coordinates the
+BCL magnesium atom shown below.</p>
+<a class="reference internal image-reference" href="_images/qm_region.bmp"><img alt="_images/qm_region.bmp" src="_images/qm_region.bmp" style="width: 400px;" />
+</a>
+<p>This shows the entire residue 361 (BCL) and 290 (HIS), however, we only want to include the side chain of this histidine.
+In other words, atoms that extend down the side chain after the alpha-carbon should be included in the QM region, and the
+backbone atoms should remain in the EFP region. That division looks like this:</p>
+<a class="reference internal image-reference" href="_images/qm_w_cut.bmp"><img alt="_images/qm_w_cut.bmp" src="_images/qm_w_cut.bmp" style="width: 400px;" />
+</a>
+<p>This is a tricky problem. To generate the fragment parameters, we will need an input file with every atom in the
+amino acid. After we have obtained an efp file with the full fragment’s parameters, the QM atoms will be stripped out.
+Now, this creates a second issue. The QM region must be capped with a virtual hydrogen, so the result looks like this:</p>
+<a class="reference internal image-reference" href="_images/qm_capped.bmp"><img alt="_images/qm_capped.bmp" src="_images/qm_capped.bmp" style="width: 400px;" />
+</a>
+<p>There is now a virtual hydrogen resting in roughly the same position as the the alpha-carbon (that is in the EFP region).
+When the efp parameter file for residue 290 is created, the QM atoms and the alpha-carbon will be stripped, and the
+EFP atoms bound to the alpha-carbon will have their multipoles and polarization points removed. The following scripts need
+some information from the user to correctly handle these fragments. A text file listing every atom to be included in the
+QM region, and every pair of atoms that form a covalent bond in which one atom is in the QM region and the other is in the
+EFP(MM) region. The format should be the same as the g96 file; ie, copy and paste the lines of your atoms from the structure
+file directly. The result should look like <a class="reference external" href="../examples/flex-EFP/Scripts/user_defined.txt">this example.</a></p>
+<p>Please note that the boundaries must have the QM atom listed first. This example contains only one QM-MM boundary, but a
+second could be included in the following way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">QM</span><span class="o">-</span><span class="n">MM</span>
+<span class="linenos">2</span><span class="n">boundary</span> <span class="mi">1</span>
+<span class="linenos">3</span>  <span class="mi">290</span> <span class="n">HID</span>   <span class="n">CB</span>      <span class="mi">4423</span>    <span class="mf">7.642829418</span>    <span class="mf">5.747635365</span>    <span class="mf">6.631662846</span>
+<span class="linenos">4</span>  <span class="mi">290</span> <span class="n">HID</span>   <span class="n">CA</span>      <span class="mi">4421</span>    <span class="mf">7.514162540</span>    <span class="mf">5.827141285</span>    <span class="mf">6.594927311</span>
+<span class="linenos">5</span><span class="n">boundary</span> <span class="mi">2</span>
+<span class="linenos">6</span>  <span class="mi">290</span> <span class="n">HID</span>   <span class="n">CB</span>      <span class="mi">4423</span>    <span class="mf">7.642829418</span>    <span class="mf">5.747635365</span>    <span class="mf">6.631662846</span>
+<span class="linenos">7</span>  <span class="mi">290</span> <span class="n">HID</span>   <span class="n">HB1</span>     <span class="mi">4424</span>    <span class="mf">7.690435886</span>    <span class="mf">5.791911602</span>    <span class="mf">6.719151974</span>
+</pre></div>
+</div>
+</section>
+<section id="fragmentation">
+<h2>Fragmentation<a class="headerlink" href="#fragmentation" title="Link to this heading"></a></h2>
+<p>The protein residues within the 15 angstrom cutoff must be expressed individually. Because amino acids are a continuous chain,
+covalent bonds between neighboring amino acids have to be broken. Chemically, we would like to break the C-C backbone bond,
+however, standard PDB convention divides residues by the C-N bond. To change this, ‘C’ and ‘O’ atom names are included in
+the following aminoc acid. This way the ‘C’ and ‘CA’ (carbonyl carbon and alpha carbon respectively) bond is the division
+between bonded fragments. See the examples below.</p>
+<p>PDB residues are divided like this:</p>
+<a class="reference internal image-reference" href="_images/pdb_67_col.bmp"><img alt="_images/pdb_67_col.bmp" src="_images/pdb_67_col.bmp" style="width: 400px;" />
+</a>
+<p>For EFP, we would rather these two fragments look like this:</p>
+<a class="reference internal image-reference" href="_images/efp_67_col.bmp"><img alt="_images/efp_67_col.bmp" src="_images/efp_67_col.bmp" style="width: 400px;" />
+</a>
+<p>The atom coordinates are contained in the structure file, but they do not completely ‘agree’ with the amino
+acid numbering. Below is a snippet from the structure file with the EFP fragment 8 highlighted. Note that atom
+names ‘C’ and ‘O’ are included in the following fragment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">N</span>         <span class="mi">75</span>    <span class="mf">8.321870804</span>    <span class="mf">4.485276699</span>    <span class="mf">7.284091473</span>
+<span class="linenos"> 2</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">H</span>         <span class="mi">76</span>    <span class="mf">8.350618362</span>    <span class="mf">4.454034328</span>    <span class="mf">7.375734806</span>
+<span class="linenos"> 3</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">CA</span>        <span class="mi">77</span>    <span class="mf">8.417644501</span>    <span class="mf">4.567386150</span>    <span class="mf">7.205451488</span>
+<span class="linenos"> 4</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">HA</span>        <span class="mi">78</span>    <span class="mf">8.419803619</span>    <span class="mf">4.528203011</span>    <span class="mf">7.103761196</span>
+<span class="linenos"> 5</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">CB</span>        <span class="mi">79</span>    <span class="mf">8.368366241</span>    <span class="mf">4.711947441</span>    <span class="mf">7.193405628</span>
+<span class="linenos"> 6</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">HB1</span>       <span class="mi">80</span>    <span class="mf">8.269208908</span>    <span class="mf">4.708506584</span>    <span class="mf">7.148269176</span>
+<span class="linenos"> 7</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">HB2</span>       <span class="mi">81</span>    <span class="mf">8.421850204</span>    <span class="mf">4.761358261</span>    <span class="mf">7.112295628</span>
+<span class="linenos"> 8</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">OG</span>        <span class="mi">82</span>    <span class="mf">8.367326736</span>    <span class="mf">4.794726372</span>    <span class="mf">7.312560558</span>
+<span class="linenos"> 9</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">HG</span>        <span class="mi">83</span>    <span class="mf">8.454633713</span>    <span class="mf">4.832594395</span>    <span class="mf">7.325180531</span>
+<span class="hll"><span class="linenos">10</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">C</span>         <span class="mi">84</span>    <span class="mf">8.560445786</span>    <span class="mf">4.558277130</span>    <span class="mf">7.268922329</span>
+</span><span class="hll"><span class="linenos">11</span>    <span class="mi">6</span> <span class="n">SER</span>   <span class="n">O</span>         <span class="mi">85</span>    <span class="mf">8.572677612</span>    <span class="mf">4.533203125</span>    <span class="mf">7.387583256</span>
+</span><span class="hll"><span class="linenos">12</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">N</span>         <span class="mi">86</span>    <span class="mf">8.663642883</span>    <span class="mf">4.582690239</span>    <span class="mf">7.183378696</span>
+</span><span class="hll"><span class="linenos">13</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">H</span>         <span class="mi">87</span>    <span class="mf">8.638984680</span>    <span class="mf">4.619784832</span>    <span class="mf">7.092730999</span>
+</span><span class="hll"><span class="linenos">14</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">CA</span>        <span class="mi">88</span>    <span class="mf">8.804636002</span>    <span class="mf">4.563919544</span>    <span class="mf">7.209733486</span>
+</span><span class="hll"><span class="linenos">15</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">HA</span>        <span class="mi">89</span>    <span class="mf">8.821094513</span>    <span class="mf">4.593161583</span>    <span class="mf">7.313438892</span>
+</span><span class="hll"><span class="linenos">16</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">CB</span>        <span class="mi">90</span>    <span class="mf">8.842021942</span>    <span class="mf">4.416758537</span>    <span class="mf">7.207666874</span>
+</span><span class="hll"><span class="linenos">17</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">HB1</span>       <span class="mi">91</span>    <span class="mf">8.802436829</span>    <span class="mf">4.372995377</span>    <span class="mf">7.116020679</span>
+</span><span class="hll"><span class="linenos">18</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">HB2</span>       <span class="mi">92</span>    <span class="mf">8.804891586</span>    <span class="mf">4.358578205</span>    <span class="mf">7.292031765</span>
+</span><span class="hll"><span class="linenos">19</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">CG</span>        <span class="mi">93</span>    <span class="mf">8.994537354</span>    <span class="mf">4.388171196</span>    <span class="mf">7.197051525</span>
+</span><span class="hll"><span class="linenos">20</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">OD1</span>       <span class="mi">94</span>    <span class="mf">9.062387466</span>    <span class="mf">4.408482552</span>    <span class="mf">7.298908710</span>
+</span><span class="hll"><span class="linenos">21</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">OD2</span>       <span class="mi">95</span>    <span class="mf">9.046514511</span>    <span class="mf">4.348608971</span>    <span class="mf">7.086165905</span>
+</span><span class="linenos">22</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">C</span>         <span class="mi">96</span>    <span class="mf">8.905342102</span>    <span class="mf">4.655499458</span>    <span class="mf">7.132633686</span>
+<span class="linenos">23</span>    <span class="mi">7</span> <span class="n">ASP</span>   <span class="n">O</span>         <span class="mi">97</span>    <span class="mf">8.919197083</span>    <span class="mf">4.634913445</span>    <span class="mf">7.010179996</span>
+</pre></div>
+</div>
+<p>The script <code class="docutils literal notranslate"><span class="pre">make_AAs.py</span></code> accomplishes this. A sample execution is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">make_AAs.py</span> <span class="pre">shell_bchl361-79002.g96</span> <span class="pre">bchl361-79002.g96</span> <span class="pre">user_defined.txt</span> <span class="pre">topol.top</span></code></p>
+<p>This script creates an input file for each fragment in the EFP region. The names take information from the fragment;
+For example, v_22_301.inp is a valine residue (v), residue number 22, and the first atom of this fragment has an atom
+ID of 301. Histidine residues are denoted <a href="#id5"><span class="problematic" id="id6">hd_</span></a>, he, or <a href="#id7"><span class="problematic" id="id8">hp_</span></a> depending on protonation states, and non-standard amino acids
+are listed as the same residue name given in the g96 structure file (ie, bcl_360_5667.inp for the BCL res number 360).
+Virtual hydrogens are added automatically to amino acid fragments with an atom name H000. Non amino acids fragments are
+not capped by default. If a fragment cnotains QM atoms, the atom names will be added to the comment at the end of the file.
+See below the input file for HIS 290 (hd_290_4417.inp):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> $contrl units=angs local=boys runtyp=makefp 
+<span class="linenos"> 2</span>       mult=1 icharg=0 coord=cart icut=11 $end
+<span class="linenos"> 3</span> $system timlim=99999 mwords=200 $end
+<span class="linenos"> 4</span> $scf soscf=.f. dirscf=.t. diis=.t. CONV=1.0d-06 $end
+<span class="linenos"> 5</span> $basis gbasis=n31 ngauss=6 ndfunc=1 $end
+<span class="linenos"> 6</span> $DAMP IFTTYP(1)=2,0 IFTFIX(1)=1,1 thrsh=500.0 $end
+<span class="linenos"> 7</span> $MAKEFP POL=.t. DISP=.f. CHTR=.f. EXREP=.f. $end
+<span class="linenos"> 8</span> $data
+<span class="linenos"> 9</span> hd_290_4417
+<span class="linenos">10</span> C1
+<span class="linenos">11</span> C    6.0      74.77875233       60.31275272       64.73697186
+<span class="linenos">12</span> O    8.0      73.73520374       59.84195232       64.28843975
+<span class="linenos">13</span> N    7.0      75.60393810       59.59977150       65.51030636
+<span class="linenos">14</span> H    1.0      76.44154072       60.08422375       65.79982281
+<span class="linenos">15</span> CA   6.0      75.14162540       58.27141285       65.94927311
+<span class="linenos">16</span> HA   1.0      74.66980457       57.75234222       65.11497974
+<span class="linenos">17</span> CB   6.0      76.42829418       57.47635365       66.31662846
+<span class="linenos">18</span> HB1  1.0      76.90435886       57.91911602       67.19151974
+<span class="linenos">19</span> HB2  1.0      77.02376842       57.34309196       65.41343212
+<span class="linenos">20</span> CG   6.0      76.16473675       56.02392197       66.75217152
+<span class="linenos">21</span> ND1  7.0      75.64018726       55.49627781       67.90104389
+<span class="linenos">22</span> HD1  1.0      75.26696682       56.08877659       68.62887859
+<span class="linenos">23</span> CE1  6.0      75.73244572       54.17556286       67.87623882
+<span class="linenos">24</span> HE1  1.0      75.25365353       53.56580257       68.62813473
+<span class="linenos">25</span> NE2  7.0      76.30198002       53.75784874       66.71539783
+<span class="linenos">26</span> CD2  6.0      76.59914494       54.95519638       66.06870174
+<span class="linenos">27</span> HD2  1.0      77.29931355       54.98696804       65.24702549
+<span class="linenos">28</span> H000 1.0      74.94270842       61.35706426       64.52140121
+<span class="linenos">29</span> H000 1.0      74.42844016       58.29696791       66.75837919
+<span class="linenos">30</span> $end 
+<span class="hll"><span class="linenos">31</span>!comment atoms to be erased: CA CB HB1 HB2 CG ND1 HD1 CE1 HE1 NE2 CD2 HD2
+</span><span class="hll"><span class="linenos">32</span>!polarization points to remove: N HA
+</span></pre></div>
+</div>
+<p>Note that CA is the alpha-carbon, and is not a QM atom. However, CA is bound to a QM atom, and will be removed from the
+paramter file in a later step. If a residue contains only QM atoms, no input file will be created (no <a href="#id9"><span class="problematic" id="id10">bcl_360_</span></a>.inp file
+in this case).</p>
+</section>
+<section id="database-comparison">
+<h2>Database Comparison<a class="headerlink" href="#database-comparison" title="Link to this heading"></a></h2>
+<p>EFP input files are now generated and the paramters can be calculated. To avoid computing every fragment’s gasphase
+parameters directly, each fragment is compared to a database of pre-computed parameters of the same amino acid. If
+the RMSD between the two structures is sufficiently small, then the parameters are good enough for the initial
+representation of the fragment wavefunction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fragment_RMSD.py</span> <span class="pre">a_4_45.inp</span></code></p>
+<p>This execution will read the given file, a_4_45.inp and compute the RMSD with each .efp file it can find in a given
+directory. For example, the path to the .efp database in this tutorial is given as
+<code class="docutils literal notranslate"><span class="pre">/depot/lslipche/data/yb_boss/flexible_efp/efpdb/ala/</span></code>. The final folder, ala/, does not need to be specified, but
+will be automatically filled as a desination given the input file starts with “a.” In other words, if you use this
+script, you should replace the directory variable with your folder names, then have the final folder(s) be named
+by the amino acid name (ie, ala/, cys/, thr/, etc). The desired RMSD cutoff (minimum to be considered a good match)
+is listed at the start of the file, and can be adjusted easily.</p>
+<p>If no suitable match is found in the database, a text file will be created named <code class="docutils literal notranslate"><span class="pre">no_matches.txt</span></code>, and an .efp file
+will not be created. If you need to repeat this step, delete this text file to avoid confusion. The simplest way to
+use this script for you entire EFP region is to make a bash script to iterate through every <a href="#id1"><span class="problematic" id="id2">*</span></a>.inp file and execute
+fragment_RMSD.py <a href="#id3"><span class="problematic" id="id4">*</span></a>.inp. Note that if no database folder is found, or if the input is not a standard, non-terminal
+amino acid, then the python script will return an error. These special cases will need to be computed individually.</p>
+</section>
+<section id="non-amino-acids-and-cofactors">
+<h2>Non-Amino Acids and Cofactors<a class="headerlink" href="#non-amino-acids-and-cofactors" title="Link to this heading"></a></h2>
+<p>The previous script is good for a fragmentation scheme that includes amino acids and full molecules. Sometimes it is
+desirable to fragment large molecules further. In FMO, the full bacteriochloropylls can have trouble converging
+as whole molecules, so they will be split into two fragments. Note that make_AAs.py creates fragments for the Bchls,
+but it creates one fragment for the entire residue, and these will not be used in the final calculation of this example.
+Below is the division of the head and tail groups:</p>
+<a class="reference internal image-reference" href="_images/efp_headtail.bmp"><img alt="_images/efp_headtail.bmp" src="_images/efp_headtail.bmp" style="width: 400px;" />
+</a>
+<p>The script <code class="docutils literal notranslate"><span class="pre">make_bchls.py</span></code> creates two fragment input files for each Bchl molecule according to that division,
+and it can be executed by:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">make_bchls.py</span> <span class="pre">shell_bchl361-79002.g96</span> <span class="pre">361</span></code></p>
+<p>This script is hard-coded for the FMO system. Generally, cofactors should not need to be split into multiple fragments,
+but chlorophyll molecules can be troublesome. If you need to split a group like this for you system, you can edit the
+“Headrings” list to include every atom name that one file should include, then the omitted names will be used to make
+the other file.</p>
+</section>
+<section id="the-classical-region-fragment">
+<h2>The Classical Region Fragment<a class="headerlink" href="#the-classical-region-fragment" title="Link to this heading"></a></h2>
+<p>The EFP parameter files are finished. Now, a new fragment will be created with the remaining classical atoms. That
+is, every atom that is not in the QM or EFP regions. <code class="docutils literal notranslate"><span class="pre">make_mm.py</span></code> reads the structure of the EFP region only, the full
+structure, and the topology to create an efp parameter file. This classical region “fragment” is like a normal parameter
+file, but it only contains coordinates, monopoles, and screen sections; it does not the contain dipole, quadrupole,
+octupole, and polarization point sections. Sample execution:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">make_MM.py</span> <span class="pre">shell_bchl361-79002.g96</span> <span class="pre">bchl361-79002.g96</span> <span class="pre">topol.top</span></code></p>
+<p>The topology file is necessary for atomic charges, and both structure files are read so that only MM atoms will be
+included (both QM and EFP atoms are omitted).</p>
+</section>
+<section id="stripping-qm-atoms-from-efp-files">
+<h2>Stripping QM atoms from EFP files<a class="headerlink" href="#stripping-qm-atoms-from-efp-files" title="Link to this heading"></a></h2>
+<p>Some of the fragment parameter files contain atoms that are also in the QM region. Additionally, when a QM virtual
+hydrogen is added to replace the bond of an EFP atom, that EFP atom is overlapped with the virtual hydrogen. The
+overlapping EFP atom should be removed to avoid sporatic effects to the QM region. EFP atoms that are bound to
+the removed atom will also have their multipoles and polarization points removed. The coordinates, monopoles,
+and dampening (screen) terms are retained.</p>
+<p>A sample execution is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">cut_qm.py</span> <span class="pre">hd_290_4417.inp</span> <span class="pre">hd_290_4417.efp</span></code></p>
+<p>ala_33_473.inp is an alanine fragment with QM atoms commented to be deleted and EFP atoms to have polarization
+points removed. a0001.efp is a parameter file that is either the output of the input file, or translated
+information from a database parameter file to align with the input’s coordinates.</p>
+</section>
+<section id="final-input-generation">
+<h2>Final Input Generation<a class="headerlink" href="#final-input-generation" title="Link to this heading"></a></h2>
+<p>&lt;Coming very very soon&gt;</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
