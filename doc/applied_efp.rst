@@ -32,7 +32,7 @@ The general procedure is to define the QM and EFP regions, fragment the residues
 EFP region, generate the starting fragment parameters, trim overlapping virtual/real atoms, 
 then create the final calculation input.
 
-.. image:: ../images/flowchart.pdf
+.. image:: ../images/flowchart.png
    :width: 500
 
 You will need a structure file (.g96), a topology file (.top), and a binary input from molecular dynamics (.tpr). A structure file can be extracted 
