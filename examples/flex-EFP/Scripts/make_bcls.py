@@ -21,7 +21,7 @@ import sys
 # Input files and cutting definitions
 # ---------------------------
 # Command-line arguments:
-# Sample execution: python make_bcls_V2.py efp_opt_83855.g96 optimized_83855.g96
+# Sample execution: python make_bcls.py efp_opt_83855.g96 optimized_83855.g96
 g96_file = sys.argv[1]        # EFP region file (e.g., "efp_opt_83855.g96")
 full_g96_file = sys.argv[2]   # Full configuration file (e.g., "optimized_83855.g96")
 
