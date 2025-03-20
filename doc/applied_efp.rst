@@ -24,9 +24,11 @@ calculation like the one this walthrough will details.
 
 .. image:: ../images/FMO_trimer_BCLs.bmp
    :width: 350
+   :align: center
    
 .. image:: ../images/FMO_mon.bmp
    :width: 400
+   :align: center
 
 The general procedure is to define the QM and EFP regions, fragment the residues in the 
 EFP region, generate the starting fragment parameters, trim overlapping virtual/real atoms, 
@@ -34,6 +36,7 @@ then create the final calculation input.
 
 .. image:: ../images/flowchart-1.png
    :width: 500
+   :align: center
 
 You will need a structure file (.g96), a topology file (.top), and a binary input from molecular dynamics (.tpr). A structure file can be extracted 
 from a GROMACS molecular dynamics trajectory. In this example, water molecules more than 15 angstroms from the protein's surface have 
@@ -44,6 +47,7 @@ and will be the QM region for the EFP calcuation.
 
 .. image:: ../images/fmo_waters15a.bmp
    :width: 400
+   :align: center
 
 Structure Preparation
 =====================
@@ -57,6 +61,7 @@ The headring surrounded by the EFP region looks like this:
 
 .. image:: ../images/tester.bmp
    :width: 400
+   :align: center
    
 As you can see, the solvatochromic environment of each BChl is an overwhelming ensemble. The mission of EFP is to break this 
 complex environment into each contributing "fragment." Then, those fragments can be analyzed by individual contribution. 
@@ -64,6 +69,7 @@ The final calculation allows us to look at a focused version of the environment 
 
 .. image:: ../images/surf_efp2.bmp
    :width: 400
+   :align: center
 
 Each fragment induces a shift to the BChl excited state energy. Pairwise excitation energy decomposition reveals the magnitude and 
 direction (ie, blue or red shift) that each fragment induces to a given BChl molecule. Thus, EFP can offer deeper insight into the 
@@ -87,6 +93,7 @@ Here is a visualization of atoms contained in the newly created index group:
 
 .. image:: ../images/361_headring.bmp
    :width: 400
+   :align: center
 
 Note: the QM region will include the entire BChl, but the EFP region will be defined by distance to this ring group 
 only.
@@ -109,6 +116,7 @@ BCL magnesium atom shown below.
 
 .. image:: ../images/qm_region.bmp
    :width: 400
+   :align: center
 
 This shows the entire residue 361 (BCL) and 290 (HIS), however, we only want to include the side chain of this histidine. 
 In other words, atoms that extend down the side chain after the alpha-carbon should be included in the QM region, and the 
@@ -116,6 +124,7 @@ backbone atoms should remain in the EFP region. That division looks like this:
 
 .. image:: ../images/qm_w_cut.bmp
    :width: 400
+   :align: center
 
 This is a tricky problem. To generate the fragment parameters, we will need an input file with every atom in the 
 amino acid. After we have obtained an efp file with the full fragment's parameters, the QM atoms will be stripped out.
@@ -123,6 +132,7 @@ Now, this creates a second issue. The QM region must be capped with a virtual hy
 
 .. image:: ../images/qm_capped.bmp
    :width: 400
+   :align: center
 
 There will be a virtual hydrogen resting in roughly the same position as the the alpha-carbon (that is in the EFP region, NOT 
 the QM region). When the efp parameter file for residue 290 is created later, the QM atoms and the alpha-carbon will be stripped, 
@@ -151,11 +161,13 @@ PDB residues are divided like this:
 
 .. image:: ../images/pdb_67_col.bmp
    :width: 400
+   :align: center
 
 For EFP, we would rather these two fragments look like this:
 
 .. image:: ../images/efp_67_col.bmp
    :width: 400
+   :align: center
 
 The atom coordinates are contained in the structure file, but they do not completely 'agree' with the amino 
 acid numbering. Below is a snippet from the structure file (.g96) with the EFP fragment 8 highlighted. Note that atom 
@@ -197,6 +209,7 @@ molecule input files made from make_AA.py). Below is the division of the head an
 
 .. image:: ../images/efp_headtail.bmp
    :width: 400
+   :align: center
 
 The script ``make_bchls.py`` creates two fragment input files for each Bchl molecule according to that division. Virtual 
 hydrogens are added where the two are normally covalently bound, much like the case for the amino acid backbone bonds. The 
