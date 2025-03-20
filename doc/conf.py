@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'EFP documentation'
-copyright = '2020-2024'
+copyright = '2020-2025'
 author = 'Lyudmila Slipchenko'
 
 # The full version, including alpha/beta/rc tags
@@ -30,6 +30,9 @@ release = '0.2'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
+#extensions = [
+#    'sphinx.ext.autosectionlabel', 'sphinx_rtd_theme',
+#]
 extensions = [
     'sphinx.ext.autosectionlabel', 'sphinx_rtd_theme', 'sphinx_panels',
 ]

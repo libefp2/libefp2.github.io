@@ -38,7 +38,7 @@ An example of GAMESS input file for computing EFP parameters :download:`makefp.i
   :linenos:
 
 `.efp` parameter file
----------------------
+----------------------
 
 .. note:: `.efp` file follows general GAMESS input file conventions:
 
@@ -333,6 +333,11 @@ In the example below, ``$FRAGNAME`` (``$nh3`` in this case), ``COORDINATES``, ``
   :lines: 328-360
   :emphasize-lines: 1, 3, 24, 28
 
+.. _additional efp keywords
+
+Additional `.efp` parameters
+-----------------------------
+
 .. _POLAB:
 
 ``POLAB``
@@ -355,3 +360,47 @@ Some wisdom on a choice of the POLAB parameter:
   (their polarizabilities are huge and orbital localization schemes often struggle, resulting in very large ~100 a.u.
   polarizabilities on some sites);
 - polab = 0.03 for Li+, Na+ and Mg2+.
+
+.. _MM CHARGE:
+
+``MM_CHARGE``
+^^^^^^^^^^^^^^
+
+- ``MM_CHARGE`` provides atomic charges, typically matching partial charges in classical MM calculations.
+- Each line contains name tag and partial charge.
+- Name tags should match those in ``COORDINATES`` section.
+- The section is optional.
+- This section is not included in the `.efp` as prepared by the MAKEFP run and should be added manually if needed.
+- The section ends with mandatory ``STOP`` line.
+
+.. _MM LJ:
+
+``MM_LJ``
+^^^^^^^^^^^^^^
+
+- ``MM_LJ`` provides atomic Lennard-Jones parameters as in classical MM calculations.
+- Each line contains name tag, :math:`\sigma`, and :math:`\epsilon`.
+- Name tags should match those in ``COORDINATES`` section.
+- The section is optional.
+- This section is not included in the `.efp` as prepared by the MAKEFP run and should be added manually if needed.
+- The section ends with mandatory ``STOP`` line.
+- GROMACS units are assumed: :math:`\sigma` in nm, :math:`\epsilon` in kJ/mol.
+
+Currently, the Lennard-Jones energy is computed as 
+
+.. math::
+
+  E_{ij} = 4*\epsilon_{ij}*( (\frac{\sigma_{ij}}{r})^{12} - (\frac{\sigma_{ij}}{r})^6 )
+
+using the following comboination rules
+
+.. math::
+  
+  \sigma_{ij} = 0.5 * (\sigma_i + \sigma_j)
+  
+  \epsilon_{ij} = \sqrt{\epsilon_i * \epsilon_j}
+
+.. literalinclude:: ../examples/tip3p_mm.efp
+  :linenos:
+  :lines: 73-82
+  :emphasize-lines: 1, 6

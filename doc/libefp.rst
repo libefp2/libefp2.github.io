@@ -4,8 +4,10 @@
 LibEFP
 ******
 
-`LibEFP <https://github.com/libefp2/libefp/>`_ is an open-source software library containing a
-complete implementation of EFP method, as well as a `efpmd` driver for calculation of energy,
+LibEFP is an open-source software library containing a
+complete implementation of EFP method, as well as a EfpMD driver for calculation of energy,
 properties, geometry optimization and molecular dynamics.
 
-Documentation of `efpmd` driver `efpmd <https://github.com/libefp2/libefp/tree/master/efpmd>`_.
+`LibEFP on GitHUB <https://github.com/libefp2/libefp/>`_
+
+Check out EfpMD documentation here :ref:`efpmd`.
