@@ -18,7 +18,7 @@ base_directory = '/depot/lslipche/data/yb_boss/flexible_efp/efpdb/'
 ang_cutoff = 0.20                        # Minimum RMSD allowed for a "good" match (in Angstroms)
 bohr_cutoff = ang_cutoff * 1.8897259886  # Convert Angstrom cutoff to Bohr
 
-#Add to these if there are more 
+#Add to these if there are more residue names than are listed
 amino_acid_dict = {
     'a': 'ala', 'r': 'arg', 'n': 'asn', 'd': 'asp', 'c': 'cys',
     'q': 'gln', 'e': 'glu', 'g': 'gly', 'h': 'hip', 'i': 'ile',

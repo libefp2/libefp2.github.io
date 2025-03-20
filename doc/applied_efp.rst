@@ -34,7 +34,7 @@ The general procedure is to define the QM and EFP regions, fragment the residues
 EFP region, generate the starting fragment parameters, trim overlapping virtual/real atoms, 
 then create the final calculation input.
 
-.. image:: ../images/flowchart-1.png
+.. image:: ../images/flowchart.png
    :width: 500
    :align: center
 
