@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LIBEFP/EFPMD user manual &mdash; EFP documentation 0.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-dropdown.css?v=995e94df" />
+      <link rel="stylesheet" type="text/css" href="_static/panels-bootstrap.min.css?v=21c0b90a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=10f1778b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LibEFP" href="libefp.html" />
+    <link rel="prev" title="QM/EFP" href="qmefp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EFP documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="learn_more.html">Learn more about EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gallery.html">EFP gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cite_efp.html">How to reference EFP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP in a nutshell</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">EFP parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efp_parameter_databases.html">EFP parameter databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="efp_calcs.html">EFP calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bioefp.html">BioEFP - extending EFP to proteins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flexible_efp.html">Flexible EFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qmefp.html">QM/EFP</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software, tools, and tips</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LIBEFP/EFPMD user manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-functionality">General functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-file-format">Input file format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#efpmd-parameters">EFPMD parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-parameters">Basic parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#short-range-damping-parameters">Short-range damping parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-range-cutoffs">Long-range cutoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#polarization-solver">Polarization solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#geometry-optimization">Geometry optimization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hessian-calculation">Hessian calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#molecular-dynamics-simulations">Molecular dynamics simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#periodic-boundary-conditions-pbc">Periodic Boundary Conditions (PBC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pairwise-interaction-energy-decomposition-analysis">Pairwise interaction energy decomposition analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#symmetric-molecular-crystals">Symmetric molecular crystals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculations-with-nn-potentials">Calculations with NN potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#various-other-keywords">Various other keywords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-for-test-jobs">Parameters for test jobs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#depricated-parameters">Depricated Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#molecular-geometry">Molecular geometry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fragment-name">Fragment name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fragment-input">Fragment input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#additional-fragment-input">Additional fragment input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#point-charges">Point charges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libefp.html">LibEFP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gamess.html">GAMESS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qchem.html">Q-Chem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psi4.html">PSI4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EFP bibliography</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="papers.html">General description of EFP method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#software-and-model-development">Software and model development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="papers.html#applications">Applications</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EFP documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LIBEFP/EFPMD user manual</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/efpmd.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="libefp-efpmd-user-manual">
+<span id="efpmd"></span><h1>LIBEFP/EFPMD user manual<a class="headerlink" href="#libefp-efpmd-user-manual" title="Link to this heading"></a></h1>
+<section id="general-functionality">
+<span id="id1"></span><h2>General functionality<a class="headerlink" href="#general-functionality" title="Link to this heading"></a></h2>
+<p><em>EfpMD</em> is a molecular simulation program for <em>LibEFP</em>. It supports EFP-only (no QM region)
+calculations. The following functionality is currently available:</p>
+<ul class="simple">
+<li><p>single point energy</p></li>
+<li><p>gradient</p></li>
+<li><p>geometry optimization</p></li>
+<li><p>semi-numerical Hessian and normal mode analysis</p></li>
+<li><p>molecular dynamics simulations in microcanonical (NVE), canonical (NVT), and isobaric-isothermal (NPT) ensembles</p></li>
+</ul>
+<p>Additioanally, <em>EfpMD</em> provides calculations of</p>
+<ul class="simple">
+<li><p>electrostatic potential on fragment atoms</p></li>
+<li><p>electric field on fragment atoms</p></li>
+<li><p>pairwise interaction energy decomposition analysis (PIEDA)</p></li>
+</ul>
+<p><em>EfpMD</em> supports calculations with periodic boundary conditions in arbitrary parallelopiped unit
+cells. Switching functions can be used for treating long-range interactions.</p>
+<p>Since version 2.0, <em>EfpMD</em> can perform energy and geoemtry optimization calculations
+utilizing neural network (NN) potentials through interface with <a class="reference external" href="https://pytorch.org/cppdocs/">LibTorch</a>.</p>
+<p>Additional examples of input files can be found in the <cite>tests</cite> directory in
+source code archive.</p>
+</section>
+<section id="input-file-format">
+<span id="id2"></span><h2>Input file format<a class="headerlink" href="#input-file-format" title="Link to this heading"></a></h2>
+<p>The input file generally consists of two parts: a part containing parameters of the
+requested calculation (<a class="reference internal" href="#efpmd-parameters"><span class="std std-ref">EFPMD parameters</span></a>), and the second part containing
+coordinates of a molecular system (<a class="reference internal" href="#fragment-coordinates"><span class="std std-ref">Molecular geometry</span></a>).</p>
+<p>An example <em>EfpMD</em> input file for performing geometry optimization of a 4-water cluster
+<a class="reference download internal" download="" href="_downloads/eceb5cffad44f92011c36a59097e3277/opt_1.in"><code class="xref download docutils literal notranslate"><span class="pre">opt_1.in</span></code></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># water tetramer</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">run_type</span> <span class="n">opt</span>
+<span class="linenos"> 4</span><span class="n">terms</span> <span class="n">elec</span> <span class="n">pol</span> <span class="n">disp</span> <span class="n">xr</span>
+<span class="linenos"> 5</span><span class="n">max_steps</span> <span class="mi">100</span>
+<span class="linenos"> 6</span><span class="n">coord</span> <span class="n">points</span>
+<span class="linenos"> 7</span><span class="n">fraglib_path</span> <span class="o">../</span><span class="n">fraglib</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="n">fragment</span> <span class="n">h2o_l</span>
+<span class="linenos">10</span>   <span class="o">-</span><span class="mf">6.6939</span> <span class="o">-</span><span class="mf">0.7053</span>  <span class="mf">0.2031</span>
+<span class="linenos">11</span>   <span class="o">-</span><span class="mf">7.5290</span> <span class="o">-</span><span class="mf">0.1798</span>  <span class="mf">0.2855</span>
+<span class="linenos">12</span>   <span class="o">-</span><span class="mf">6.9161</span> <span class="o">-</span><span class="mf">1.6539</span>  <span class="mf">0.0273</span>
+<span class="linenos">13</span><span class="n">fragment</span> <span class="n">h2o_l</span>
+<span class="linenos">14</span>   <span class="o">-</span><span class="mf">3.0446</span>  <span class="mf">1.4217</span>  <span class="mf">0.1994</span>
+<span class="linenos">15</span>   <span class="o">-</span><span class="mf">3.8439</span>  <span class="mf">0.8389</span>  <span class="mf">0.2372</span>
+<span class="linenos">16</span>   <span class="o">-</span><span class="mf">3.3220</span>  <span class="mf">2.3687</span>  <span class="mf">0.2792</span>
+<span class="linenos">17</span><span class="n">fragment</span> <span class="n">h2o_l</span>
+<span class="linenos">18</span>   <span class="o">-</span><span class="mf">1.9443</span> <span class="o">-</span><span class="mf">2.0764</span>  <span class="mf">0.1287</span>
+<span class="linenos">19</span>   <span class="o">-</span><span class="mf">0.9588</span> <span class="o">-</span><span class="mf">1.9865</span>  <span class="mf">0.1596</span>
+<span class="linenos">20</span>   <span class="o">-</span><span class="mf">2.3592</span> <span class="o">-</span><span class="mf">1.3491</span>  <span class="mf">0.6570</span>
+<span class="linenos">21</span><span class="n">fragment</span> <span class="n">h2o_l</span>
+<span class="linenos">22</span>   <span class="o">-</span><span class="mf">5.5235</span> <span class="o">-</span><span class="mf">4.1554</span>  <span class="mf">0.2711</span>
+<span class="linenos">23</span>   <span class="o">-</span><span class="mf">5.4795</span> <span class="o">-</span><span class="mf">4.8791</span> <span class="o">-</span><span class="mf">0.4031</span>
+<span class="linenos">24</span>   <span class="o">-</span><span class="mf">4.6654</span> <span class="o">-</span><span class="mf">3.6617</span>  <span class="mf">0.2824</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lines beginning with the <code class="docutils literal notranslate"><span class="pre">#</span></code> symbol are ignored during input parsing.</p>
+</div>
+</section>
+<section id="efpmd-parameters">
+<span id="id3"></span><h2>EFPMD parameters<a class="headerlink" href="#efpmd-parameters" title="Link to this heading"></a></h2>
+<section id="basic-parameters">
+<span id="id4"></span><h3>Basic parameters<a class="headerlink" href="#basic-parameters" title="Link to this heading"></a></h3>
+<p><strong>Type of the simulation</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">run_type</span> <span class="pre">[sp|grad|hess|opt|md|efield|elpot|gtest|etest]</span></code></p>
+<ul class="simple">
+<li><p><cite>sp</cite> - single point energy calculation.</p></li>
+<li><p><cite>grad</cite> - energy gradient calculation.</p></li>
+<li><p><cite>hess</cite> - semi-numerical Hessian calculation and normal mode analysis.</p></li>
+<li><p><cite>opt</cite> - geometry optimization.</p></li>
+<li><p><cite>md</cite> - molecular dynamics simulation.</p></li>
+<li><p><cite>efield</cite> - compute and print electric field on all atoms.</p></li>
+<li><p><cite>elpot</cite> - compute and print electrostatic potential on all atoms.</p></li>
+<li><p><cite>frag_elpot</cite> - compute and print electrostatic potential on all atoms of a <code class="docutils literal notranslate"><span class="pre">special</span></code> fragment.</p></li>
+<li><p><cite>gtest</cite> - compute and compare numerical and analytical gradients.</p></li>
+<li><p><cite>etest</cite> - compute and compare total energy.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">sp</span></code></p>
+<p><strong>Format of fragment input</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">coord</span> <span class="pre">[xyzabc|points|rotmat|atoms]</span></code></p>
+<ul class="simple">
+<li><p><cite>xyzabc</cite> - Coordinates of the center of mass and Euler angles.</p></li>
+<li><p><cite>points</cite> - Coordinates of three atoms for each fragment.</p></li>
+<li><p><cite>rotmat</cite> - Coordinates of the center of mass and rotation matrix.</p></li>
+<li><p><cite>atoms</cite> - Atom names and cartesian coordinates of all atoms.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">points</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference internal" href="#fragment-input"><span class="std std-ref">Fragment input</span></a> specification for more details.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Default changed to <code class="docutils literal notranslate"><span class="pre">points</span></code> from <code class="docutils literal notranslate"><span class="pre">xyzabc</span></code> in version 1.7.3</p>
+</div>
+<p><strong>EFP energy terms</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">terms</span> <span class="pre">[elec</span> <span class="pre">pol</span> <span class="pre">disp</span> <span class="pre">xr</span> <span class="pre">qq</span> <span class="pre">lj]</span></code></p>
+<ul class="simple">
+<li><p><cite>elec</cite> - Include electrostatics energy.</p></li>
+<li><p><cite>pol</cite> - Include polarization energy.</p></li>
+<li><p><cite>disp</cite> - Include dispersion energy.</p></li>
+<li><p><cite>xr</cite> - Include exchange repulsion energy.</p></li>
+<li><p><cite>qq</cite> - Include point-charge Coulomb energy due to MM charges
+(<code class="docutils literal notranslate"><span class="pre">MM_CHARGE</span></code> section in <cite>.efp</cite> file is required).</p></li>
+<li><p><cite>lj</cite> - Include Lennard-Jones interaction term (<code class="docutils literal notranslate"><span class="pre">MM_LJ</span></code> section in <cite>.efp</cite> file is required).</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">elec</span> <span class="pre">pol</span> <span class="pre">disp</span> <span class="pre">xr</span></code></p>
+</section>
+<section id="short-range-damping-parameters">
+<span id="id5"></span><h3>Short-range damping parameters<a class="headerlink" href="#short-range-damping-parameters" title="Link to this heading"></a></h3>
+<p><strong>Electrostatic damping type</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">elec_damp</span> <span class="pre">[screen|overlap|off]</span></code></p>
+<ul class="simple">
+<li><p><cite>screen</cite> - Damping formula based on <code class="docutils literal notranslate"><span class="pre">SCREEN</span></code> group in the EFP potential.</p></li>
+<li><p><cite>overlap</cite> - Overlap-based damping formula. This damping correction is printed</p></li>
+</ul>
+<p>as charge penetration energy.
+- <cite>off</cite> - No electrostatic damping.</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">screen</span></code></p>
+<p><strong>Dispersion damping type</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">disp_damp</span> <span class="pre">[tt|overlap|off]</span></code></p>
+<ul class="simple">
+<li><p><cite>tt</cite> - Damping based on the formula by Tang and Toennies, with hard-coded coefficient <span class="math notranslate nohighlight">\(b = 1.5\)</span>.</p></li>
+<li><p><cite>overlap</cite> - Overlap-based dispersion damping.</p></li>
+<li><p><cite>off</cite> - No dispersion damping.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">overlap</span></code></p>
+<p><strong>Polarization damping type</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">pol_damp</span> <span class="pre">[tt|off]</span></code></p>
+<ul class="simple">
+<li><p><cite>tt</cite> - Tang and Toennies like damping formula.</p></li>
+<li><p><cite>off</cite> - No polarization damping.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">tt</span></code></p>
+</section>
+<section id="long-range-cutoffs">
+<span id="long-range"></span><h3>Long-range cutoffs<a class="headerlink" href="#long-range-cutoffs" title="Link to this heading"></a></h3>
+<p><strong>Enable cutoff for fragment/fragment interactions</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_cutoff</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Cutoff distance for fragment/fragment interactions</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">swf_cutoff</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">10.0</span></code></p>
+<p>Unit: Angstrom</p>
+<p><strong>Cutoff distance for exchange-repulsion interactions between fragments</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">xr_cutoff</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">swf_cutoff</span></code></p>
+<p>Unit: Angstrom</p>
+</section>
+<section id="polarization-solver">
+<span id="id6"></span><h3>Polarization solver<a class="headerlink" href="#polarization-solver" title="Link to this heading"></a></h3>
+<p><strong>Polarization solver</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">pol_driver</span> <span class="pre">[iterative|direct]</span></code></p>
+<ul class="simple">
+<li><p><cite>iterative</cite> - Iterative solution of system of linear equations for polarization
+induced dipoles.</p></li>
+<li><p><cite>direct</cite> - Direct solution of system of linear equations for polarization
+induced dipoles. This solver does not have convergence issues but is unsuitable
+for large systems (more than 2000 polarizable points). The direct solver is not
+parallelized.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">iterative</span></code></p>
+</section>
+<section id="geometry-optimization">
+<span id="id7"></span><h3>Geometry optimization<a class="headerlink" href="#geometry-optimization" title="Link to this heading"></a></h3>
+<p><strong>Maximum number of optimization and MD steps</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">max_steps</span> <span class="pre">&lt;number&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">max_steps</span></code> specifies maximum number of steps for both geometry optimization and MD.</p>
+</div>
+<p><strong>Gradient tolerance</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">opt_tol</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0.0003</span></code></p>
+<p>Unit: Hartree/Bohr</p>
+<p><strong>Energy tolerance</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">opt_energy_tol</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0.000001</span></code></p>
+<p>Unit: Hartree</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optimization will stop when maximum gradient component is less than <code class="docutils literal notranslate"><span class="pre">opt_tol</span></code>
+and energy change is less than <code class="docutils literal notranslate"><span class="pre">opt_energy_tol</span></code>.</p>
+</div>
+</section>
+<section id="hessian-calculation">
+<span id="hessian"></span><h3>Hessian calculation<a class="headerlink" href="#hessian-calculation" title="Link to this heading"></a></h3>
+<p><strong>Hessian accuracy</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">hess_central</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">hess_central</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the more accurate central differences will be
+used for numerical Hessian calculation. Otherwise, only forward differences will
+be used. Note that central differences require twice as many gradient
+calculations.</p>
+<p><strong>Numerical differentiation step length for distances</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">num_step_dist</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0.001</span></code></p>
+<p>Unit: Angstrom</p>
+<p><strong>Numerical differentiation step length for angles</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">num_step_angle</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <cite>0.01</cite></p>
+<p>Unit: Radian</p>
+</section>
+<section id="molecular-dynamics-simulations">
+<span id="md"></span><h3>Molecular dynamics simulations<a class="headerlink" href="#molecular-dynamics-simulations" title="Link to this heading"></a></h3>
+<p><strong>Ensemble</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ensemble</span> <span class="pre">[nve|nvt|npt]</span></code></p>
+<ul class="simple">
+<li><p><cite>nve</cite> - Microcanonical ensemble.</p></li>
+<li><p><cite>nvt</cite> - Canonical ensemble with Nose-Hoover thermostat. For the description of
+the algorithm, see _Phys. Rev. A 31, 1695 (1985)_.</p></li>
+<li><p><cite>npt</cite> - Isobaric-isothermal ensemble. This also sets <code class="docutils literal notranslate"><span class="pre">enable_pbc</span></code> to <code class="docutils literal notranslate"><span class="pre">`true</span></code>.
+For the description of the algorithm, see _Mol. Phys. 78, 533 (1993)_.</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">nve</span></code></p>
+<p><strong>Time step</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">time_step</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Unit: Femtosecond</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
+<p><strong>Print step:</strong> Number of steps between outputs of the system state.</p>
+<p><code class="docutils literal notranslate"><span class="pre">print_step</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p><strong>Assign initial velocities</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">velocitize</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, random initial velocities will be assigned to fragments using
+Gaussian distribution. Velocity magnitudes are chosen so that initial
+temperature of the system is approximately equal to the target simulation
+temperature.</p>
+<p><strong>Simulation temperature:</strong> target simulation temperature for NVT and NPT thermostats.</p>
+<p><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Unit: Kelvin</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">300.0</span></code></p>
+<p><strong>Simulation pressure</strong></p>
+<p>Target simulation pressure for NPT barostat. Note that whether or not pressure
+coupling is used, the pressure value will oscillate significantly. Fluctuations
+on the order of hundreds of bar are typical. This variation is entirely normal
+due to the fact that pressure is a macroscopic property and can only be
+measured properly as time average. The actual variations of instantaneous
+pressure depend on the size of the system and the values of barostat
+parameters.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pressure</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Unit: Bar</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">1.0</span></code></p>
+<p><strong>Thermostat parameter:</strong> temperature relaxation time parameter of the Nose-Hoover thermostat</p>
+<p><code class="docutils literal notranslate"><span class="pre">thermostat_tau</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Unit: Femtosecond</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">1000.0</span></code></p>
+<p><strong>Barostat parameter:</strong> pressure relaxation time parameter of the barostat</p>
+<p><code class="docutils literal notranslate"><span class="pre">barostat_tau</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Units: Femtosecond</p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">10000.0</span></code></p>
+<p><strong>Enable multistep MD</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_multistep</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Number of steps between recomputation of slow terms in multistep MD</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">multistep_steps</span> <span class="pre">&lt;number&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>Currently only exchange-repulsion EFP term is affected.</p>
+</section>
+<section id="periodic-boundary-conditions-pbc">
+<span id="pbc"></span><h3>Periodic Boundary Conditions (PBC)<a class="headerlink" href="#periodic-boundary-conditions-pbc" title="Link to this heading"></a></h3>
+<p><strong>Enable/Disable PBC</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_pbc</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">enable_pbc</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> also sets <code class="docutils literal notranslate"><span class="pre">enable_cutoff</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</div>
+<p><strong>Dimensions of periodic cell</strong></p>
+<p>Units: Angstroms, degrees.</p>
+<p><code class="docutils literal notranslate"><span class="pre">periodic_box</span> <span class="pre">&lt;x&gt;</span> <span class="pre">&lt;y&gt;</span> <span class="pre">&lt;z&gt;</span> <span class="pre">&lt;alpha&gt;</span> <span class="pre">&lt;beta&gt;</span> <span class="pre">&lt;gamma&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">30.0</span> <span class="pre">30.0</span> <span class="pre">30.0</span> <span class="pre">90.0</span> <span class="pre">90.0</span> <span class="pre">90.0</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If only three values are given, the angles are set to 90 degrees (orthogonal box).
+Non-orthogonal PBC are implemented only for single-point energy calculations.
+The smallest box dimension must be greater than <cite>2 * swf_cutoff</cite>.</p>
+</div>
+<p><strong>Print PBC coordinates</strong></p>
+<p>Prints coordinates of the system contained in a single periodic cell around
+a fragment specified by <code class="docutils literal notranslate"><span class="pre">ligand</span></code> keyword.</p>
+<p><code class="docutils literal notranslate"><span class="pre">print_pbc</span> <span class="pre">[true/false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</section>
+<section id="pairwise-interaction-energy-decomposition-analysis">
+<span id="pieda"></span><h3>Pairwise interaction energy decomposition analysis<a class="headerlink" href="#pairwise-interaction-energy-decomposition-analysis" title="Link to this heading"></a></h3>
+<p><strong>Enable/Disable pairwise analysis</strong></p>
+<p>The PIEDA analysis will be performed with respect to the fragment specified by the <code class="docutils literal notranslate"><span class="pre">ligand</span></code> keyword.</p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_pairwise</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Specify ligand</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ligand</span> <span class="pre">[integer]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0</span></code> (the first fragment in the system)</p>
+</section>
+<section id="symmetric-molecular-crystals">
+<span id="lattice-symmetry"></span><h3>Symmetric molecular crystals<a class="headerlink" href="#symmetric-molecular-crystals" title="Link to this heading"></a></h3>
+<p><strong>Use symmetry</strong></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, effectively performs calculations only on symmetry-unique fragments, which speeds up
+calculations of symmetric crystal systems with PBC.
+.. warning:: Implemented for single-point energy calculations. Not parallelized.
+See <code class="docutils literal notranslate"><span class="pre">symm_frag</span></code> keyword for specifying symmetry-identical fragments.</p>
+<p><code class="docutils literal notranslate"><span class="pre">symmetry</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Specifying symmetry-identical fragments</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">symm_frag</span> <span class="pre">[frag</span> <span class="pre">|</span> <span class="pre">list]</span></code></p>
+<ul class="simple">
+<li><p><cite>frag</cite> - assumes that all fragments of the same type are identical.</p></li>
+<li><p><cite>list</cite> - fragments provided in a list are symmetric (not fully implemented).</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">frag</span></code></p>
+</section>
+<section id="calculations-with-nn-potentials">
+<span id="id8"></span><h3>Calculations with NN potentials<a class="headerlink" href="#calculations-with-nn-potentials" title="Link to this heading"></a></h3>
+<p>Starting from version 2.0, calculations with NN potentials are enabled through interface
+with <cite>LibTorch</cite> library. Standard ANI potentials (<a class="reference external" href="https://aiqm.github.io/torchani/index.html">TorchANI</a>)
+and custom models with embedded electrostatic
+potentials (see <code class="docutils literal notranslate"><span class="pre">enable_elpot</span></code>) can be used.
+Single point energy and geometry optimization are currently implemented, see <code class="docutils literal notranslate"><span class="pre">opt_special_frag</span></code> for detail.</p>
+<p><strong>Enable NN calculations</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_torch</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Specify NN fragment:</strong> no default value, need to specify the fragment to be treated with NN.</p>
+<p><code class="docutils literal notranslate"><span class="pre">special_fragment</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">none</span></code></p>
+<p><strong>Enable electrostatic potential embedding in NN calculations, i.e., NN/EFP</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_elpot</span> <span class="pre">[true|false]</span></code></p>
+<ul class="simple">
+<li><p><cite>true</cite> - provide custom NN using <code class="docutils literal notranslate"><span class="pre">custom_nn</span></code> and <code class="docutils literal notranslate"><span class="pre">aev_nn</span></code></p></li>
+<li><p><cite>false</cite> - provide one of ANI potentials with <code class="docutils literal notranslate"><span class="pre">torch_nn</span></code></p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Optimization protocol in NN calculations</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">opt_special_frag</span> <span class="pre">[0|1]</span></code></p>
+<ul class="simple">
+<li><p>0 - optimize special (NN) fragment only</p></li>
+<li><p>1 - optimize the whole system</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p><strong>Atomic gradients in NN calculations</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">atom_gradient</span> <span class="pre">[mm|frag]</span></code></p>
+<ul class="simple">
+<li><p><cite>mm</cite> - use direct atomic gradients from MM model</p></li>
+<li><p><cite>frag</cite> - gradient on special fragment atoms computed by distributing the COM force/torque gradient</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">frag</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>mm</cite> algorithm can be used only with MM (<code class="docutils literal notranslate"><span class="pre">qq</span></code> and <code class="docutils literal notranslate"><span class="pre">lj</span></code>) potentials.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>frag</cite> algorithm distributes EFP center of mass force and torque into gradients on atoms. This
+decomposition is not unique resulting in non-exact gradients. If you experience convergence issues
+in geometry optimization, loosen optimization tolerance criteria <code class="docutils literal notranslate"><span class="pre">opt_tol</span></code>.</p>
+</div>
+<p><strong>Name of the NN potential for standard ANI models</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">torch_nn</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">ani.pt</span></code></p>
+<p><strong>Name of custom NN potential for NN/EFP embedded model</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">custom_nn</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">custom_model_script.pt</span></code></p>
+<p><strong>Name of file containing atomic environment vector (AEV) for NN/EFP embedded model</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">aev_nn</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">aev_scripted.pt</span></code></p>
+<p><strong>Path to the directory with provided NN potentials</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ml_path</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <cite>“$(prefix)/share/libefp”</cite> (data install directory)</p>
+<p><strong>Path to the directory with user NN potentials</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">userml_path</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <cite>“.”</cite> (current directory)</p>
+</section>
+<section id="various-other-keywords">
+<span id="other-keywords"></span><h3>Various other keywords<a class="headerlink" href="#various-other-keywords" title="Link to this heading"></a></h3>
+<p><strong>Print additional information for debugging</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">&lt;value&gt;</span></code></p>
+<ul class="simple">
+<li><p>0 - standard output</p></li>
+<li><p>1 - detailed information on gradients</p></li>
+<li><p>2 - additional information on fragments; polarization convergence</p></li>
+<li><p>3 - various information for debugging</p></li>
+</ul>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p><strong>Use single EFP parameters file</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">single_params_file</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<p><strong>Single EFP parameters file path</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">efp_params_file</span> <span class="pre">&lt;path&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">params.efp</span></code></p>
+<p><strong>The path to the directory with fragment library</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">fraglib_path</span> <span class="pre">&lt;path&gt;</span></code></p>
+<p>Default value: <cite>“$(prefix)/share/libefp”</cite> (data install directory)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;</span></code> parameter should not contain spaces or should be inside double
+quotes otherwise.</p>
+<p><strong>The path to the directory with user-created fragments</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">userlib_path</span> <span class="pre">&lt;path&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code> (current directory)</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;</span></code> parameter should not contain spaces or should be in double quotes
+otherwise.</p>
+</section>
+<section id="parameters-for-test-jobs">
+<span id="test-jobs"></span><h3>Parameters for test jobs<a class="headerlink" href="#parameters-for-test-jobs" title="Link to this heading"></a></h3>
+<p>See also <code class="docutils literal notranslate"><span class="pre">num_step_dist</span></code> and <code class="docutils literal notranslate"><span class="pre">num_step_angle</span></code> in <a class="reference internal" href="#hessian"><span class="std std-ref">Hessian calculation</span></a> section for
+controlling step size for numerical gradient testing.</p>
+<p><strong>Test tolerance</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">gtest_tol</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">1.0e-6</span></code></p>
+<p>Unit: Hartree/Bohr</p>
+<p><strong>Reference energy value</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ref_energy</span> <span class="pre">&lt;value&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">0.0</span></code></p>
+<p>Unit: Hartree</p>
+</section>
+<section id="depricated-parameters">
+<span id="old"></span><h3>Depricated Parameters<a class="headerlink" href="#depricated-parameters" title="Link to this heading"></a></h3>
+<p><strong>Geometry of the molecular-mechanics part</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ff_geometry</span> <span class="pre">&lt;path&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">ff.xyz</span></code></p>
+<p><strong>Molecular-mechanics force-field parameters file</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">ff_parameters</span> <span class="pre">&lt;path&gt;</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">fraglib/params/amber99.prm</span></code></p>
+<p><strong>Enable molecular-mechanics force-field for flexible EFP links</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">enable_ff</span> <span class="pre">[true|false]</span></code></p>
+<p>Default value: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+</section>
+</section>
+<section id="molecular-geometry">
+<span id="fragment-coordinates"></span><h2>Molecular geometry<a class="headerlink" href="#molecular-geometry" title="Link to this heading"></a></h2>
+<section id="fragment-name">
+<span id="id9"></span><h3>Fragment name<a class="headerlink" href="#fragment-name" title="Link to this heading"></a></h3>
+<p><cite>LibEFP/EfpMD</cite> distribution comes with a library of fragment potentials used for testing and debugging
+purposes. Those fragments are stored in the <code class="docutils literal notranslate"><span class="pre">fraglib</span></code> directory.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><cite>.efp</cite> potentials from <code class="docutils literal notranslate"><span class="pre">fraglib</span></code> directory should not be used for any practical calculations
+as they might produce erroneous results;
+they are used for code testing only.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to use the <cite>.efp</cite> potentials from <code class="docutils literal notranslate"><span class="pre">fraglib</span></code> directory (defined by <code class="docutils literal notranslate"><span class="pre">fraglib_path</span></code>
+parameter), the fragment <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;</span></code> should contain an <code class="docutils literal notranslate"><span class="pre">_l</span></code> suffix, e.g., <cite>h2o_l</cite>, <cite>c6h6_l</cite>, etc.</p>
+</div>
+<p>User-defined parameters (or parameters from <a class="reference internal" href="efp_parameter_databases.html#efp-parameter-databases"><span class="std std-ref">EFP parameter databases</span></a>) do not need
+suffix <code class="docutils literal notranslate"><span class="pre">_l</span></code>, e.g., <cite>h2o</cite>, <cite>c6h6</cite>. Location of the parameter files is defined by
+<code class="docutils literal notranslate"><span class="pre">userlib_path</span></code> keyword, with the default being the working directory <code class="docutils literal notranslate"><span class="pre">./</span></code>.</p>
+<p>The name of the <cite>.efp</cite> file must be the same as the name of the fragment (without an <code class="docutils literal notranslate"><span class="pre">_l</span></code> suffix).
+For example for the fragment named <cite>H2O_L</cite> the
+parameters must be in the <code class="docutils literal notranslate"><span class="pre">fraglib_path</span></code> directory in the file named <code class="docutils literal notranslate"><span class="pre">h2o.efp</span></code>.
+For the fragment named <cite>NH3</cite> the parameters must be in the <code class="docutils literal notranslate"><span class="pre">userlib_path</span></code>
+directory in the file named <code class="docutils literal notranslate"><span class="pre">nh3.efp</span></code>.</p>
+<p>See <a class="reference internal" href="parameters.html#fragname"><span class="std std-ref">$FRAGNAME</span></a> for additional information.</p>
+</section>
+<section id="fragment-input">
+<span id="id10"></span><h3>Fragment input<a class="headerlink" href="#fragment-input" title="Link to this heading"></a></h3>
+<p>Fragment input should contain one or more groups starting with <code class="docutils literal notranslate"><span class="pre">fragment</span> <span class="pre">&lt;name&gt;</span></code> line
+(see <a class="reference internal" href="#fragment-name"><span class="std std-ref">Fragment name</span></a>) and
+followed by fragment coordinates in one of four possible formats controlled by <code class="docutils literal notranslate"><span class="pre">coord</span></code>
+keyword (see <a class="reference internal" href="#basic-parameters"><span class="std std-ref">Basic parameters</span></a>).</p>
+<p><strong>``xyzabc`` format</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fragment</span> <span class="n">h2o</span>
+<span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>The numbers are coordinates of the center of mass of a fragment in Angstroms
+and three Euler rotation angels in Radians.</p>
+<p><strong>``points`` format</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fragment</span> <span class="n">h2o</span>
+        <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+        <span class="mf">1.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+        <span class="mf">0.0</span> <span class="mf">1.0</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>Exactly three lines of three numbers is expected. These are x,y,z coordinates of the first three
+points (i.e., the first three atoms specified in the <cite>.efp</cite> potential) of a fragment in Angstroms.</p>
+<p><strong>``rotmat`` format</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fragment</span> <span class="n">h2o</span>
+        <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+        <span class="mf">1.0</span> <span class="mf">0.0</span> <span class="mf">0.0</span>
+        <span class="mf">0.0</span> <span class="mf">1.0</span> <span class="mf">0.0</span>
+        <span class="mf">0.0</span> <span class="mf">0.0</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>The first line contain x,y,z coordinates of fragment’s center of mass in Angstroms.
+The next three lines contain a 3 x 3 rotation matrix determined with respect to the
+reference fragment stored in <cite>.efp</cite> file.</p>
+<p><strong>``atoms`` format</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fragment</span> <span class="n">nh3_l</span>
+<span class="n">A01N1</span>                <span class="mf">0.235191</span>     <span class="mf">4.772273</span>    <span class="o">-</span><span class="mf">0.103166</span>
+<span class="n">A02H2</span>               <span class="o">-</span><span class="mf">0.523189</span>     <span class="mf">4.322511</span>     <span class="mf">0.366654</span>
+<span class="n">A03H3</span>                <span class="mf">0.517310</span>     <span class="mf">5.557741</span>     <span class="mf">0.446020</span>
+<span class="n">A04H4</span>                <span class="mf">0.999952</span>     <span class="mf">4.130518</span>    <span class="o">-</span><span class="mf">0.141193</span>
+</pre></div>
+</div>
+<p>Atom name (as defined in <cite>.efp</cite>) and x,y,z coordinates in Angstroms for all
+fragment atoms should be given.</p>
+</section>
+<section id="additional-fragment-input">
+<span id="extra-input"></span><h3>Additional fragment input<a class="headerlink" href="#additional-fragment-input" title="Link to this heading"></a></h3>
+<p><strong>Fragment velocities</strong></p>
+<p>Each fragment input can be followed by fragment velocities (for restarting MD simulations)
+initiated with the <code class="docutils literal notranslate"><span class="pre">velocity</span></code>
+keyword, with the center of mass velocity and angular velocity in atomic units
+specified on the next line. An example showing the usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">run_type</span> <span class="n">md</span>
+<span class="linenos"> 2</span><span class="n">coord</span> <span class="n">xyzabc</span>
+<span class="linenos"> 3</span><span class="n">ensemble</span> <span class="n">nve</span>
+<span class="linenos"> 4</span><span class="n">time_step</span> <span class="mf">0.5</span>
+<span class="linenos"> 5</span><span class="n">max_steps</span> <span class="mi">50</span>
+<span class="linenos"> 6</span><span class="n">fraglib_path</span> <span class="o">../</span><span class="n">fraglib</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">fragment</span> <span class="n">h2o_l</span>
+<span class="linenos"> 9</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>     <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>
+<span class="linenos">10</span><span class="n">velocity</span>
+<span class="linenos">11</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">5.0e-4</span>  <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="n">fragment</span> <span class="n">nh3_l</span>
+<span class="linenos">14</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">5.0</span>     <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>
+<span class="linenos">15</span><span class="n">velocity</span>
+<span class="linenos">16</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>  <span class="o">-</span><span class="mf">7.0e-4</span>  <span class="mf">0.0</span>   <span class="mf">0.0</span>   <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p><strong>Fragment constraints</strong></p>
+<p>Quadratic constraint on the fragment center of mass can be specified using
+<code class="docutils literal notranslate"><span class="pre">constraint</span></code> keyword with the force constant <code class="docutils literal notranslate"><span class="pre">k</span></code> (in a.u.) and constraint
+position <code class="docutils literal notranslate"><span class="pre">xyz</span></code> (in Angstroms) specified on the next line. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">run_type</span> <span class="n">opt</span>
+<span class="linenos"> 2</span><span class="n">coord</span> <span class="n">points</span>
+<span class="linenos"> 3</span><span class="n">elec_damp</span> <span class="n">screen</span>
+<span class="linenos"> 4</span><span class="n">disp_damp</span> <span class="n">tt</span>
+<span class="linenos"> 5</span><span class="n">pol_damp</span> <span class="n">tt</span>
+<span class="linenos"> 6</span><span class="n">fraglib_path</span> <span class="o">../</span><span class="n">fraglib</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="n">fragment</span> <span class="n">h2o_l</span>
+<span class="linenos"> 9</span>  <span class="o">-</span><span class="mf">3.394</span>  <span class="o">-</span><span class="mf">1.900</span>  <span class="o">-</span><span class="mf">3.700</span>
+<span class="linenos">10</span>  <span class="o">-</span><span class="mf">3.524</span>  <span class="o">-</span><span class="mf">1.089</span>  <span class="o">-</span><span class="mf">3.147</span>
+<span class="linenos">11</span>  <span class="o">-</span><span class="mf">2.544</span>  <span class="o">-</span><span class="mf">2.340</span>  <span class="o">-</span><span class="mf">3.445</span>
+<span class="linenos">12</span><span class="n">constraint</span>
+<span class="linenos">13</span>  <span class="mf">0.1</span>  <span class="o">-</span><span class="mf">3.0</span> <span class="o">-</span><span class="mf">2.0</span> <span class="o">-</span><span class="mf">3.0</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="n">fragment</span> <span class="n">nh3_l</span>
+<span class="linenos">16</span>  <span class="o">-</span><span class="mf">5.515</span>   <span class="mf">1.083</span>   <span class="mf">0.968</span>
+<span class="linenos">17</span>  <span class="o">-</span><span class="mf">5.161</span>   <span class="mf">0.130</span>   <span class="mf">0.813</span>
+<span class="linenos">18</span>  <span class="o">-</span><span class="mf">4.833</span>   <span class="mf">1.766</span>   <span class="mf">0.609</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="n">fragment</span> <span class="n">nh3_l</span>
+<span class="linenos">21</span>   <span class="mf">1.848</span>   <span class="mf">0.114</span>   <span class="mf">0.130</span>
+<span class="linenos">22</span>   <span class="mf">1.966</span>   <span class="mf">0.674</span>  <span class="o">-</span><span class="mf">0.726</span>
+<span class="linenos">23</span>   <span class="mf">0.909</span>   <span class="mf">0.273</span>   <span class="mf">0.517</span>
+</pre></div>
+</div>
+</section>
+<section id="point-charges">
+<span id="id11"></span><h3>Point charges<a class="headerlink" href="#point-charges" title="Link to this heading"></a></h3>
+<p>Additionally to fragments, a system can contain a set of point charges. They
+can be specified using the following format for each charge:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">charge</span> <span class="o">&lt;</span><span class="n">q</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">x</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">y</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">z</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="qmefp.html" class="btn btn-neutral float-left" title="QM/EFP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="libefp.html" class="btn btn-neutral float-right" title="LibEFP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
