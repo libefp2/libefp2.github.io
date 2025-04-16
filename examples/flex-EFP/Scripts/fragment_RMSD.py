@@ -12,11 +12,12 @@ import os
 
 
 
-# Directory containing the library files. CHANGE#######################################
+# Directory containing the EFP fragment library #
+# Adjust accordingly!!! #
 base_directory = '/depot/lslipche/data/yb_boss/flexible_efp/efpdb/'
 
-ang_cutoff = 0.20                        # Minimum RMSD allowed for a "good" match (in Angstroms)
-bohr_cutoff = ang_cutoff * 1.8897259886  # Convert Angstrom cutoff to Bohr
+# Minimum RMSD allowed for a "good" match (in Angstroms)
+ang_cutoff = 0.20                        
 
 #Add to these if there are more residue names than are listed
 amino_acid_dict = {
@@ -34,6 +35,7 @@ atom_weights = {
     'N': 12.0030700, 'S': 32.0650000, 'M': 23.3040000
 }
 
+bohr_cutoff = ang_cutoff * 1.8897259886  # Convert Angstrom cutoff to Bohr
 
 # Get input filename from command-line argument
 inp = sys.argv[1]    
@@ -128,22 +130,6 @@ def apply_transform(coords, rotation_matrix, com1, com2):
     # Translate to the target center of mass
     transformed_coords = rotated_coords + com2
     return transformed_coords
-
-
-amino_acid_dict = {
-    'a': 'ala', 'r': 'arg', 'n': 'asn', 'd': 'asp', 'c': 'cys',
-    'q': 'gln', 'e': 'glu', 'g': 'gly', 'h': 'hip', 'i': 'ile',
-    'l': 'leu', 'k': 'lys', 'm': 'met', 'f': 'phe', 'p': 'pro',
-    's': 'ser', 't': 'thr', 'w': 'trp', 'y': 'tyr', 'v': 'val',
-    'hp': 'hip', 'hd': 'hid', 'he': 'hie'
-}
-
-atom_weights = {
-    'H': 1.0, 'O': 15.9949100, 'C': 12.0000000,
-    'N': 12.0030700, 'S': 32.0650000, 'M': 23.3040000
-}
-
-
 
 
 # Extract the residue code from the input filename (assumes filename starts with a residue code)

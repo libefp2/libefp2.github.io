@@ -4,7 +4,7 @@ Created on Sat Sep 28 15:13:19 2024
 
 @author: jackl
 
-This script creates .inp files for amino acids or molecules located in the EFP region.
+This script creates GAMESS MAKEFP .inp files for amino acids or molecules located in the EFP region.
 Non-amino acid molecules are treated with no virtual bonds (i.e. no broken bonds).
 
 Reads:
@@ -77,6 +77,39 @@ at_sym = {
 # ---------------------------
 # Function Definitions
 # ---------------------------
+
+def GAMESS_template(charge, fragname): 
+    """
+    Builds the GAMESS MAKEFP input header    
+    You may want to adjust these parameters
+
+    Parameters
+    ----------
+    charge : integer
+        fragment charge
+    fragname : string
+        fragment name
+
+    Returns
+    -------
+    template : string
+        GAMESS MAKEFP input template
+    """
+    
+    template = f""" $contrl units=angs local=boys runtyp=makefp
+     mult=1 icharg={charge} coord=cart icut=11 $end
+     $system timlim=99999 mwords=200 $end
+     $scf soscf=.f. dirscf=.t. diis=.t. CONV=1.0d-06 $end
+     $basis gbasis=n31 ngauss=6 ndfunc=1 $end
+     $DAMP IFTTYP(1)=2,0 IFTFIX(1)=1,1 thrsh=500.0 $end
+     $MAKEFP POL=.t. DISP=.f. CHTR=.f. EXREP=.f. $end
+     $data 
+     {fragname}
+     C1
+    """
+    return template
+
+
 def qm_atoms(set_file):
     """
     Grab the QM_atoms from the user-defined settings file.
@@ -185,17 +218,7 @@ def make_inp(fragment, QMs, POLs):
         filename = res_info.lower() + '_' + fragment[4].split()[0] + '_' + fragment[0].split()[3] + '.inp'
 
     # Build header sections for the input file.
-    # You may want to adjust these parameters.
-    lines_out.append(
-        f" $contrl units=angs local=boys runtyp=makefp \n"
-        f"       mult=1 icharg={charge} coord=cart icut=11 $end\n"
-        f" $system timlim=99999 mwords=200 $end\n"
-        f" $scf soscf=.f. dirscf=.t. diis=.t. CONV=1.0d-06 $end\n"
-        f" $basis gbasis=n31 ngauss=6 ndfunc=1 $end\n"
-        f" $DAMP IFTTYP(1)=2,0 IFTFIX(1)=1,1 thrsh=500.0 $end\n"
-        f" $MAKEFP POL=.t. DISP=.f. CHTR=.f. EXREP=.f. $end\n"
-        f" $data\n {filename.split('.')[0]}\n C1\n"
-    )
+    lines_out.append(GAMESS_template(charge, filename.split('.')[0]))
 
     # Process each atom line.
     for atom in fragment:

@@ -28,7 +28,6 @@ EFP, or the Effective Fragment Potential, is a polarizable quantum-mechanics-bas
    efp_calcs
    bioefp
    flexible_efp
-   applied efp
    qmefp
 
 

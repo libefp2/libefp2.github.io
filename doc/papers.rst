@@ -17,13 +17,13 @@ Review papers
 * `2013 review of EFP2 developments <http://dx.doi.org/10.1146/annurev-physchem-040412-110031>`_
 * `2011 review of fragmentation models <http://dx.doi.org/10.1021/cr200093j>`_
 * `2014 FMO v/s EFP v/s EFMO <https://doi.org/10.1021/ar500097m>`_
- 
+
 Book chapters
 ^^^^^^^^^^^^^^^^
 * `2007 The Effective Fragment Potential: A General Method for Predicting Intermolecular Interactions <https://doi.org/10.1016/S1574-1400(07)03010-1>`_
 * `2017 Effective Fragment Potential Method: Past, Present, and Future <https://doi.org/10.1002/9781119129271.ch6>`_
 
-Software and model development 
+Software and model development
 -------------------------------
 
 Development of EFP terms
@@ -80,8 +80,8 @@ Intermolecular interactions
 * `Interactions Between Halide Anions and a Molecular Hydrophobic Interface <http://dx.doi.org/10.1039/C2FD20082A>`_
 * `Interactions between Noble Metal (Ag and Au) Nanoclusters and Water using EFP <https://doi.org/10.1021/acsomega.0c00132>`_
 * `Unusual symmetry of hexafluoro-o-xylene <https://doi.org/10.1063/1.5142169>`_
-  
-* `Quantifying the Nearly Random Microheterogeneity of Aqueous tert-Butyl 
+
+* `Quantifying the Nearly Random Microheterogeneity of Aqueous tert-Butyl
   Alcohol Solutions Using Vibrational Spectroscopy <https://doi.org/10.1021/acs.jpclett.3c02603>`_
 
 Electronic excited states and properties
@@ -92,21 +92,23 @@ Electronic excited states and properties
 * `Ionization potentials of hydrated thymine <http://dx.doi.org/10.1021/jp110438c>`_
 * `Solvatochromic shifts in p-nitroaniline <http://dx.doi.org/10.1021/jp110026c>`_
 
-* `The effect of polarizable environment on two-photon absorption cross sections characterized 
-  by the equation-of-motion coupled-cluster singles and doubles method combined with the 
+* `The effect of polarizable environment on two-photon absorption cross sections characterized
+  by the equation-of-motion coupled-cluster singles and doubles method combined with the
   effective fragment potential approach  <https://doi.org/10.1063/1.5048627>`_
 
 * `EFP for simulation of excited states in an inhomogeneous environment <https://doi.org/10.1002/qua.26071>`_
 * `EFP for Microsolvated Excited and Anionic States <https://dx.doi.org/10.1021/acs.jpca.2c06122>`_
 
-* `Coupled-cluster based approach for core-level states in condensed phase: Theory and 
+* `Coupled-cluster based approach for core-level states in condensed phase: Theory and
   application to different protonated forms of aqueous glycine <https://dx.doi.org/10.1063/1.4990564>`_
+
+.. _bio_papers:
 
 Biological chromophores
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * `Predictive First-Principles Modeling of a Photosynthetic Antenna Protein: The Fenna-Matthews-Olson Complex <https://doi.org/10.1021/acs.jpclett.9b03486>`_
-* `Predicting Mutation-Induced Changes in the Electronic Properties of Photosynthetic 
+* `Predicting Mutation-Induced Changes in the Electronic Properties of Photosynthetic
   Proteins from First Principles: The Fenna-Matthews-Olson Complex Example <https://doi.org/10.1021/acs.jpclett.3c01461>`_
 
 * `Polarizable embedding for simulating redox potentials of biomolecules <http://dx.doi.org/10.1039/C9CP01533G>`_

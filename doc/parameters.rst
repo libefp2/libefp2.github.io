@@ -37,6 +37,8 @@ An example of GAMESS input file for computing EFP parameters :download:`makefp.i
 .. literalinclude:: ../examples/makefp.inp
   :linenos:
 
+.. _efp parameters:
+
 `.efp` parameter file
 ----------------------
 
@@ -386,7 +388,7 @@ Some wisdom on a choice of the POLAB parameter:
 - The section ends with mandatory ``STOP`` line.
 - GROMACS units are assumed: :math:`\sigma` in nm, :math:`\epsilon` in kJ/mol.
 
-Currently, the Lennard-Jones energy is computed as 
+Currently, the Lennard-Jones energy is computed as
 
 .. math::
 
@@ -395,9 +397,9 @@ Currently, the Lennard-Jones energy is computed as
 using the following comboination rules
 
 .. math::
-  
+
   \sigma_{ij} = 0.5 * (\sigma_i + \sigma_j)
-  
+
   \epsilon_{ij} = \sqrt{\epsilon_i * \epsilon_j}
 
 .. literalinclude:: ../examples/tip3p_mm.efp
