@@ -51,7 +51,7 @@ a library of precomputed EFP potentials. The parameter database from the `Flexib
 Workflow overview
 =================
 
-.. image:: ../images/flowchart.png
+.. image:: ../images/flowchart.pdf
    :width: 500
    :align: center
 
