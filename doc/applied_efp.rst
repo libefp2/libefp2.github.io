@@ -52,7 +52,7 @@ Workflow overview
 =================
 
 .. image:: ../images/flowchart.png
-   :width: 400
+   :width: 450
    :align: center
 
 The workflow leads the user through the following steps:
