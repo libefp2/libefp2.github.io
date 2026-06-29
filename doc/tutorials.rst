@@ -6,8 +6,8 @@ Tutorials
 
 .. _non-covalent_calcs:
 
-Performing EFP calculations on a non-covalently bonded system
--------------------------------------------------------------
+EFP calculations for a non-covalent system (molecular clusters, liquids, etc.)
+-----------------------------------------------------------------------------------------
 
 Step 1. Computing EFP parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -31,12 +31,15 @@ Once EFP parameters of all unique fragments are computed, perform the full-syste
 
 .. _covalent_calcs:
 
-Performing EFP calculations in a covalently bound system
------------------------------------------------------------
+EFP calculations for a covalently bound systems (proteins, polymers)
+--------------------------------------------------------------------
 
-* Learn how to prepare a protein system for
-  `EFP protein-ligand calculations <https://github.com/libefp2/BioEFP-tools/tree/main/bioMAKEFP>`_.
-* To setup QM/EFP (excited states!) calculations in a biological system, see :ref:`applied_efp` tutorial.
+Tutorial `EFP protein-ligand calculations <https://github.com/libefp2/BioEFP-tools/tree/main/bioMAKEFP>`_
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Setting up QM/EFP calculations 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+See our new :ref:`applied_efp` tutorial!
 
 
 

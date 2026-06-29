@@ -19,12 +19,6 @@ While the workflow is reasonably general and can be adapted to other biological 
 systems, the QM/EFP calculations are not black-box procedures and the user will need to make
 decisions based on the system specifics and the properties of interest. 
 
-The following scripts are covered in this tutorial:
-
-* ``make_AAs.py`` — prepares GAMESS MAKEFP input files for all EFP region fragments
-* ``cut_caps.py`` — trims EFP parameter files by removing capping hydrogens and correcting charges
-* ``make_qchem_input.py`` — assembles the final Q-Chem QM/EFP input file
-
 Preliminaries
 =============
 
@@ -47,6 +41,7 @@ If you wish to use the FlexEFP scheme as described in `Flexible EFP paper
 a library of precomputed EFP potentials. The parameter database from the `Flexible EFP paper
 <https://pubs.acs.org/doi/abs/10.1021/acs.jpcb.6b04166>`_ can be found
 `here <https://github.com/libefp2/EFP_parameters/tree/main/AA_flexible_efp>`_.
+You can also prepare and use your own fragment library, with very minor modifications in the workflow.
 
 Workflow overview
 =================
@@ -63,12 +58,20 @@ The workflow leads the user through the following steps:
 * :ref:`trim_params`
 * :ref:`qchem_input`
 
+The scripts and test files used in this workflow can be found in `QM/EFP workflow <https://github.com/libefp2/BioEFP-tools/tree/main/photoEFP>`_
+The utilized scripts are:
+
+* ``make_AAs.py`` — prepares GAMESS MAKEFP input files for EFP fragments
+* ``frag_RMSD_V2.py`` - (optional) searches the EFP fragment library to obtain EFP parameters without running GAMESS jobs
+* ``cut_caps.py`` — trims EFP parameter files by removing capping hydrogens and correcting charges
+* ``make_qchem_input.py`` — assembles the final Q-Chem QM/EFP input file
+
 FMO protein
 ===========
 
 The Fenna-Matthews-Olson (FMO) protein is used as an example system throughout this tutorial.
 Preparation of the QM and EFP regions follows the work by
-`Kim et al. <https://pubs.acs.org/doi/full/10.1021/acs.jpclett.9b03486>`_.
+`Kim et al <https://pubs.acs.org/doi/full/10.1021/acs.jpclett.9b03486>`_.
 
 FMO is a trimeric protein with eight bacteriochlorophyll a (BChl) pigments in each monomer.
 FMO facilitates energy transfer via excitonic couplings across these eight BChls.
@@ -88,12 +91,13 @@ removed.
    :width: 400
    :align: center
 
-Molecular dynamics and constrained QM/MM geometry optimizations have been performed on the
-system prior to this tutorial. Constrained QM/MM geometry optimizations have been shown to be
+This tutorial assumes that molecular dynamics and constrained QM/MM geometry optimizations have been already 
+performed on the system. Constrained QM/MM geometry optimizations have been shown to be
 essential for accurate predictions of optical spectra and redox properties. However, this step
 is not covered here and it is left to the user to perform if needed.
 
-.. note:: The provided .g96 file contains ``QSL`` and ``LA`` residues, corresponding to
+.. note:: The provided .g96 file (:download:`bchl361-79002.g96 <https://github.com/libefp2/BioEFP-tools/tree/main/photoEFP/tests/FMO/bchl361-79002.g96>`) 
+   contains ``QSL`` and ``LA`` residues, corresponding to
    "quantum" waters (water molecules included in the QM region during QM/MM optimizations)
    and link atoms that were utilized in QM/MM optimizations, respectively. These are left 
    over from the QM/MM optimization step and are not required for any of the scripts in this tutorial.
@@ -127,8 +131,8 @@ of the BChl chlorin ring.
    residue ID passes from 9999 to 10000. This misalignment can make the structure appear
    incorrectly in VMD or other visualizers (e.g., "sheets" of waters with misread coordinates).
    Though it shouldn't matter for this tutorial, you can fix the problem by realigning the columns. 
-  `Column reformatting script <../examples/flex-EFP/Scripts/format.py>`_ is an example of a
-  script that can fix this problem.
+   `Column reformatting script <https://github.com/libefp2/BioEFP-tools/tree/main/photoEFP/Scripts/reformat_columns_g96.py>`_ 
+   is an example of a script that can fix this problem.
 
 To determine which residues constitute the EFP region, we use the ``gmx select``
 command. First, create an index file defining the BChl ``headring`` group containing the
@@ -143,7 +147,7 @@ atoms of the chlorin ring:
 The following code generates the index file (``index.ndx``) containing all standard GROMACS
 index groups with the new ``headring`` group appended:
 
-.. literalinclude:: ../examples/flex-EFP/Scripts/gen_efp_index.sh
+.. literalinclude:: ../examples/QM-EFP/Scripts/gen_efp_index.sh
    :linenos:
 
 .. warning:: Make sure to adjust the code above to your system's active region!
@@ -183,31 +187,33 @@ QM region
    boundaries between the QM and EFP regions.
 
 An example file prepared for the third BChl in FMO is provided:
-:download:`qm_defined.txt <../examples/flex-EFP/Scripts/qm_defined.txt>`. This file can be
-constructed by copying the corresponding lines from the ``.g96`` file. The ``QM_atoms``
-section should contain all QM atoms, not including capping hydrogens for covalent QM-EFP
+:download:`qm_defined.txt <../examples/QM-EFP/FMO/qm_defined.txt>`. This file can be
+constructed by copying the corresponding lines from the all-atom (not EFP shell!) ``.g96`` file, i.e.,
+``bchl361-79002.g96`` in our case. 
+The ``QM_atoms`` section should contain all QM atoms, not including capping hydrogens for covalent QM-EFP
 boundaries.
+Note that the atom indexes MUST match those in the all-atom structure file, but the coordinates 
+do NOT need to match, such that the same ``qm_defined.txt`` can be used for multiple structural snapshots of 
+the same system.  
+That is, if you are planning to run multiple QM/EFP calculations on identically-built
+structures (e.g. different times of a single MD trajectory), then you can reuse the same 
+QM-defining text file.
 
-.. literalinclude:: ../examples/flex-EFP/Scripts/qm_defined.txt
+.. literalinclude:: ../examples/QM-EFP/FMO/qm_defined.txt
    :linenos:
    :lines: 1-20
    :append: ...
    :emphasize-lines: 1
 
 The "QM-MM" boundary section is optional and should contain pairs of atoms for each 
-covalent boundary, with the QM atom listed first. The example
- :download:`qm_defined.txt <../examples/flex-EFP/Scripts/qm_defined.txt>` 
- contains only one QM-MM boundary, but a second boundary could be included like this:
+covalent boundary, with the QM atom listed first. The given example of ``qm_defined.txt``
+contains only one QM-MM boundary, but a second boundary could be included like this:
 
-.. literalinclude:: ../examples/flex-EFP/Scripts/new_sample.txt
+.. literalinclude:: ../examples/QM-EFP/FMO/new_sample.txt
   :linenos:
   :lines: 1-
   :emphasize-lines: 1
 
-Note that the atom indexes MUST match those in the structure file, but the coordinates 
-do NOT need to match. If you are planning to run multiple EFP calculations on identically-built
-structures (e.g. different times of a single MD trajectory), then you can reuse the same 
-QM-defining text file.
 
 .. _qm_region_bchl:
 
@@ -248,8 +254,8 @@ Preparation of the EFP fragment for the boundary histidine is discussed in
 Fragmentation of the EFP region
 ===============================
 
-Now we need to prepare EFP fragments for our system. In :ref:`efp_region` we have already
-created a ``.g96`` file containing atoms belonging to the EFP region. Here we will split
+Now we need to prepare EFP fragments for our system. In :ref:`efp_region` section we have already
+created a ``shell_bchl361-79002.g96`` file containing atoms belonging to the EFP region. Here we will split
 polypeptide chains and other large residues into EFP fragments.
 
 .. _protein_efp:
@@ -258,8 +264,10 @@ Splitting protein into EFP fragments
 ------------------------------------
 
 Because proteins tend to be continuous chains, covalent bonds between neighboring amino acids 
-have to be broken for fragmentation. Chemically, the :math:`C-C_{\alpha}` bond (between alpha 
-carbon and carbonyl carbon) is broken, however, standard PDB convention divides residues by the 
+have to be broken for fragmentation. From a bonding standpoint, it is better to split fragments 
+along less polar 
+:math:`C-C_{\alpha}` bond (between alpha 
+carbon and carbonyl carbon); however, standard PDB convention divides residues by the 
 C-N bond (alpha carbon-nitrogen).
 
 Visually, PDB residues are divided like this:
@@ -275,45 +283,65 @@ but EFP fragments should be divided like this:
    :align: center
 
 Therefore, EFP amino acid fragments will not completely agree with PDB amino acid numbering.
-Below is a snippet from the structure file (``.g96``) with EFP fragment 7 highlighted. Note
-that atoms ``C`` and ``O`` of PDB residue 6 (SER) are included in EFP fragment 7 (ASP).
+Below is a snippet from the structure file (``bchl361-79002.g96``) with EFP fragment ``ASP 7`` 
+highlighted. Note
+that atoms ``C`` and ``O`` of PDB residue ``SER 6`` are included in EFP fragment ``ASP 7``.
 
-.. literalinclude:: ../examples/flex-EFP/1.Prepare_Structure/bchl361-79002.g96
+.. literalinclude:: ../examples/QM-EFP/FMO/bchl361-79002.g96
    :linenos:
    :lines: 79-101
    :emphasize-lines: 10-21
 
-A daunting task of splitting the protein into EFP fragments is accomplished by script ``make_AAs.py``.
+A task of splitting the protein into EFP fragments, preparing capped QM region, and organizing 
+the rest of the system into a non-polarizable "super-fragment" with classical charges, is accomplished by script ``make_AAs.py``.
 A sample execution is:
 
 ``python make_AAs.py shell_bchl361-79002.g96 bchl361-79002.g96 qm_defined.txt topol.top <timestep> <mutant>``
 
-* ``.g96`` file containing atoms of the EFP region (see :ref:`efp_region`)
-* ``.g96`` file containing the full system (initial structure from MD)
-* user-prepared file defining the QM region and QM-EFP boundaries (see :ref:`setup_QM_EFP`)
+* EFP shell ``.g96`` file (``shell_bchl361-79002.g96``) is a file containing atoms of the EFP region (see :ref:`efp_region`)
+* Full system  ``.g96`` (``bchl361-79002.g96``) is a file containing the full system (initial structure from MD)
+* QM region (``qm_defined.txt``) is a user-prepared file defining the QM region and QM-EFP boundaries (see :ref:`setup_QM_EFP`)
 * topology file (``topol.top``)
 * timestamp to differentiate output files (e.g. ``50000``)
 * mutant label (e.g. ``wt``)
 
 Output:
 
-* GAMESS MAKEFP input files for all amino acid and other residues in the EFP region
+* GAMESS MAKEFP input files (``.inp``) for all amino acid and other residues in the EFP region
+* Text files (``.txt``) containing components of the future QM/EFP input file in Q-Chem format. These files are
+  used by the script ``make_qchem_input.py`` (see Section :ref:`qchem_input`) and are critical for correct execution 
+  of the workflow. They include:
 
-.. note:: GAMESS MAKEFP input file parameters (basis set, memory, etc.) can be adjusted
+  * ``qm_region_qchem.txt`` - coordinates of the QM region (with capping Hydrogens)
+  * ``efp_region.txt`` - a list of EFP fragments (amino acids and co-factors)
+  * ``water_efp_region.txt`` - a list of EFP water fragments
+  * ``prot.txt`` - classical "super-fragment" containing all system atoms not included in QM and EFP regions
+  
+* Auxilary text files ``efp_charges.txt`` and ``frag_list.txt`` helping with diagnostics of possible problems in a system setup.
+
+The currently used and recommended template for GAMESS MAKEFP input files is:
+
+.. literalinclude:: ../examples/QM-EFP/FMO/hd_290_4417_50000_wt.inp
+   :linenos:
+   :lines: 1-7
+
+
+.. note:: GAMESS MAKEFP input file template (basis set, memory usage, convergence criteria etc.) can be adjusted
    directly in ``make_AAs.py``.
 
-The script splits the EFP region into fragments and creates a GAMESS MAKEFP input file for
+The ``make_AAs.py`` script splits the EFP region into fragments and creates a GAMESS MAKEFP input file for
 each. Output filenames are derived from the full system ``.g96`` file. For example,
 ``v_22_301_50000_wt.inp`` corresponds to a valine residue (``v``), residue number 22, with
-first atom ID 301 (of the full structure, NOT the structure of the EFP region). Histidine residues
+first atom ID 301 (as given in the full structure ``.g96``, NOT the structure of the EFP region). Histidine residues
 are denoted ``hd_``, ``he_``, or ``hp_`` depending on protonation state. Capping hydrogens
-are added automatically to amino acid fragments, they will always have the atom name ``H000`` 
+are added automatically to amino acid fragments and recognizable by their atom name ``H000`` 
 (multiple virtual hydrogens will have the same atom name). These will be removed from the EFP 
-parameter files in a later step (see :ref:`trim_params`).
+parameter files at a later step (see :ref:`trim_params`).
 
 Non-standard residues and cofactors are named using the full residue name from the ``.g96``
 file (e.g., ``bcl_360_5667_50000_wt.inp`` for BCL with residue number 360). Non-amino acid
-fragments are created without capping hydrogens by default. 
+fragments are created without adding any capping hydrogens by default, i.e., they are assumed to be 
+not covalently linked to a protein. 
 
 .. _qmefp_boundary_fragments:
 
@@ -327,7 +355,7 @@ The ``!remove:`` line additionally lists atoms around which polarization points 
 removed, identified by analysis of the topology file. Here is an example for HIS 290
 (``hd_290_4417_50000_wt.inp``):
 
-.. literalinclude:: ../examples/flex-EFP/1.Prepare_Structure/hd_290_4417_50000_wt.inp
+.. literalinclude:: ../examples/QM-EFP/FMO/hd_290_4417_50000_wt.inp
    :linenos:
    :emphasize-lines: 31,32
 
@@ -336,7 +364,7 @@ atom and will also be removed from the parameter file in a later step. These com
 are used by ``cut_caps.py`` to finalize the fragment parameter files (see :ref:`trim_params`).
 The boundary scheme follows the approach developed by
 `Kim et al. <https://pubs.acs.org/doi/full/10.1021/acs.jpclett.9b03486>`_, which ensures
-stability of QM/EFP calculations in the FMO protein.
+stability of QM/EFP calculations with QM/EFP covalent links.
 
 .. image:: ../images/qm_efp_boundary_fragment.png
    :width: 400
@@ -346,19 +374,35 @@ stability of QM/EFP calculations in the FMO protein.
 .. warning:: The QM-EFP boundary scheme for amino acid fragments is general. However,
    the user may need to modify it for non-standard fragments.
 
-If a residue contains only QM atoms, such as BCL 361 in our example, no input file
-will be created.
+If a residue contains only QM atoms, such as BCL 361 in our example, no GAMESS MAKEFP input file
+is created.
 
 Non-amino acids and cofactors
 -----------------------------
 
 ``make_AAs.py`` handles EFP fragment preparation for standard amino acid sequences,
-non-covalently linked molecules (e.g., water molecules, ions), and cofactors including
-(B)Chls. For large cofactors exceeding roughly 100 atoms, the script creates one fragment
-for the entire residue by default. Sometimes, it is desirable to split a large cofactor into 
-sub-fragments. See below, the separate chlorin head and phytol tail fragments for a BCL. 
+small molecules (water molecules, ions), and non-covalent cofactors. Co-factors that will be currently 
+recognized by the script are:
 
-Below is an example of the head/tail division used for BChl:
+* ECH
+* 45D
+* EQ3
+* C7Z
+* CLA
+* BCL 
+* PQN
+* BCR
+* LHG
+* LMG
+* SQD
+* LMT
+
+.. note:: The user can add other non-covalently linked co-factors to a list ``special_cofactors`` in ``make_AAs.py``. 
+   Additionally, the ``ligand_charges`` dictionary needs to be populated with a ligand charge if not zero.
+
+``make_AAs.py`` script creates one fragment
+for the entire residue by default. Sometimes, it is desirable to split a large cofactor into 
+sub-fragments. As an example, the separate chlorin head and phytol tail fragments are created for BChl: 
 
 .. image:: ../images/efp_headtail.bmp
    :width: 400
@@ -368,7 +412,8 @@ For the BChl case, capping hydrogens are added at the head-tail junction in the 
 for amino acid backbone cuts. CLA, BCL, LMG, and LHG fragments are cut using this script, but 
 note that atom names must match those used in this example setup. The same syntax used for those 
 can be used to create a custom sub-fragmentation scheme. The relevant variables to adjust are 
-contained the ``define_ligand_cut`` function, and they are:
+``cut_ligands`` list, ``cut_ligand_charges`` disctionary, and  variable defined in ``define_ligand_cut`` 
+function, specifically:
 
 * ``RESNAME`` — residue name to be fragmented
 * ``Rings`` — list of atom names to include in the head fragment; all others go to the tail
@@ -383,7 +428,7 @@ EFP parameter generation
 ``make_AAs.py`` from the previous step created a collection of GAMESS MAKEFP input files.
 You now have two options for obtaining EFP parameters:
 
-* Compute all needed EFP parameters by running the MAKEFP inputs in GAMESS
+* Compute all needed EFP parameters by running the MAKEFP calculations in GAMESS
 * Use the FlexEFP procedure to obtain parameters by rotation of precomputed parameters
   stored in a database
 
@@ -397,14 +442,14 @@ among fragments of the same amino acid type. If the RMSD between the two structu
 below the threshold, the database parameters are considered 
 transferable and will be rotated and translated to match the geometry of your 
 fragment— no GAMESS calculation needed for that fragment. Note that if the RMSD is greater
-than the cutoff threshold, you will need to generate the parameters of that fragment in 
-GAMESS. You can add computed parameters to your fragment library to reduce the computation
+than the cutoff threshold, you will need to compute the parameters of that fragment in 
+GAMESS. You can add these newly computed parameters to your fragment library to reduce the computation
 time of future timesteps.
 
 .. note:: The path to the EFP parameter database is hardcoded in ``frag_RMSD_V2.py``.
    Adjust it to point to your local copy of the database before running.
 
-.. note:: The RMSD threshold is hardcoded in ``frag_RMSD_V2.py`` to 0.2 Angstroms.
+.. note:: The RMSD threshold is hardcoded in ``frag_RMSD_V2.py`` to 0.3 Angstroms.
    Adjust if desired.
 
 The script is run on one single GAMESS MAKEFP input file at a time:
@@ -452,16 +497,13 @@ submitted to GAMESS. A convenient way to identify these is:
 The Classical Region Fragment
 -----------------------------
 
-
 Atoms not included in either the QM or EFP regions — i.e., atoms far from the QM subsystem
 — are treated as classical atoms possessing only partial charges. These are combined into a
-single EFP "superfragment" containing only coordinates, monopoles, and screen sections.
+single EFP "superfragment", called ``prot.efp`` containing only coordinates and monopoles.
 
-``make_AAs.py`` will create this, and it should not require any more preparation other than 
-the structure files already provided.
+``make_AAs.py`` creates this superfragment file, extracting the partial charges from the protein 
+and co-factor topology files. 
 
-The topology file provides atomic charges. Both structure files are required so that only
-classical atoms are included — QM and EFP atoms are automatically omitted.
 
 .. _trim_params:
 
@@ -544,16 +586,9 @@ QM/EFP input generation
 Now that all fragment ``.efp`` files are prepared, the QM/EFP input file in Q-Chem format
 can be assembled. This is handled by ``make_qchem_input.py``. A sample execution is:
 
-``python make_qchem_input.py shell_bchl361-79002.g96 bchl361-79002.g96 qm_defined.txt topol.top timestamp mutant``
+``python make_qchem_input.py qchem.inp``
 
-The input arguments are very similar to those in make_AAs.py:
-
-* ``.g96`` file containing atoms of the EFP region (see :ref:`efp_region`)
-* ``.g96`` file containing the full system (initial structure from MD)
-* user-prepared file defining the QM region and QM-EFP boundaries (see :ref:`setup_QM_EFP`)
-* topology file (``topol.top``)
-* timestamp to differentiate output files (e.g. ``50000``)
-* mutant label (e.g. ``wt``)
+The only input argument is the name of the qchem input that will be generated. 
 
 The Q-Chem calculation keywords are defined in the ``build_header`` function inside
 ``make_qchem_input.py`` and can be adjusted as needed for your calculation type (e.g.,

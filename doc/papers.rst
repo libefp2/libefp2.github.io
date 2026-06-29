@@ -53,6 +53,7 @@ QM/EFP models
 ML/EFP models
 ^^^^^^^^^^^^^^
 * `ANI/EFP: Modeling Long-Range Interactions in ANI Neural Network with Effective Fragment Potentials <https://doi.org/10.1021/acs.jctc.4c01052>`_
+* `Beyond the cutoff: Hybrid ML/MM electrostatics for neural network potentials <https://pubs.aip.org/aip/jcp/article/164/10/104102/3382612>`_
 
 Macromolecules and flexible fragments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
