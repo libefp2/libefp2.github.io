@@ -85,8 +85,20 @@ The `.efp` file has the following structure (see also `$FRAGNAME group` section 
 - These name tags are used in ``MULTIPOLES``, ``DIPOLES``, ``QUADRUPOLES``, ``OCTUPOLES``, ``PROJECTION BASIS SET``, and
   ``SCREEN`` and ``SCREEN2`` sections.
 - The name tags can be changed by user if needed (typically not needed, see below).
-- GAMESS does not correctly assign name tags in fragments containing more than 99 atoms.
-  Such potentials require atom and bond-midpoint renaming by user.
+  Name tags must be unique within a fragment.
+- GAMESS writes name tags as 8-character fields followed by the coordinates. LibEFP reads a tag that fills
+  the whole field even when it touches a negative coordinate (e.g., ``BO123124-132.2805782867``).
+- In fragments with more than 99 atoms, bond-midpoint tags become ambiguous (``BO1211`` may mean atoms 12 and 11,
+  or atoms 121 and 1). LibEFP determines the atoms of every bond midpoint from the coordinates, so such potentials
+  do not need renaming for LibEFP calculations.
+- The coordinates define the fragment coordinate frame, in which all other positions in the `.efp` file
+  (multipoles, polarizable points, LMO centroids, basis set atoms) are given. Any frame can be used, e.g., the frame
+  of a molecular dynamics snapshot in which the parameters were computed or rotated: LibEFP moves every fragment
+  to its center-of-mass frame when the parameters are read. Fragment positions given as ``xyzabc`` refer to the
+  center of mass, and fragment-fragment cutoffs are measured between the centers of mass.
+- Molecular dynamics (and the semi-numerical Hessian) additionally assume that the axes of the frame are the principal
+  axes of inertia of the fragment, as in potentials written by MAKEFP; efpmd prints a warning for fragments in
+  other frames.
 - The section ends with mandatory ``STOP`` line.
 
 .. _MON:
@@ -206,6 +218,8 @@ In the example below, ``$FRAGNAME`` (``$nh3`` in this case), ``COORDINATES``, ``
   * first line: polarizable point tag, x, y, z coordinates of the point (in Bohr)
   * second line: XX, YY, ZZ, XY, XZ, YZ, YX, ZX, ZY elements of the polarizability tensor
 
+- Polarizable point tags are ``CT`` followed by the point number, as written by GAMESS: ``CT1``, ``CT12``, ``CT123``.
+  LibEFP reads any number of points (also more than 99) and coordinates that touch the tag (e.g., ``CT1-132.2805782867``).
 - The section ends with mandatory ``STOP`` line.
 - Coordinates of the polarizability points and orientations of polarizability tensors
   are given with respect to the fragment coordinate frame as given in :ref:`COORD`.
@@ -229,6 +243,8 @@ In the example below, ``$FRAGNAME`` (``$nh3`` in this case), ``COORDINATES``, ``
   Each of these 12 sets contains time-dependent (dynamic) polarizabilities computed at given
   values of imaginary frequencies. Coordinates of polarizability points remain the same
   between all twelve sets.
+- Tags are ``CT`` followed by the point number in a three-character field (``CT  1``, ``CT 12``, ``CT123``),
+  as written by GAMESS; the first point of every set is followed by ``-- FOR W=`` and the frequency.
 
 - The section ends with mandatory ``STOP`` line.
 - Coordinates of the dynamic polarizability points and orientations of tensors
@@ -325,7 +341,8 @@ In the example below, ``$FRAGNAME`` (``$nh3`` in this case), ``COORDINATES``, ``
   dispersion dampings.
 - The section is optional.
 - Each line contains a centroid tag name and x, y, z coordinates (in Bohr) of the centroid, with
-  respect to the fragment reference frame as given in :ref:`COORD` section.
+  respect to the fragment reference frame as given in :ref:`COORD` section. Tags are written as for
+  :ref:`POL_POINT` (``CT1``, ``CT12``, ``CT123``).
 - The number of centroids should match :math:`N_{loc}` (the number of the localized occupied
   orbitals) in :ref:`WF` section.
 - The section ends with mandatory ``STOP`` line.
