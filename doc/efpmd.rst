@@ -73,7 +73,7 @@ Basic parameters
 - `elpot` - compute and print electrostatic potential on all atoms.
 - `frag_elpot` - compute and print electrostatic potential on all atoms of a ``special`` fragment.
 - `gtest` - compute and compare numerical and analytical gradients.
-- `etest` - compute and compare total energy.   
+- `etest` - compute and compare total energy (without gradients).
 
 Default value: ``sp``
 
@@ -161,6 +161,10 @@ Default value: ``10.0``
 
 Unit: Angstrom
 
+Interactions of fragment pairs whose centers of mass are further apart than ``swf_cutoff`` are neglected;
+a switching function turns them off smoothly between 0.8 ``swf_cutoff`` and ``swf_cutoff``. The cutoff applies
+to all two-body terms and to the electric fields of multipoles and induced dipoles in the polarization term.
+
 **Cutoff distance for exchange-repulsion interactions between fragments**
 
 ``xr_cutoff <value>``
@@ -168,6 +172,21 @@ Unit: Angstrom
 Default value: ``swf_cutoff``
 
 Unit: Angstrom
+
+**Cutoff distance for the interactions with the ligand**
+
+``ligand_cutoff <value>``
+
+Default value: ``0.0`` (the same as ``swf_cutoff``)
+
+Unit: Angstrom
+
+All pairs with the fragment specified by the ``ligand`` keyword use ``ligand_cutoff`` (two-body terms and the
+polarization fields between the ligand and the other fragments); all other pairs use ``swf_cutoff``. This
+allows converging the interaction energy of the ligand with distance while the interactions within the
+environment stay at a smaller cutoff. Every pair has a single cutoff for all its interactions, so the
+polarization energy remains well defined. Requires ``enable_cutoff`` and ``ligand`` >= 0; not available with
+symmetry (``symmetry true``).
 
 .. _polarization solver:
 
@@ -411,7 +430,29 @@ Default value: ``false``
 
 ``ligand [integer]``
 
-Default value: ``0`` (the first fragment in the system)
+Index of the ligand fragment, starting from 0; ``-1`` denotes a QM region.
+
+Default value: ``-100`` (no ligand)
+
+**Two-body terms only for the pairs with the ligand**
+
+``pairwise_ligand_only [true|false]``
+
+Default value: ``false``
+
+With ``enable_pairwise true``, the two-body terms (electrostatics, dispersion, exchange repulsion, charge
+penetration) are computed only for the pairs with the ligand; polarization is computed for the whole system as
+usual. The pairwise energies are the same as without this option and the calculation is much cheaper for large
+systems, but the total energy is then not the energy of the system, and gradients are not available.
+
+**Fragment geometries in the pairwise printout**
+
+``print_pairwise_geometry [true|false]``
+
+Default value: ``true``
+
+With ``false``, the pairwise printout gives one line and the energies for every fragment and the ligand
+geometry once, instead of the coordinates of the fragment and of the ligand for every fragment.
 
 
 .. _Lattice symmetry:
@@ -536,11 +577,21 @@ Various other keywords
 ``print <value>``
 
 - 0 - standard output 
-- 1 - detailed information on gradients 
+- 1 - detailed information on gradients; wall times (``TIMING`` lines) of reading the parameters, creating
+  the fragments, the neighbor lists, the two-body terms and the polarization (static field, induced dipoles,
+  energy, gradient)
 - 2 - additional information on fragments; polarization convergence
 - 3 - various information for debugging
 
 Default value: ``0``
+
+**Print the geometry**
+
+``print_geometry [true|false]``
+
+Default value: ``true``
+
+``false`` skips the printout of the geometry (useful for very large systems).
 
 **Use single EFP parameters file**
 
